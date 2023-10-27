@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Blog;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -12,7 +14,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('frontend.pages.home');
+        $latestBlog = Blog::latest()->limit(5)->get();
+        $blogs = Blog::simplePaginate(12);
+        Category::with('Category')->where('type_name');
+        return view('frontend.pages.home',compact('blogs','latestBlog'));
     }
 
     /**

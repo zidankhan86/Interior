@@ -15,7 +15,9 @@ class BlogController extends Controller
      */
     public function index()
     {
-       return view('frontend\pages\blog');
+        $blogs = Blog::simplePaginate(12);
+        Category::with('Category')->where('type_name');
+       return view('frontend\pages\blog',compact('blogs'));
     }
 
     /**
@@ -33,7 +35,7 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        
+
         try {
 
 
