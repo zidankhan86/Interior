@@ -56,11 +56,13 @@ Route::get('/change-password',[ChangePasswordController::class,'index'])->name('
 Route::post('/update-password/{id}',[ChangePasswordController::class,'update'])->name('update.password');
 Route::get('/user-list',[AuthController::class,'list'])->name('user.list');
 Route::get('/category-list',[CategoryController::class,'list'])->name('category.list');
-Route::get('/category-form',[CategoryController::class,'form'])->name('category.form');
+Route::get('/category-form',[CategoryController::class,'create'])->name('category.form');
 Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
 Route::get('/blog-form',[BlogController::class,'form'])->name('blog.form');
 //profile
 Route::get('/profile',[ProfileController::class,'index'])->name('profile');
 //post
 Route::post('/registration/update{id}',[RegistrationController::class,'update'])->name('registration.update');
+Route::post('/category-store',[CategoryController::class,'store'])->name('category.store');
+Route::post('/blog-store',[BlogController::class,'store'])->name('blog.store');
 });

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -20,7 +22,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.pages.categoryForm');
     }
 
     /**
@@ -28,7 +30,23 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+             $request->validate([
+                'type_name' => 'required|string',
+                'status' => 'required',
+            ]);
+
+            Category::create([
+                "type_name" => $request->type_name,
+                "status" => $request->status,
+                "slug" => Str::slug($request['type_name']),
+            ]);
+
+            return back()->withSuccess(['success' => 'Category Create Success!']);
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'Category creation failed: ' . $e->getMessage()]);
+        }
+
     }
 
     /**
@@ -67,8 +85,5 @@ class CategoryController extends Controller
        return view('backend.pages.categoryList');
     }
 
-    public function form()
-    {
-       return view('backend.pages.categoryForm');
-    }
+
 }
