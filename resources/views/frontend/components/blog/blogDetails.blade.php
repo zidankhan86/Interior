@@ -5,24 +5,24 @@
 				<div class="single-post">
     <div class="post-header mb-5 text-center">
         <div class="meta-cat">
-            <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1" href="#">Health ,</a>
-            <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1"  href="#">lifestyle</a>
+            <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1" href="#">{{ $blogDetails->Category->type_name }}</a>
+
         </div>
         <h2 class="post-title mt-2">
-            First Look At Self-Portrait's Autumn Collection
+            {{ $blogDetails->title }}
         </h2>
 
         <div class="post-meta">
-            <span class="text-uppercase font-sm letter-spacing-1 mr-3">by Liam</span>
-            <span class="text-uppercase font-sm letter-spacing-1">January 17,2019</span>
+            <span class="text-uppercase font-sm letter-spacing-1 mr-3">by {{ $blogDetails->user->name }}</span>
+            <span class="text-uppercase font-sm letter-spacing-1">{{ $blogDetails->created_at->format('Y-M-d') }}</span>
         </div>
         <div class="post-featured-image mt-5">
-            <img src="frontend/images/fashion/bg-banner.jpg" class="img-fluid w-100" alt="featured-image">
+            <img src="{{ url('/uploads/'.$blogDetails->thumbnail) }}" class="img-fluid w-100" alt="featured-image">
         </div>
     </div>
     <div class="post-body">
         <div class="entry-content">
-            <p> It was a cheerful prospect. I asked Perry what he thought about it; but he only shrugged his shoulders and continued a longwinded prayer he had been at for some time. He was wont to say that the only redeeming feature of our captivity was the ample time it gave him for the improvisation of prayers—it was becoming an obsession with him.</p>
+            <p> {{ $blogDetails->description }} </p>
           <h2 class="mt-4 mb-3">Perfect design & code delivered to you</h2>
           <p> The Sagoths had begun to take notice of his habit of declaiming throughout entire marches. One of them asked him what he was saying—to whom he was talking. The question gave me an idea, so I answered quickly before Perry could say anything.</p>
             <blockquote>

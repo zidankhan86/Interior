@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('thumbnail');
+            $table->string('post_image');
             $table->longText('description');
             $table->boolean('status')->default('1');
             $table->boolean('featured')->default('1');

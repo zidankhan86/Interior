@@ -45,10 +45,10 @@ Route::post('/registration/store',[RegistrationController::class,'store'])->name
 //Backend
 
 //Middleware
-Route::group(['middleware'=>'auth'],function(){
+Route::group(['middleware'=>'auth','prefix'=>'app'],function(){
 
 //Pages
-Route::get('/app',[HomeController::class,'index'])->name('app');
+Route::get('/',[HomeController::class,'index'])->name('app');
 Route::get('/logout',[TestController::class,'logout'])->name('logout');
 Route::get('/form',[TestController::class,'form'])->name('form');
 Route::get('/setting',[SettingController::class,'index'])->name('setting');
@@ -59,6 +59,8 @@ Route::get('/category-list',[CategoryController::class,'list'])->name('category.
 Route::get('/category-form',[CategoryController::class,'create'])->name('category.form');
 Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
 Route::get('/blog-form',[BlogController::class,'form'])->name('blog.form');
+Route::get('/blog-view/{id}',[BlogController::class,'show'])->name('blog.view');
+
 //profile
 Route::get('/profile',[ProfileController::class,'index'])->name('profile');
 //post

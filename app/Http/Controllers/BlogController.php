@@ -49,12 +49,24 @@ class BlogController extends Controller
                 'description' => 'required',
                 'status' => 'required',
                 'featured' => 'required',
-            ]);
-            $imageName = null;
-            if ($request->hasFile('thumbnail')) {
-                $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
-                $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
-            }
+                'post_image.*' => 'image|mimes:jpeg,png,jpg,gif',
+                ]);
+
+                $imageName = null;
+                $postImageNames = [];
+
+                if ($request->hasFile('thumbnail')) {
+                    $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
+                    $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
+                }
+
+                if ($request->hasFile('post_image')) {
+                    foreach ($request->file('post_image') as $image) {
+                        $imageUniqueName = time() . '_' . $image->getClientOriginalName();
+                        $image->storeAs('uploads', $imageUniqueName, 'public');
+                        $postImageNames[] = $imageUniqueName;
+                    }
+                }
 
             Blog::create([
                 "user_id" => $request->user_id,
@@ -65,7 +77,8 @@ class BlogController extends Controller
                 "description" => $request->description,
                 "status" => $request->status,
                 "featured" => $request->featured,
-                "slug" => Str::slug($request['title'])
+                "slug" => Str::slug($request['title']),
+                "post_image" => serialize($postImageNames),
             ]);
 
             return back()->withSuccess(['success' => 'Blog Create Success!']);
@@ -77,9 +90,11 @@ class BlogController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Blog $blog)
+    public function show($id)
     {
-        //
+        User::with('user')->where('name');
+        $blogDetails =Blog::find($id);
+        return view('frontend.pages.blogDetails',compact('blogDetails'));
     }
 
     /**

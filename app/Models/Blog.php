@@ -9,8 +9,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Blog extends Model
 {
     use HasFactory;
-    protected $guarded = [ ];
-
+    protected $fillable = ['user_id', 'category_id',
+                          'title', 'slug', 'thumbnail',
+                          'description', 'status',
+                          'featured', 'post_image'];
     /**
      * Get the user that owns the Blog
      *
@@ -30,4 +32,5 @@ class Blog extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
 }

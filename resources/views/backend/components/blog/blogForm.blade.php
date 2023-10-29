@@ -1,3 +1,11 @@
+
+<style type="text/css">
+.ck-editor__editable_inline{
+  height: 150px;
+}
+
+</style>
+
 <div class="container">
 
 <div class="col-12">
@@ -47,6 +55,13 @@
             </div>
           </div>
 
+          <div class="col-sm-6 col-md-6">
+            <div class="mb-3">
+                <label class="form-label">Choose Blog post Thumbnails</label>
+                <input type="file" name="post_image[]" class="form-control" multiple>
+            </div>
+        </div>
+
           <div class="col-md-12">
             <div class="mb-3">
                 <label class="form-label">Status</label>
@@ -70,7 +85,7 @@
           <div class="col-md-12">
             <div class="mb-3 mb-0">
               <label class="form-label">Description</label>
-              <textarea rows="5" name="description" class="form-control" placeholder="Here can be your description"></textarea>
+              <textarea id="editor" rows="5" name="description" class="form-control" placeholder="Here can be your description"></textarea>
             </div>
           </div>
         </div>
@@ -79,5 +94,14 @@
         <button type="submit" class="btn btn-primary">Post Blog</button>
       </div>
     </form>
+    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+    <script>
+      ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+          console.error( error );
+        } );
+    </script>
   </div>
 </div>
+

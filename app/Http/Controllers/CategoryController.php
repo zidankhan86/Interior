@@ -32,20 +32,21 @@ class CategoryController extends Controller
     {
         try {
              $request->validate([
-                'type_name' => 'required|string',
-                'status' => 'required',
+                'type_name'     => 'required|string',
+                'status'        => 'required',
             ]);
 
             Category::create([
-                "type_name" => $request->type_name,
-                "status" => $request->status,
-                "slug" => Str::slug($request['type_name']),
+                "type_name"     => $request->type_name,
+                "status"        => $request->status,
+                "slug"          => Str::slug($request['type_name']),
             ]);
 
             return back()->withSuccess(['success' => 'Category Create Success!']);
-        } catch (\Exception $e) {
+             }
+        catch (\Exception $e) {
             return back()->withErrors(['error' => 'Category creation failed: ' . $e->getMessage()]);
-        }
+            }
 
     }
 
