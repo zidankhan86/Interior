@@ -77,20 +77,20 @@ class BlogController extends Controller
                 "post_description"      => $request->post_description
 
             ]);
-            // Extract and process hashtags
-            $hashtags = explode(',', $request->input('hashtags'));
+                // Extract and process hashtags
+                $hashtags = explode(',', $request->input('hashtags'));
 
-            // Remove leading and trailing spaces from each hashtag
-            $hashtags = array_map('trim', $hashtags);
+                // Remove leading and trailing spaces from each hashtag
+                $hashtags = array_map('trim', $hashtags);
 
-            // Remove empty hashtags
-            $hashtags = array_filter($hashtags);
+                // Remove empty hashtags
+                $hashtags = array_filter($hashtags);
 
-            // Save the hashtags in your database or any other desired format
-            $blog->hashtags = json_encode($hashtags); // Save as JSON or any other format
+                //for formate
+                $blog->hashtags = json_encode($hashtags);
 
-            // Save the blog post
-            $blog->save();
+                // Save the blog post
+                $blog->save();
 
                  return back()->withSuccess(['success' => 'Blog Create Success!']);
              } catch (\Exception $e) {
@@ -114,15 +114,23 @@ class BlogController extends Controller
                 $youMayLike = Blog::where('category_id', $blogDetails->category_id)
                     // Exclude the current post
                     ->where('id', '!=', $id)
-                    // Limit the number of related posts
                     ->take(3)
                     ->get();
 
                 //hash tag
+
                 $hashtags = json_decode($blogDetails->hashtags);
 
+                //Next & Previous
+                //$blogData = Blog::all();
+
+                $previous = Blog::where('id','<',$blogDetails->id)->orderBy('id','desc')->first();
+
+                $next = Blog::where('id','>',$blogDetails->id)->orderBy('id')->first();
+
                 return view('frontend.pages.blogDetails',compact('blogDetails','postImageNames',
-                                                                 'youMayLike','hashtags'));
+                                                                 'youMayLike','hashtags',
+                                                                 'previous','next'));
             }
 
     /**

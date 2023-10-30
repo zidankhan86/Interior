@@ -10,6 +10,7 @@ use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
 use App\Http\Controllers\HashtagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LeaveCommentController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\SettingController;
@@ -74,5 +75,7 @@ Route::post('/category-store',[CategoryController::class,'store'])->name('catego
 Route::post('/blog-store',[BlogController::class,'store'])->name('blog.store');
 Route::post('/blog-comment',[LeaveCommentController::class,'store'])->name('blog.comment.store');
 Route::post('/hash-tag',[BlogController::class,'ashTagStore'])->name('hash.tag.store');
+Route::post('/likes/{id}',[LikeController::class,'like'])->name('blog.like');
+
 });
 });

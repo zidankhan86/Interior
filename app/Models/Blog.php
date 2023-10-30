@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -33,5 +34,18 @@ class Blog extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    //Like Relation
+    public function likes()
+    {
+        return $this->belongsToMany(User::class, 'likes', 'blog_id', 'user_id');
+    }
+
+    //Check Like
+    public function isLikedBy(User $user)
+    {
+        return $this->likes->contains($user);
+    }
+
 
 }

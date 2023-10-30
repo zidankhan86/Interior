@@ -52,17 +52,18 @@
 
         </div>
 
-       @include('frontend\components\blog\hashTag')
+           {{-- Hash Tag --}}
+          @include('frontend\components\blog\hashTag')
 
 
         <div class="tags-share-box center-box d-flex text-center justify-content-between border-top border-bottom py-3">
 
             <span class="single-comment-o"><i class="fa fa-comment-o"></i>0 comment</span>
 
-            <div class="post-share">
-                <span class="count-number-like">2</span>
-                <a class="penci-post-like single-like-button"><i class="ti-heart"></i></a>
-            </div>
+
+            {{-- Like --}}
+            @include('frontend\components\blog\like')
+
 
             <div class="list-posts-share">
                 <a target="_blank" rel="nofollow" href="#"><i class="ti-facebook"></i></a>
@@ -91,20 +92,29 @@
 		<a target="_blank" class="author-social" href="#"><i class="ti-tumblr"></i></a>
 	</div>
 </div>
-				<nav class="post-pagination clearfix border-top border-bottom py-4">
-    <div class="prev-post">
-        <a href="blog-single.html">
-            <span class="text-uppercase font-sm letter-spacing">Next</span>
-            <h4 class="mt-3"> Intel’s new smart glasses actually look good</h4>
-        </a>
-    </div>
-    <div class="next-post">
-        <a href="blog-single.html">
-            <span class="text-uppercase font-sm letter-spacing">Previous</span>
-            <h4 class="mt-3">Free Two-Hour Delivery From Whole Foods</h4>
-        </a>
-    </div>
-</nav>
+
+
+
+        <nav class="post-pagination clearfix border-top border-bottom py-4">
+            @if ($previous)
+                <div class="prev-post">
+                    <a href="{{ route('blog.view', ['id' => $previous->id]) }}">
+                        <span class="text-uppercase font-sm letter-spacing">Previous</span>
+                        <h4 class="mt-3">{{ $previous->title }}</h4>
+                    </a>
+                </div>
+            @endif
+
+            @if ($next)
+                <div class="next-post">
+                    <a href="{{ route('blog.view', ['id' => $next->id]) }}">
+                        <span class="text-uppercase font-sm letter-spacing">Next</span>
+                        <h4 class="mt-3">{{ $next->title }}</h4>
+                    </a>
+                </div>
+            @endif
+        </nav>
+
 				<div class="related-posts-block mt-5">
     <h3 class="news-title mb-4 text-center">
        You May Also Like
@@ -116,7 +126,7 @@
 
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="post-block-wrapper mb-4 mb-lg-0">
-                <a href="blog-single.html">
+                <a href="{{ route('blog',$relatedPost->id) }}">
                     <img class="img-fluid" src="{{ asset('/uploads/' . $relatedPost->thumbnail) }}" alt="post-thumbnail">
                 </a>
                 <div class="post-content mt-3">
