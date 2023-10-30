@@ -52,11 +52,7 @@
 
         </div>
 
-        <div class="post-tags py-4">
-            <a href="#">#Health</a>
-            <a href="#">#Game</a>
-            <a href="#">#Tour</a>
-        </div>
+       @include('frontend\components\blog\hashTag')
 
 
         <div class="tags-share-box center-box d-flex text-center justify-content-between border-top border-bottom py-3">

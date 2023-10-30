@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
+use App\Http\Controllers\HashtagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LeaveCommentController;
 use App\Http\Controllers\ProfileController;
@@ -72,5 +73,6 @@ Route::post('/registration/update{id}',[RegistrationController::class,'update'])
 Route::post('/category-store',[CategoryController::class,'store'])->name('category.store');
 Route::post('/blog-store',[BlogController::class,'store'])->name('blog.store');
 Route::post('/blog-comment',[LeaveCommentController::class,'store'])->name('blog.comment.store');
+Route::post('/hash-tag',[BlogController::class,'ashTagStore'])->name('hash.tag.store');
 });
 });

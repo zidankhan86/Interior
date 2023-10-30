@@ -23,6 +23,7 @@ return new class extends Migration
             $table->longText('post_description')->nullable();
             $table->boolean('status')->default('1');
             $table->boolean('featured')->default('1');
+            $table->string('hashtags')->nullable();
             $table->timestamp('created_at')->useCurrent();
 	        $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

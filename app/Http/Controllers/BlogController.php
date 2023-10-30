@@ -15,7 +15,7 @@ class BlogController extends Controller
     {
         $blogs = Blog::simplePaginate(12);
         Category::with('Category')->where('type_name');
-       return view('frontend\pages\blog',compact('blogs'));
+        return view('frontend\pages\blog',compact('blogs'));
     }
 
 
@@ -23,6 +23,7 @@ class BlogController extends Controller
     {
         //Category
         $categories=Category::all();
+        //user
         $user=User::all();
         return view('backend.pages.blogForm',compact('categories','user'));
     }
@@ -34,7 +35,7 @@ class BlogController extends Controller
         try {
 
 
-            dd($request->all());
+           // dd($request->all());
              $request->validate([
                 'category_id'       => 'required',
                 'title'             => 'required',
@@ -56,13 +57,13 @@ class BlogController extends Controller
 
                 if ($request->hasFile('post_image')) {
                     foreach ($request->file('post_image') as $image) {
-                        $imageUniqueName = time() . '_' . $image->getClientOriginalName();
-                        $image->storeAs('uploads', $imageUniqueName, 'public');
-                        $postImageNames[] = $imageUniqueName;
+                       $imageUniqueName = time() . '_' . $image->getClientOriginalName();
+                       $image->storeAs('uploads', $imageUniqueName, 'public');
+                       $postImageNames[] = $imageUniqueName;
                     }
                 }
 
-             Blog::create([
+            $blog= Blog::create([
                 "user_id"               => $request->user_id,
                 "category_id"           => $request->category_id,
                 "title"                 => $request->title,
@@ -76,6 +77,20 @@ class BlogController extends Controller
                 "post_description"      => $request->post_description
 
             ]);
+            // Extract and process hashtags
+            $hashtags = explode(',', $request->input('hashtags'));
+
+            // Remove leading and trailing spaces from each hashtag
+            $hashtags = array_map('trim', $hashtags);
+
+            // Remove empty hashtags
+            $hashtags = array_filter($hashtags);
+
+            // Save the hashtags in your database or any other desired format
+            $blog->hashtags = json_encode($hashtags); // Save as JSON or any other format
+
+            // Save the blog post
+            $blog->save();
 
                  return back()->withSuccess(['success' => 'Blog Create Success!']);
              } catch (\Exception $e) {
@@ -88,10 +103,13 @@ class BlogController extends Controller
             {
                 //User
                 User::with('user')->where('name');
+
                 //Blog
                 $blogDetails =Blog::find($id);
+
                 //image
                 $postImageNames = explode(',', $blogDetails->post_image);
+
                 //Category wise post
                 $youMayLike = Blog::where('category_id', $blogDetails->category_id)
                     // Exclude the current post
@@ -99,7 +117,12 @@ class BlogController extends Controller
                     // Limit the number of related posts
                     ->take(3)
                     ->get();
-                return view('frontend.pages.blogDetails',compact('blogDetails','postImageNames','youMayLike'));
+
+                //hash tag
+                $hashtags = json_decode($blogDetails->hashtags);
+
+                return view('frontend.pages.blogDetails',compact('blogDetails','postImageNames',
+                                                                 'youMayLike','hashtags'));
             }
 
     /**
@@ -126,11 +149,11 @@ class BlogController extends Controller
         //
     }
 
-    public function list()
-    {
-        $blogs = Blog::all();
-        return view('backend.pages.blogList',compact('blogs'));
-    }
+        public function list()
+        {
+            $blogs = Blog::all();
+            return view('backend.pages.blogList',compact('blogs'));
+        }
 
 
 }

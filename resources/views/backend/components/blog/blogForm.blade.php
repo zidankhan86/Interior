@@ -86,8 +86,18 @@
                     </select>
                 </div>
 
+
+
           </div>
 
+
+
+          <div class="col-sm-6 col-md-12">
+            <div class="mb-3">
+                <label class="form-label">Hashtags (comma-separated)</label>
+                <input type="text" name="hashtags" class="form-control" placeholder="E.g., #Health, #Game, #Tour">
+            </div>
+        </div>
 
         </div>
       </div>
