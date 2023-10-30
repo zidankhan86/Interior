@@ -23,11 +23,25 @@
               </thead>
               <tbody>
                 <tr>
+                    @foreach ($blogs as $blog)
                     <tr>
-                        <td data-label="Name" >Test</td>
-                        <td data-label="Title" >Test </td>
 
-                  <td>
+
+                        <td data-label="image" >
+                                 @foreach(unserialize($blog->post_image) as $image)
+                            <div class="col-md-3" style="margin-right: 10px;">
+                                <img src="{{ url('/uploads/' . $image) }}" alt="Image" class="img-thumbnail">
+                            </div>
+                                  @endforeach
+
+
+
+                        <td>
+
+                        <td data-label="Name" >
+                            {{ $blog->title }}</td>
+                        <td>
+
                     <div class="btn-list flex-nowrap">
                       <a href="#" class="btn">
                         Edit
@@ -44,11 +58,13 @@
                             Another action
                           </a>
                         </div>
+
+
                       </div>
                     </div>
                   </td>
                 </tr>
-
+                @endforeach
 
 
               </tbody>

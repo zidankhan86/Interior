@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('thumbnail');
-            $table->string('post_image');
+            $table->text('post_image');
             $table->longText('description');
+            $table->longText('post_description')->nullable();
             $table->boolean('status')->default('1');
             $table->boolean('featured')->default('1');
             $table->timestamp('created_at')->useCurrent();

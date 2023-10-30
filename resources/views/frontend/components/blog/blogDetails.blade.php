@@ -1,3 +1,9 @@
+<style>
+    .image-container {
+    margin-bottom: 20px;
+}
+</style>
+
 <section class="single-block-wrapper section-padding">
 	<div class="container">
 		<div class="row justify-content-center">
@@ -22,29 +28,28 @@
     </div>
     <div class="post-body">
         <div class="entry-content">
-            <p> {{ $blogDetails->description }} </p>
-          <h2 class="mt-4 mb-3">Perfect design & code delivered to you</h2>
-          <p> The Sagoths had begun to take notice of his habit of declaiming throughout entire marches. One of them asked him what he was saying—to whom he was talking. The question gave me an idea, so I answered quickly before Perry could say anything.</p>
-            <blockquote>
-                <i class="ti-quote-left mr-2"></i>A wise girls knows her limit to touch the sky.Repellat sapiente neque iusto praesentium adipisci.The question gave me an idea, so I answered quickly before Perry could say anything.<i class="ti-quote-right ml-2"></i>
-            </blockquote>
+            <p> {!! $blogDetails->description !!} </p>
+
 
             <div class="row">
-                <div class="col-lg-6 col-md-6">
-                    <img src="frontend/images/fashion/single-img1.png" alt="post-ads" class="img-fluid mr-4 w-100">
+
+                <div class="row">
+                    @foreach (unserialize($blogDetails->post_image) as $image)
+                        <div class="col-lg-6 col-md-6">
+                            <div class="image-container">
+                                <img src="{{ url('/uploads/' . $image) }}" alt="post-ads" class="img-fluid mr-4 w-100">
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-                <div class="col-lg-6 col-md-6">
-                    <img src="frontend/images/fashion/single-img2.png" alt="post-ads" class="img-fluid mr-4 w-100">
-                </div>
+
             </div>
-            <h3 class="mt-5 mb-3">Enjoying the view of summer</h3>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde cum delectus exercitationem
-                natus quidem enim error suscipit. Iure cupiditate nobis quaerat consectetur! Vero aliquam,
-                amet ipsum ullam reiciendis nostrum voluptate accusantium provident ut blanditiis incidunt. </p>
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates ab ratione animi nobis in et consequatur
-                earum modi repellendus, qui, non debitis pariatur tempora consequuntur!</p>
+
+            <p> {!! $blogDetails->post_description !!} </p>
+
+
         </div>
 
         <div class="post-tags py-4">
@@ -109,10 +114,14 @@
        You May Also Like
     </h3>
     <div class="row">
+
+        @foreach ($youMayLike as $relatedPost)
+
+
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="post-block-wrapper mb-4 mb-lg-0">
                 <a href="blog-single.html">
-                    <img class="img-fluid" src="frontend/images/fashion/img-1.jpg" alt="post-thumbnail"/>
+                    <img class="img-fluid" src="{{ asset('/uploads/' . $relatedPost->thumbnail) }}" alt="post-thumbnail">
                 </a>
                 <div class="post-content mt-3">
                     <h5 >
@@ -121,30 +130,11 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="post-block-wrapper mb-4 mb-lg-0">
-                <a href="blog-single.html">
-                    <img class="img-fluid" src="frontend/images/fashion/img-2.jpg" alt="post-thumbnail"/>
-                </a>
-                <div class="post-content mt-3">
-                    <h5 >
-                        <a href="blog-single.html">Free Two-Hour Delivery From Whole Foods</a>
-                    </h5>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="post-block-wrapper">
-                <a href="blog-single.html">
-                    <img class="img-fluid" src="frontend/images/fashion/img-3.jpg" alt="post-thumbnail"/>
-                </a>
-                <div class="post-content mt-3">
-                    <h5 >
-                        <a href="blog-single.html">Snow and Freezing Rain in Paris Forces the</a>
-                    </h5>
-                </div>
-            </div>
-        </div>
+
+
+        @endforeach
+
+
     </div>
 </div>
 

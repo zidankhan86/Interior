@@ -12,7 +12,7 @@
   </head>
   <body >
     <script src="{{asset ('./dist/js/demo-theme.min.js?1684106062') }}"></script>
-    <div class="page">
+         <div class="page">
 
         {{-- Sidebar --}}
         @include('backend\components\fixed\sidebar')
@@ -27,8 +27,8 @@
          {{-- Footer --}}
          @include('backend\components\fixed\footer')
 
-      </div>
-    </div>
+        </div>
+        </div>
 
         {{-- Js --}}
         @include('backend\components\fixed\script')

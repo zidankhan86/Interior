@@ -25,14 +25,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Frontend
-
-//Pages
 Route::get('/',[FrontendHomeController::class,'index'])->name('home');
-Route::get('/blog',[BlogController::class,'index'])->name('blog');
-Route::get('/about',[AboutController::class,'index'])->name('about');
-Route::get('/contact',[ContactController::class,'index'])->name('contact');
-Route::get('/category',[CategoryController::class,'index'])->name('category');
 
 //Auth
 Route::get('/login',[AuthController::class,'index'])->name('login');
@@ -42,6 +35,16 @@ Route::post('/store',[AuthController::class,'store'])->name('store');
 Route::get('/registration',[RegistrationController::class,'index'])->name('registration');
 Route::post('/registration/store',[RegistrationController::class,'store'])->name('registration.store');
 
+
+Route::group(['middleware'=>'auth'],function(){
+//Frontend
+
+//Pages
+
+Route::get('/blog',[BlogController::class,'index'])->name('blog');
+Route::get('/about',[AboutController::class,'index'])->name('about');
+Route::get('/contact',[ContactController::class,'index'])->name('contact');
+Route::get('/category',[CategoryController::class,'index'])->name('category');
 //Backend
 
 //Middleware
@@ -67,4 +70,5 @@ Route::get('/profile',[ProfileController::class,'index'])->name('profile');
 Route::post('/registration/update{id}',[RegistrationController::class,'update'])->name('registration.update');
 Route::post('/category-store',[CategoryController::class,'store'])->name('category.store');
 Route::post('/blog-store',[BlogController::class,'store'])->name('blog.store');
+});
 });

@@ -10,9 +10,7 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $blogs = Blog::simplePaginate(12);
@@ -20,19 +18,16 @@ class BlogController extends Controller
        return view('frontend\pages\blog',compact('blogs'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function form()
     {
-        $users=User::all();
+        //Category
         $categories=Category::all();
-        return view('backend.pages.blogForm',compact('users','categories'));
+        $user=User::all();
+        return view('backend.pages.blogForm',compact('categories','user'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
 
@@ -41,23 +36,22 @@ class BlogController extends Controller
 
             //dd($request->all());
              $request->validate([
-                'user_id' => 'required',
-                'category_id' => 'required',
-                'title' => 'required',
-                'slug' => 'required',
-                'thumbnail' => 'required',
-                'description' => 'required',
-                'status' => 'required',
-                'featured' => 'required',
-                'post_image.*' => 'image|mimes:jpeg,png,jpg,gif',
+                'category_id'       => 'required',
+                'title'             => 'required',
+                'thumbnail'         => 'required',
+                'description'       => 'required',
+                'status'            => 'required',
+                'featured'          => 'required',
+                'post_image.*'      => 'image|mimes:jpeg,png,jpg,gif',
+                'post_description'  =>'nullable'
                 ]);
 
                 $imageName = null;
                 $postImageNames = [];
 
                 if ($request->hasFile('thumbnail')) {
-                    $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
-                    $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
+                       $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
+                       $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
                 }
 
                 if ($request->hasFile('post_image')) {
@@ -68,34 +62,45 @@ class BlogController extends Controller
                     }
                 }
 
-            Blog::create([
-                "user_id" => $request->user_id,
-                "category_id" => $request->category_id,
-                "title" => $request->title,
-                "slug" => $request->slug,
-                "thumbnail" => $imageName,
-                "description" => $request->description,
-                "status" => $request->status,
-                "featured" => $request->featured,
-                "slug" => Str::slug($request['title']),
-                "post_image" => serialize($postImageNames),
+             Blog::create([
+                "user_id"               => $request->user_id,
+                "category_id"           => $request->category_id,
+                "title"                 => $request->title,
+                "slug"                  => $request->slug,
+                "thumbnail"             => $imageName,
+                "description"           => $request->description,
+                "status"                => $request->status,
+                "featured"              => $request->featured,
+                "slug"                  => Str::slug($request['title']),
+                "post_image"            => serialize($postImageNames),
+                "post_description"      => $request->post_description
+
             ]);
 
-            return back()->withSuccess(['success' => 'Blog Create Success!']);
-        } catch (\Exception $e) {
-            return back()->withErrors(['error' => 'Blog creation failed: ' . $e->getMessage()]);
-        }
-    }
+                 return back()->withSuccess(['success' => 'Blog Create Success!']);
+             } catch (\Exception $e) {
+                 return back()->withErrors(['error' => 'Blog creation failed: ' . $e->getMessage()]);
+             }
+            }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show($id)
-    {
-        User::with('user')->where('name');
-        $blogDetails =Blog::find($id);
-        return view('frontend.pages.blogDetails',compact('blogDetails'));
-    }
+
+            public function show($id)
+            {
+                //User
+                User::with('user')->where('name');
+                //Blog
+                $blogDetails =Blog::find($id);
+                //image
+                $postImageNames = explode(',', $blogDetails->post_image);
+                //Category wise post
+                $youMayLike = Blog::where('category_id', $blogDetails->category_id)
+                    // Exclude the current post
+                    ->where('id', '!=', $id)
+                    // Limit the number of related posts
+                    ->take(3)
+                    ->get();
+                return view('frontend.pages.blogDetails',compact('blogDetails','postImageNames','youMayLike'));
+            }
 
     /**
      * Show the form for editing the specified resource.
@@ -123,7 +128,8 @@ class BlogController extends Controller
 
     public function list()
     {
-        return view('backend.pages.blogList');
+        $blogs = Blog::all();
+        return view('backend.pages.blogList',compact('blogs'));
     }
 
 
