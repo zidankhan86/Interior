@@ -12,7 +12,8 @@ class Blog extends Model
     protected $fillable = ['user_id', 'category_id',
                           'title', 'slug', 'thumbnail',
                           'description', 'status',
-                          'featured', 'post_image'];
+                          'featured', 'post_image',
+                          'post_description'];
     /**
      * Get the user that owns the Blog
      *

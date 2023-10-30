@@ -34,7 +34,7 @@ class BlogController extends Controller
         try {
 
 
-            //dd($request->all());
+            dd($request->all());
              $request->validate([
                 'category_id'       => 'required',
                 'title'             => 'required',
