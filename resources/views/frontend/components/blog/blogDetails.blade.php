@@ -131,7 +131,7 @@
                 </a>
                 <div class="post-content mt-3">
                     <h5 >
-                        <a href="blog-single.html">Intel’s new smart glasses actually look good</a>
+                        <a href="blog-single.html">{{ $relatedPost->title }}</a>
                     </h5>
                 </div>
             </div>

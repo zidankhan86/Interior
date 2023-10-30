@@ -16,115 +16,26 @@
 		<div class="row">
 			<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 				<div class="row">
-	<div class="col-lg-6 col-md-6">
-		<article class="post-grid mb-5">
-			<div class="post-thumb mb-4">
-				<img src="frontend/images/news/f1.jpg" alt="" class="img-fluid w-100">
-			</div>
-			<span class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1">Travel</span>
-			<h3 class="post-title mt-1"><a href="blog-single.html">The best soft chocolate chip cookies</a></h3>
 
-			<span class=" text-muted  text-capitalize">September 15, 2019</span>
 
-		</article>
-	</div>
-	<div class="col-lg-6 col-md-6">
-		<article class="post-grid mb-5">
-			<div class="post-thumb mb-4">
-				<img src="frontend/images/news/f2.jpg" alt="" class="img-fluid w-100">
-			</div>
-			<span class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-			<h3 class="post-title mt-1"><a href="blog-single.html">How to Make the Best Baked Oatmeal</a></h3>
 
-			<span class=" text-muted  text-capitalize">August 05, 2019</span>
+                    @foreach ($blogs as $blog)
+                    <div class="col-lg-6 col-md-6">
+                        <article class="post-grid mb-5">
+                            <div class="post-thumb mb-4">
+                                <img src="{{ url('/uploads/'.$blog->thumbnail) }}" alt="" class="img-fluid w-100">
+                            </div>
+                            <span class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1">{{ $blog->Category->type_name }}</span>
+                            <h3 class="post-title mt-1"><a href="{{ route('blog.view',$blog->id) }}">{{ $blog->title }}</a></h3>
 
-		</article>
-	</div>
-	<div class="col-lg-6 col-md-6">
-		<article class="post-grid mb-5">
-			<div class="post-thumb mb-4">
-				<img src="frontend/images/news/f8.jpg" alt="" class="img-fluid w-100">
-			</div>
-			<span class=" cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-			<h3 class="post-title mt-1"><a href="blog-single.html">5 ingredient cilantro vinaigrette</a></h3>
+                            <span class=" text-muted  text-capitalize">{{ $blog->created_at->format('Y-M-d') }}</span>
 
-			<span class=" text-muted  text-capitalize">April 22, 2019</span>
+                        </article>
+                    </div>
 
-		</article>
-	</div>
-	<div class="col-lg-6 col-md-6">
-		<article class="post-grid mb-5">
-			<div class="post-thumb mb-4">
-				<img src="frontend/images/news/f3.jpg" alt="" class="img-fluid w-100">
-			</div>
-			<span class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-			<h3 class="post-title mt-1"><a href="blog-single.html">The best soft chocolate chip cookies</a></h3>
+                    @endforeach
 
-			<span class=" text-muted  text-capitalize">September 10, 2019</span>
-
-		</article>
-	</div>
-	<div class="col-lg-6 col-md-6">
-		<article class="post-grid mb-5">
-			<div class="post-thumb mb-4">
-				<img src="frontend/images/news/f4.jpg" alt="" class="img-fluid w-100">
-			</div>
-			<span class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-			<h3 class="post-title mt-1"><a href="blog-single.html">How to Make the Best Baked Oatmeal</a></h3>
-
-			<span class=" text-muted  text-capitalize">January 04, 2019</span>
-
-		</article>
-	</div>
-	<div class="col-lg-6 col-md-6">
-		<article class="post-grid mb-5">
-			<div class="post-thumb mb-4">
-				<img src="frontend/images/news/f5.jpg" alt="" class="img-fluid w-100">
-			</div>
-			<span class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-			<h3 class="post-title mt-1"><a href="blog-single.html">5 ingredient cilantro vinaigrette</a></h3>
-
-			<span class=" text-muted  text-capitalize">March 17, 2019</span>
-
-		</article>
-	</div>
-	<div class="col-lg-6 col-md-6">
-		<article class="post-grid mb-5">
-			<div class="post-thumb mb-4">
-				<img src="frontend/images/news/f6.jpg" alt="" class="img-fluid w-100">
-			</div>
-			<span class=" cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-			<h3 class="post-title mt-1"><a href="blog-single.html">5 ingredient cilantro vinaigrette</a></h3>
-
-			<span class=" text-muted  text-capitalize">July 28, 2019</span>
-
-		</article>
-	</div>
-	<div class="col-lg-6 col-md-6">
-		<article class="post-grid mb-5">
-			<div class="post-thumb mb-4">
-				<img src="frontend/images/news/f7.jpg" alt="" class="img-fluid w-100">
-			</div>
-			<span class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-			<h3 class="post-title mt-1"><a href="blog-single.html">The best soft chocolate chip cookies</a></h3>
-
-			<span class=" text-muted  text-capitalize">October 02, 2019</span>
-
-		</article>
-	</div>
-	<div class="col-lg-6 col-md-6">
-		<article class="post-grid mb-5">
-			<div class="post-thumb mb-4">
-				<img src="frontend/images/news/f8.jpg" alt="" class="img-fluid w-100">
-			</div>
-			<span class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">Travel</span>
-			<h3 class="post-title mt-1"><a href="blog-single.html">How to Make the Best Baked Oatmeal</a></h3>
-
-			<span class=" text-muted  text-capitalize">September 15, 2019</span>
-
-		</article>
-	</div>
-</div>
+            </div>
 
 				<div class="pagination mt-5 pt-4">
 					<ul class="list-inline">
@@ -140,10 +51,10 @@
 					<div class="sidebar-wrap mt-5 mt-lg-0">
 	<div class="sidebar-widget about mb-5 text-center p-3">
 		<div class="about-author">
-			<img src="frontend/images/author.jpg" alt="" class="img-fluid">
+			<img src="{{ url('/uploads/',auth()->user()->image) }}" alt="" class="img-fluid">
 		</div>
-		<h4 class="mb-0 mt-4">Liam Mason</h4>
-		<p>Travel Blogger</p>
+		<h4 class="mb-0 mt-4">{{ auth()->user()->name }}</h4>
+		<p>{{ auth()->user()->role }}</p>
 		<p>I'm Liam, last year I decided to quit my job and travel the world. You can follow my journey on this blog!</p>
 		<img src="frontend/images/liammason.png" alt="" class="img-fluid">
 	</div>
@@ -189,26 +100,19 @@
 
 
 	<div class="sidebar-widget category mb-5">
-		<h4 class="text-center widget-title">Catgeories</h4>
-	 	<ul class="list-unstyled">
-		  <li class="align-items-center d-flex justify-content-between">
-		    <a href="#">Innovation</a>
-		    <span>14</span>
-		  </li>
-		  <li class="align-items-center d-flex justify-content-between">
-		    <a href="#">Software</a>
-		    <span>2</span>
-		  </li>
-		  <li class="align-items-center d-flex justify-content-between">
-		    <a href="#">Social</a>
-		    <span>10</span>
-		  </li>
-		  <li class="align-items-center d-flex justify-content-between">
-		    <a href="#">Trends</a>
-		    <span>5</span>
-		  </li>
-		</ul>
-	</div>
+        <h4 class="text-center widget-title">Categories</h4>
+        <ul class="list-unstyled">
+            @foreach ($categories as $category)
+                <li class="align-items-center d-flex justify-content-between">
+                    <p >
+                        {{ $category->type_name }}
+                    </p>
+                    <span>{{ $category->blogs_count }}</span>
+                </li>
+            @endforeach
+        </ul>
+    </div>
+
 
 	<div class="sidebar-widget subscribe mb-5">
 		<h4 class="text-center widget-title">Newsletter</h4>
