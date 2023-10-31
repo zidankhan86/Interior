@@ -29,6 +29,8 @@ class CategoryController extends Controller
         //Blog count under category
         $categories = Category::withCount('blogs')->get();
 
+        
+
        return view('frontend.pages.category',compact('blogs','user','categories'));
     }
 

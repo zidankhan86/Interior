@@ -2,6 +2,8 @@
 
 @section('content')
 
+
+@include('frontend\components\fixed\blogHeader')
 @include('frontend\components\blog\blogDetails')
 
 @endsection

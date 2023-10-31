@@ -1,21 +1,23 @@
 <?php
 
-use App\Http\Controllers\AboutController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ChangePasswordController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
-use App\Http\Controllers\HashtagController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\LeaveCommentController;
 use App\Http\Controllers\LikeController;
-use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\RegistrationController;
-use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TestController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HashtagController;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LeaveCommentController;
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\SocialMediaShareController;
+use App\Http\Controllers\SocialShareButtonsController;
+use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,6 +68,7 @@ Route::get('/category-form',[CategoryController::class,'create'])->name('categor
 Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
 Route::get('/blog-form',[BlogController::class,'form'])->name('blog.form');
 Route::get('/blog-view/{id}',[BlogController::class,'show'])->name('blog.view');
+Route::get('/social-media-share/{id}', [SocialShareButtonsController::class,'ShareWidget'])->name('social-media-share');
 
 //profile
 Route::get('/profile',[ProfileController::class,'index'])->name('profile');

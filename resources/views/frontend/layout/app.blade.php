@@ -18,7 +18,7 @@
 <body>
 
     {{-- Nav --}}
-    @include('frontend\components\fixed\header')
+    {{-- @include('frontend\components\fixed\header') --}}
 
 
     {{-- Content --}}

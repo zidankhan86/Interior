@@ -66,10 +66,7 @@
 
 
             <div class="list-posts-share">
-                <a target="_blank" rel="nofollow" href="#"><i class="ti-facebook"></i></a>
-                <a target="_blank" rel="nofollow" href="#"><i class="ti-twitter"></i></a>
-                <a target="_blank" rel="nofollow" href="#"><i class="ti-pinterest"></i></a>
-                <a target="_blank" rel="nofollow" href="#"><i class="ti-linkedin"></i></a>
+                <a href="{{ route('social-media-share',$blogDetails->id) }}">Share</a>
             </div>
         </div>
     </div>
