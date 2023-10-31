@@ -96,7 +96,8 @@ class BlogController extends Controller
              } catch (\Exception $e) {
                  return back()->withErrors(['error' => 'Blog creation failed: ' . $e->getMessage()]);
              }
-            }
+
+             }
 
 
             public function show($id)
@@ -157,11 +158,20 @@ class BlogController extends Controller
         //
     }
 
-        public function list()
-        {
-            $blogs = Blog::all();
-            return view('backend.pages.blogList',compact('blogs'));
-        }
+            public function list()
+            {
+                $blogs = Blog::all();
+                return view('backend.pages.blogList',compact('blogs'));
+            }
+
+            public function search(Request $request)
+            {
+                 $searchResult=Blog::where('title','LIKE','%'.$request->search_key.'%')
+                     ->orWhere('hashtags', 'LIKE', '%' . $request->search_key . '%')
+                     ->get();
+
+                 return view('frontend\pages\search',compact('searchResult'));
+            }
 
 
 }

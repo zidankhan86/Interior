@@ -50,6 +50,7 @@ Route::get('/blog',[BlogController::class,'index'])->name('blog');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::get('/category',[CategoryController::class,'index'])->name('category');
+Route::get('/search',[BlogController::class,'search'])->name('blog.search');
 //Backend
 
 //Middleware

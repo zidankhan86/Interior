@@ -43,8 +43,19 @@
                 </div>
 
                 <div class="text-right search d-none d-lg-block">
-                  <div class="search_toggle"><i class="ti-search"></i></div>
+                    <div class="search_toggle"></div>
+                    <div class="search-form">
+                        <form action="{{ route('blog.search') }}">
+                            @csrf
+                            <input type="text" name="search_key" placeholder="What do you need?" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 200px; margin-right: 10px;">
+                            <button type="submit" class="btn btn-success" style="background-color: #29adb9; color: white; border: none; border-radius: 5px; padding: 10px 15px; cursor: pointer; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4caf50'">
+                                <i class="ti-search"></i> 
+                            </button>
+                        </form>
+
+                    </div>
                 </div>
+
             </div>
       </nav>
 
