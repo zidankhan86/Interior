@@ -15,9 +15,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LeaveCommentController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\SocialMediaShareController;
 use App\Http\Controllers\SocialShareButtonsController;
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
+use App\Http\Controllers\TrandingBlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,8 +51,17 @@ Route::group(['middleware'=>'auth'],function(){
 Route::get('/blog',[BlogController::class,'index'])->name('blog');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
+Route::post('/contact-store',[ContactController::class,'store'])->name('contact.store');
 Route::get('/category',[CategoryController::class,'index'])->name('category');
+Route::get('/trendingBlog/{id}',[TrandingBlogController::class,'index'])->name('trending');
 Route::get('/search',[BlogController::class,'search'])->name('blog.search');
+Route::post('/likes/{id}',[LikeController::class,'like'])->name('blog.like');
+Route::post('/blog-comment',[LeaveCommentController::class,'store'])->name('blog.comment.store');
+Route::get('/blog-view/{id}',[BlogController::class,'show'])->name('blog.view');
+Route::get('/social-media-share/{id}', [SocialShareButtonsController::class,'ShareWidget'])->name('social-media-share');
+//Post comment and reply
+Route::post('/post-comment',[CommentController::class,'store'])->name('comments.store');
+Route::get('/reply/{id}',[CommentController::class,'index'])->name('reply');
 //Backend
 
 //Middleware
@@ -68,8 +79,6 @@ Route::get('/category-list',[CategoryController::class,'list'])->name('category.
 Route::get('/category-form',[CategoryController::class,'create'])->name('category.form');
 Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
 Route::get('/blog-form',[BlogController::class,'form'])->name('blog.form');
-Route::get('/blog-view/{id}',[BlogController::class,'show'])->name('blog.view');
-Route::get('/social-media-share/{id}', [SocialShareButtonsController::class,'ShareWidget'])->name('social-media-share');
 
 //profile
 Route::get('/profile',[ProfileController::class,'index'])->name('profile');
@@ -77,9 +86,8 @@ Route::get('/profile',[ProfileController::class,'index'])->name('profile');
 Route::post('/registration/update{id}',[RegistrationController::class,'update'])->name('registration.update');
 Route::post('/category-store',[CategoryController::class,'store'])->name('category.store');
 Route::post('/blog-store',[BlogController::class,'store'])->name('blog.store');
-Route::post('/blog-comment',[LeaveCommentController::class,'store'])->name('blog.comment.store');
 Route::post('/hash-tag',[BlogController::class,'ashTagStore'])->name('hash.tag.store');
-Route::post('/likes/{id}',[LikeController::class,'like'])->name('blog.like');
+
 
 });
 });

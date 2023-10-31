@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-6 text-center">
-          <a class="navbar-brand" href="{{ route('home') }}"><img src="frontend/images/logo.png" alt="" class="img-fluid w-100"></a>
+          <a class="navbar-brand" href="{{ route('home') }}"><img src="{{asset ('frontend/images/logo.png') }}" alt="" class="img-fluid w-100"></a>
         </div>
       </div>
     </div>
@@ -49,7 +49,7 @@
                             @csrf
                             <input type="text" name="search_key" placeholder="What do you need?" style="padding: 10px; border: 1px solid #ccc; border-radius: 5px; width: 200px; margin-right: 10px;">
                             <button type="submit" class="btn btn-success" style="background-color: #29adb9; color: white; border: none; border-radius: 5px; padding: 10px 15px; cursor: pointer; transition: background-color 0.3s;" onmouseover="this.style.backgroundColor='#45a049'" onmouseout="this.style.backgroundColor='#4caf50'">
-                                <i class="ti-search"></i> 
+                                <i class="ti-search"></i>
                             </button>
                         </form>
 

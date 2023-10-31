@@ -19,7 +19,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <img src="images/contact.jpg" alt="" class="img-fluid w-100">
+        <img src="frontend/images/contact.jpg" alt="" class="img-fluid w-100">
     </div>
 </div>
 
@@ -29,7 +29,8 @@
 
         <h2 class="mb-4">Get In Touch</h2>
 
-        <form id="contact-form" class="contact-form">
+        <form id="contact-form" class="contact-form" action="{{ route('contact.store') }}" method="post" >
+            @csrf
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">

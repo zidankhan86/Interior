@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Blog;
-use App\Models\Category;
 use App\Models\User;
+use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 
 class CategoryController extends Controller
 {
@@ -28,10 +29,10 @@ class CategoryController extends Controller
 
         //Blog count under category
         $categories = Category::withCount('blogs')->get();
+        $trendingBlogs = Blog::all();
 
-        
 
-       return view('frontend.pages.category',compact('blogs','user','categories'));
+       return view('frontend.pages.category',compact('blogs','user','categories','trendingBlogs'));
     }
 
     /**

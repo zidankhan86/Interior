@@ -28,7 +28,26 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([
+               'name'           => 'required|string',
+               'email'           => 'required',
+               'message'        => 'required',
+           ]);
+
+           Contact::create([
+               "name"           => $request->name,
+               "email"           => $request->email,
+               "message"        => $request->message,
+
+           ]);
+
+           return back()->withSuccess(['success' => 'Thank you for your message!']);
+            }
+       catch (\Exception $e) {
+           return back()->withErrors(['error' => ' failed: ' . $e->getMessage()]);
+           }
+
     }
 
     /**

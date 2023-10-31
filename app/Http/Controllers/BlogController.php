@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -123,15 +124,22 @@ class BlogController extends Controller
                 $hashtags = json_decode($blogDetails->hashtags);
 
                 //Next & Previous
-                //$blogData = Blog::all();
-
+                
                 $previous = Blog::where('id','<',$blogDetails->id)->orderBy('id','desc')->first();
 
                 $next = Blog::where('id','>',$blogDetails->id)->orderBy('id')->first();
 
+                $comments = Comment::with('user')
+                ->where('blog_id', $id)
+                ->get();
+
+                // Count of comments
+                $totalComment = $comments->count();
+
                 return view('frontend.pages.blogDetails',compact('blogDetails','postImageNames',
                                                                  'youMayLike','hashtags',
-                                                                 'previous','next'));
+                                                                 'previous','next','totalComment',
+                                                                 'comments'));
             }
 
     /**
@@ -164,10 +172,12 @@ class BlogController extends Controller
                 return view('backend.pages.blogList',compact('blogs'));
             }
 
+            //Blog Search
             public function search(Request $request)
             {
                  $searchResult=Blog::where('title','LIKE','%'.$request->search_key.'%')
                      ->orWhere('hashtags', 'LIKE', '%' . $request->search_key . '%')
+                     ->orWhere('description', 'LIKE', '%' . $request->search_key . '%')
                      ->get();
 
                  return view('frontend\pages\search',compact('searchResult'));

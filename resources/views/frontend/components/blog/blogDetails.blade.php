@@ -58,7 +58,13 @@
 
         <div class="tags-share-box center-box d-flex text-center justify-content-between border-top border-bottom py-3">
 
-            <span class="single-comment-o"><i class="fa fa-comment-o"></i>0 comment</span>
+            <span class="single-comment-o"><i class="fa fa-comment-o"></i><h3 class="mb-4 text-center">
+                @if ($totalComment > 0)
+                    {{ $totalComment }} Comments
+                @else
+                    0 Comments
+                @endif
+            </h3></span>
 
 
             {{-- Like --}}
@@ -72,8 +78,9 @@
     </div>
 </div>
 
-				<div class="post-author d-flex my-5">
-	<div class="author-img">
+	<div class="post-author d-flex my-5">
+
+                    <div class="author-img">
 		<img alt="" src="frontend/images/author.jpg" class="avatar avatar-100 photo" width="100" height="100">
 	</div>
 
@@ -88,6 +95,8 @@
 		<a target="_blank" class="author-social" href="#"><i class="ti-pinterest"></i></a>
 		<a target="_blank" class="author-social" href="#"><i class="ti-tumblr"></i></a>
 	</div>
+
+
 </div>
 
 
@@ -123,12 +132,12 @@
 
         <div class="col-lg-4 col-md-4 col-sm-6">
             <div class="post-block-wrapper mb-4 mb-lg-0">
-                <a href="{{ route('blog',$relatedPost->id) }}">
+                <a href="{{ route('blog.view',$relatedPost->id) }}">
                     <img class="img-fluid" src="{{ asset('/uploads/' . $relatedPost->thumbnail) }}" alt="post-thumbnail">
                 </a>
                 <div class="post-content mt-3">
                     <h5 >
-                        <a href="blog-single.html">{{ $relatedPost->title }}</a>
+                        <a href="{{ route('blog.view',$relatedPost->id) }}">{{ $relatedPost->title }}</a>
                     </h5>
                 </div>
             </div>
@@ -141,39 +150,55 @@
     </div>
 </div>
 
-					<div class="comment-area my-5">
-		<h3 class="mb-4 text-center">2 Comments</h3>
-		<div class="comment-area-box media">
-			<img alt="" src="frontend/images/blog-user-2.jpg" class="img-fluid float-left mr-3 mt-2">
 
-			<div class="media-body ml-4">
-				<h4 class="mb-0">Micle harison </h4>
-				<span class="date-comm font-sm text-capitalize text-color"><i class="ti-time mr-2"></i>June 7, 2019 </span>
+   <div class="comment-area my-5">
 
-				<div class="comment-content mt-3">
-					<p>Lorem ipsum dolor sit amet, usu ut perfecto postulant deterruisset, libris causae volutpat at est, ius id modus laoreet urbanitas. Mel ei delenit dolores.</p>
-				</div>
-				<div class="comment-meta mt-4 mt-lg-0 mt-md-0">
-					<a href="#" class="text-underline ">Reply</a>
-				</div>
-			</div>
-		</div>
+    <h3 class="mb-4 text-center">
+        @if ($totalComment > 0)
+            {{ $totalComment }} Comments
+        @else
+            0 Comments
+        @endif
+    </h3>
 
-		<div class="comment-area-box media mt-5">
-			<img alt="" src="frontend/images/blog-user-3.jpg" class="mt-2 img-fluid float-left mr-3">
 
-			<div class="media-body ml-4">
-				<h4 class="mb-0 ">John Doe </h4>
-				<span class="date-comm font-sm text-capitalize text-color"><i class="ti-time mr-2"></i>June 7, 2019 </span>
+    <form action="{{ route('comments.store') }}" method="POST">
+        @csrf
+        <input type="hidden" name="blog_id" value="{{ $blogDetails->id }}">
+        <div class="form-group">
+            <label for="content">Comment</label>
+            <textarea name="content" id="content" rows="4" class="form-control" placeholder="Write Comment .."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Comment</button>
+    </form> <br>
 
-				<div class="comment-content mt-3">
-					<p>Some consultants are employed indirectly by the client via a consultancy staffing company. </p>
-				</div>
-				<div class="comment-meta mt-4 mt-lg-0 mt-md-0">
-					<a href="#" class="text-underline">Reply</a>
-				</div>
-			</div>
-		</div>
+    @if ($comments->count() > 0)
+        @foreach ($comments as $comment)
+        <div class="comment-area-box media">
+            <img alt="" height="50" width="50" src="{{ url('/uploads/', auth()->user()->image) }}" class="img-fluid float-left mr-3 mt-2">
+            <div class="media-body ml-4">
+                <h4 class="mb-0">{{ $comment->user->name }}</h4>
+                <span class="date-comm font-sm text-capitalize text-color"><i class="ti-time mr-2"></i>{{ $comment->created_at->format('F j, Y') }}</span>
+                <div class="comment-content mt-3">
+                    <p>{{ $comment->content }}</p>
+                </div>
+                <div class="comment-meta mt-4 mt-lg-0 mt-md-0">
+                    <a href="{{ route('reply',$comment->id) }}" class="text-underline reply-link" data-comment-id="{{ $comment->id }}">Reply</a>
+                </div>
+            </div>
+        </div>
+
+
+
+        @endforeach
+    @else
+        <p>No comments yet.</p>
+    @endif
+
+
+
+
+
 	</div>
 
 
