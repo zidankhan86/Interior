@@ -12,18 +12,19 @@
     class="table table-vcenter table-mobile-md card-table">
               <thead>
                 <tr>
-                    <th>Title</th>
+                    <th>Id</th>
                   <th>Category Type</th>
-
-
                   <th class="w-1">Action</th>
                 </tr>
               </thead>
               <tbody>
+
+                @foreach ($categories as $category)
                 <tr>
                     <tr>
-                        <td data-label="Name" >Test</td>
-                        <td data-label="Title" >Test </td>
+                        <td>{{  $category->id }}</td>
+                        <td data-label="Name" >{{  $category->type_name }}</td>
+
 
                   <td>
                     <div class="btn-list flex-nowrap">
@@ -47,7 +48,7 @@
                   </td>
                 </tr>
 
-
+                @endforeach
 
               </tbody>
             </table>

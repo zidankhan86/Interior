@@ -30,7 +30,7 @@ class NewsletterSubscriptionController extends Controller
     public function store(Request $request)
     {
 
-        $apiKey = 'c77cc074412588739a6aabc0ec448001-us21';
+        $apiKey = '84300f30ee8b3d0b59fca5140b231f4d-us21';
         $listId = 'e843b5a3d8';
         $email = $request->input('email');
         $mailchimp = new MailChimp($apiKey);

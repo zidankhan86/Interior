@@ -12,26 +12,26 @@ use Illuminate\Http\Request;
 class BlogController extends Controller
 {
 
-    public function index()
-    {
-        $blogs = Blog::simplePaginate(12);
-        Category::with('Category')->where('type_name');
-        return view('frontend\pages\blog',compact('blogs'));
-    }
+        public function index()
+        {
+                $blogs = Blog::simplePaginate(12);
+                Category::with('Category')->where('type_name');
+                return view('frontend\pages\blog',compact('blogs'));
+         }
 
 
-    public function form()
-    {
-        //Category
-        $categories=Category::all();
-        //user
-        $user=User::all();
-        return view('backend.pages.blogForm',compact('categories','user'));
-    }
+        public function form()
+        {
+                    //Category
+                $categories=Category::all();
+                //user
+                $user=User::all();
+                return view('backend.pages.blogForm',compact('categories','user'));
+        }
 
 
-    public function store(Request $request)
-    {
+        public function store(Request $request)
+        {
 
         try {
 
@@ -170,6 +170,7 @@ class BlogController extends Controller
             public function list()
             {
                 $blogs = Blog::all();
+                Blog::with('category')->where('category_type');
                 return view('backend.pages.blogList',compact('blogs'));
             }
 
