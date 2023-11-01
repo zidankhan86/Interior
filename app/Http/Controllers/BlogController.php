@@ -124,14 +124,15 @@ class BlogController extends Controller
                 $hashtags = json_decode($blogDetails->hashtags);
 
                 //Next & Previous
-                
+
                 $previous = Blog::where('id','<',$blogDetails->id)->orderBy('id','desc')->first();
 
                 $next = Blog::where('id','>',$blogDetails->id)->orderBy('id')->first();
 
+                //Comment
                 $comments = Comment::with('user')
                 ->where('blog_id', $id)
-                ->get();
+                ->simplePaginate(4);
 
                 // Count of comments
                 $totalComment = $comments->count();

@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HashtagController;
 use App\Http\Controllers\ProfileController;
@@ -14,12 +15,12 @@ use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LeaveCommentController;
 use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\TrandingBlogController;
 use App\Http\Controllers\ChangePasswordController;
-use App\Http\Controllers\CommentController;
 use App\Http\Controllers\SocialMediaShareController;
 use App\Http\Controllers\SocialShareButtonsController;
+use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
-use App\Http\Controllers\TrandingBlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ use App\Http\Controllers\TrandingBlogController;
 |
 */
 
+
+//Landing Page
 Route::get('/',[FrontendHomeController::class,'index'])->name('home');
 
 //Auth
@@ -47,7 +50,6 @@ Route::group(['middleware'=>'auth'],function(){
 //Frontend
 
 //Pages
-
 Route::get('/blog',[BlogController::class,'index'])->name('blog');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
@@ -62,6 +64,8 @@ Route::get('/social-media-share/{id}', [SocialShareButtonsController::class,'Sha
 //Post comment and reply
 Route::post('/post-comment',[CommentController::class,'store'])->name('comments.store');
 Route::get('/reply/{id}',[CommentController::class,'index'])->name('reply');
+//News letter
+Route::post('/subscribe', [NewsletterSubscriptionController::class, 'store'])->name('subscribe');
 //Backend
 
 //Middleware

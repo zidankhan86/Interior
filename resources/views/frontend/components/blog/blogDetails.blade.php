@@ -183,7 +183,7 @@
                     <p>{{ $comment->content }}</p>
                 </div>
                 <div class="comment-meta mt-4 mt-lg-0 mt-md-0">
-                    <a href="{{ route('reply',$comment->id) }}" class="text-underline reply-link" data-comment-id="{{ $comment->id }}">Reply</a>
+                    {{-- <a href="{{ route('reply',$comment->id) }}" class="text-underline reply-link" data-comment-id="{{ $comment->id }}">Reply</a> --}}
                 </div>
             </div>
         </div>
@@ -194,7 +194,7 @@
     @else
         <p>No comments yet.</p>
     @endif
-
+{{ $comments->links() }}
 
 
 
