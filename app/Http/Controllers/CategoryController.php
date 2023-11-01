@@ -18,64 +18,62 @@ class CategoryController extends Controller
     public function index()
     {
 
-        //Blog
-        $blogs = Blog::simplePaginate(12);
+            //Blog
+            $blogs = Blog::simplePaginate(12);
 
-        //Category
-        Category::with('Category')->where('type_name');
+            //Category
+            Category::with('Category')->where('type_name');
 
-        //Profile
-        $user=User::all();
+            //Profile
+            $user=User::all();
 
-        //Blog count under category
-        $categories = Category::withCount('blogs')->get();
-        $trendingBlogs = Blog::all();
+            //Blog count under category
+            $categories = Category::withCount('blogs')->get();
+            $trendingBlogs = Blog::all();
 
 
        return view('frontend.pages.category',compact('blogs','user','categories','trendingBlogs'));
-    }
+     }
 
 
-    public function CategoryWiseBlog($id)
-    {
+     public function CategoryWiseBlog($id)
+     {
 
-        //find category
-        $categoryWiseBlog = Category::find($id);
+            //find category
+            $categoryWiseBlog = Category::find($id);
 
-        $blogs = Blog::whereHas('category', function($query) use ($id) {
-            $query->where('id', $id);
-        })->simplePaginate(12);
-         //Blog
+            //Blog
 
-        //  $blogs = Blog::simplePaginate(12);
 
-         //Category
-         Category::with('Category')->where('type_name');
+            $blogs = Blog::where('category_id', $id)
+                          ->where('status', 1)
+                          ->simplePaginate(12);
 
-         //Profile
-         $user=User::all();
+            //Category
+            Category::with('Category')->where('type_name');
 
-         //Blog count under category
-         $categories = Category::withCount('blogs')->get();
-         $trendingBlogs = Blog::all();
+            //Profile
+            $user=User::all();
+
+            //Blog count under category
+            $categories = Category::withCount('blogs')
+                                    ->get();
+            //Trending
+            $trendingBlogs = Blog::all();
 
        return view('frontend.pages.categoryWizeBlog',compact('blogs','user','categories',
                                                             'trendingBlogs','categoryWiseBlog'));
-    }
+       }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        return view('backend.pages.categoryForm');
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
+            public function create()
+            {
+                return view('backend.pages.categoryForm');
+            }
+
+
+      public function store(Request $request)
+      {
         try {
              $request->validate([
                 'type_name'     => 'required|string',
@@ -127,10 +125,10 @@ class CategoryController extends Controller
     {
         //
     }
-    public function list()
-    {
-       return view('backend.pages.categoryList');
-    }
+            public function list()
+            {
+            return view('backend.pages.categoryList');
+            }
 
 
 }
