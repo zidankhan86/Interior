@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="text-center">
-                   <h2 class="lg-title">Travel</h2>
+                   <h2 class="lg-title">{{ $categoryWiseBlog->type_name }}</h2>
                 </div>
             </div>
         </div>
@@ -17,7 +17,7 @@
 			<div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
 				<div class="row">
 
-
+                    @if ($blogs->count() > 0)
 
                     @foreach ($blogs as $blog)
                     <div class="col-lg-6 col-md-6">
@@ -34,7 +34,9 @@
                     </div>
 
                     @endforeach
-
+                    @else
+                    <p>No Blog in this category.</p>
+                @endif
             </div>
 
                      {{-- paginate --}}
@@ -76,9 +78,9 @@
         <ul class="list-unstyled">
             @foreach ($categories as $category)
                 <li class="align-items-center d-flex justify-content-between">
-                    <a href="{{ route('cat.wise.blog',$category->id) }}" >
+                    <p >
                         {{ $category->type_name }}
-                    </a>
+                    </p>
                     <span>{{ $category->blogs_count }}</span>
                 </li>
             @endforeach

@@ -35,6 +35,34 @@ class CategoryController extends Controller
        return view('frontend.pages.category',compact('blogs','user','categories','trendingBlogs'));
     }
 
+
+    public function CategoryWiseBlog($id)
+    {
+
+        //find category
+        $categoryWiseBlog = Category::find($id);
+
+        $blogs = Blog::whereHas('category', function($query) use ($id) {
+            $query->where('id', $id);
+        })->simplePaginate(12);
+         //Blog
+
+        //  $blogs = Blog::simplePaginate(12);
+
+         //Category
+         Category::with('Category')->where('type_name');
+
+         //Profile
+         $user=User::all();
+
+         //Blog count under category
+         $categories = Category::withCount('blogs')->get();
+         $trendingBlogs = Blog::all();
+
+       return view('frontend.pages.categoryWizeBlog',compact('blogs','user','categories',
+                                                            'trendingBlogs','categoryWiseBlog'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

@@ -55,6 +55,7 @@ Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::post('/contact-store',[ContactController::class,'store'])->name('contact.store');
 Route::get('/category',[CategoryController::class,'index'])->name('category');
+Route::get('/category-wise-blog/{id}',[CategoryController::class,'CategoryWiseBlog'])->name('cat.wise.blog');
 Route::get('/trendingBlog/{id}',[TrandingBlogController::class,'index'])->name('trending');
 Route::get('/search',[BlogController::class,'search'])->name('blog.search');
 Route::post('/likes/{id}',[LikeController::class,'like'])->name('blog.like');
