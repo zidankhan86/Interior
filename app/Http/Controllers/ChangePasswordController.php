@@ -70,13 +70,13 @@ class ChangePasswordController extends Controller
                 'confirm_password.same' => 'The new password and confirm password must match.',
             ];
 
-            // Perform the validation
-            $validatedData = $request->validate($rules, $messages);
+             // Perform the validation
+             $validatedData = $request->validate($rules, $messages);
 
-        $userUpdate= User::find($id);
+             $userUpdate= User::find($id);
 
-      
-        $userUpdate->update([
+
+             $userUpdate->update([
 
             "password" => bcrypt($request->password),
 
@@ -84,11 +84,11 @@ class ChangePasswordController extends Controller
         ]);
 
                         // Update password if a new one is provided
-        if ($request->filled('new_password')) {
-            $userUpdate->update([
+             if ($request->filled('new_password')) {
+             $userUpdate->update([
                 'password' => bcrypt($validatedData['new_password']),
             ]);
-        }
+             }
             return redirect()->back()->withSuccess('Profile Update Success');
         }
 

@@ -20,13 +20,13 @@ class LikeController extends Controller
      */
     public function like($id)
 {
-    // Check if the user is authenticated
+             // Check if the user is authenticated
     if (auth()->check()) {
-        // Get the authenticated user's ID
-        $userId = auth()->user()->id;
+            // Get the authenticated user's ID
+            $userId = auth()->user()->id;
 
-        // Check if the user has already liked the post
-        $like = Like::where('user_id', $userId)->where('blog_id', $id)->first();
+            // Check if the user has already liked the post
+            $like = Like::where('user_id', $userId)->where('blog_id', $id)->first();
 
         if ($like) {
             // If the user has already liked the post, remove the like

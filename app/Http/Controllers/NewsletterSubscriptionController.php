@@ -30,24 +30,24 @@ class NewsletterSubscriptionController extends Controller
     public function store(Request $request)
     {
 
-        $apiKey = '84300f30ee8b3d0b59fca5140b231f4d-us21';
-        $listId = 'e843b5a3d8';
-        $email = $request->input('email');
-        $mailchimp = new MailChimp($apiKey);
-        // Attempt to subscribe the email address
-        $result = $mailchimp->post("lists/$listId/members", [
-            'email_address' => $email,
-            'status' => 'subscribed',
-        ]);
-        if ($mailchimp->success()) {
-            toastr()->success('Subscribed successfully');
-            return redirect()->back();
-        } elseif ($result['status'] === 400 && $result['title'] === 'Member Exists') {
-            toastr()->info('Email address is already subscribed!');
-            return redirect()->back();
-        } else {
-            return "Error: " . $mailchimp->getLastError();
-        }
+            $apiKey = '84300f30ee8b3d0b59fca5140b231f4d-us21';
+            $listId = 'e843b5a3d8';
+            $email = $request->input('email');
+            $mailchimp = new MailChimp($apiKey);
+            // Attempt to subscribe the email address
+            $result = $mailchimp->post("lists/$listId/members", [
+                'email_address' => $email,
+                'status' => 'subscribed',
+            ]);
+            if ($mailchimp->success()) {
+                toastr()->success('Subscribed successfully');
+                return redirect()->back();
+            } elseif ($result['status'] === 400 && $result['title'] === 'Member Exists') {
+                toastr()->info('Email address is already subscribed!');
+                return redirect()->back();
+            } else {
+                return "Error: " . $mailchimp->getLastError();
+            }
 
 
 

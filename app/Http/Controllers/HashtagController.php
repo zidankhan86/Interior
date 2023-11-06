@@ -27,22 +27,22 @@ class HashtagController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        $blog = new Blog;
-    $blog->title = $request->input('title');
-    $blog->content = $request->input('content');
-    $blog->save();
+            public function store(Request $request)
+            {
+                $blog = new Blog;
+            $blog->title = $request->input('title');
+            $blog->content = $request->input('content');
+            $blog->save();
 
-    // Attach tags to the blog post
-    $tagNames = $request->input('tags'); // Assuming tags are submitted as an array
-    $tags = [];
-    foreach ($tagNames as $tagName) {
-        $tag = HashTag::firstOrCreate(['name' => $tagName]);
-        $tags[] = $tag->id;
-    }
-    $blog->tags()->sync($tags);
-    }
+           
+            $tagNames = $request->input('tags');
+            $tags = [];
+            foreach ($tagNames as $tagName) {
+                $tag = HashTag::firstOrCreate(['name' => $tagName]);
+                $tags[] = $tag->id;
+            }
+            $blog->tags()->sync($tags);
+            }
 
     /**
      * Display the specified resource.
