@@ -9,7 +9,7 @@
 <div class="container">
 
 <div class="col-12">
-    <form action="{{ route('blog.store') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('blog.store') }}" method="post" enctype="multipart/form-data" >
         @csrf
       <div class="card-body">
         <h3 class="card-title">Blog Form</h3>
@@ -52,7 +52,7 @@
           <div class="col-sm-6 col-md-12">
             <div class="mb-3">
                 <label class="form-label">Choose Blog post Thumbnails</label>
-                <input type="file" name="post_image[]" class="form-control" multiple>
+                <input type="file" name="post_image[]" class="dropzone form-control" id="myDropzone" multiple> 
             </div>
         </div>
 
@@ -109,7 +109,10 @@
 
   </div>
 </div>
-
+{{-- DROPZONE --}}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.css">
    {{-- DROPIFY --}}
         <!-- Include jQuery -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -145,3 +148,38 @@
           }
           });
         </script>
+
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastr@2.1.4/toastr.min.js"></script>
+    <script>
+        Dropzone.autoDiscover = false;
+
+        $(document).ready(function () {
+            var myDropzone = new Dropzone("#myDropzone", {
+                paramName: "images",
+                maxFilesize: 4,
+                acceptedFiles: "image/*",
+                addRemoveLinks: true,
+                autoProcessQueue: false,
+                uploadMultiple: true,
+                parallelUploads: 5,
+            });
+
+            $("#submit-all").on("click", function () {
+                myDropzone.processQueue();
+            });
+
+            myDropzone.on("complete", function (file) {
+                file.previewElement.remove();
+            });
+
+            myDropzone.on("success", function (file, response) {
+                console.log(response);
+                myDropzone.removeAllFiles();
+
+                // Show success toast message
+                toastr.success('Images uploaded successfully');
+            });
+        });
+    </script>

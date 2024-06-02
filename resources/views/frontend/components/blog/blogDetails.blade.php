@@ -121,34 +121,7 @@
             @endif
         </nav>
 
-				<div class="related-posts-block mt-5">
-    <h3 class="news-title mb-4 text-center">
-       You May Also Like
-    </h3>
-    <div class="row">
-
-        @foreach ($youMayLike as $relatedPost)
-
-
-        <div class="col-lg-4 col-md-4 col-sm-6">
-            <div class="post-block-wrapper mb-4 mb-lg-0">
-                <a href="{{ route('blog.view',$relatedPost->id) }}">
-                    <img class="img-fluid" src="{{ asset('/uploads/' . $relatedPost->thumbnail) }}" alt="post-thumbnail">
-                </a>
-                <div class="post-content mt-3">
-                    <h5 >
-                        <a href="{{ route('blog.view',$relatedPost->id) }}">{{ $relatedPost->title }}</a>
-                    </h5>
-                </div>
-            </div>
-        </div>
-
-
-        @endforeach
-
-
-    </div>
-</div>
+	
 
 
    <div class="comment-area my-5">
@@ -200,11 +173,38 @@
 
 
 	</div>
-
+    <div class="related-posts-block mt-5">
+        <h3 class="news-title mb-4 text-center">
+           You May Also Like
+        </h3>
+        <div class="row">
+    
+            @foreach ($youMayLike as $relatedPost)
+    
+    
+            <div class="col-lg-4 col-md-4 col-sm-6">
+                <div class="post-block-wrapper mb-4 mb-lg-0">
+                    <a href="{{ route('blog.view',$relatedPost->id) }}">
+                        <img class="img-fluid" src="{{ asset('/uploads/' . $relatedPost->thumbnail) }}" alt="post-thumbnail">
+                    </a>
+                    <div class="post-content mt-3">
+                        <h5 >
+                            <a href="{{ route('blog.view',$relatedPost->id) }}">{{ $relatedPost->title }}</a>
+                        </h5>
+                    </div>
+                </div>
+            </div>
+    
+    
+            @endforeach
+    
+    
+        </div>
+    </div>
 
 
         {{-- Leave Comment --}}
-        @include('frontend\components\blog\leaveComment')
+        @include('frontend.components.blog.leaveComment')
 
 
 
