@@ -11,6 +11,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
-        "@ckeditor/ckeditor5-autoformat": "^40.0.0"
+        "@ckeditor/ckeditor5-autoformat": "^40.0.0",
+        "dropify": "^0.2.2"
     }
 }

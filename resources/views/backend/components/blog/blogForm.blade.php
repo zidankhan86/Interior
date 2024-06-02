@@ -45,7 +45,7 @@
           <div class="col-sm-6 col-md-6">
             <div class="mb-3">
               <label class="form-label">Choose Thumbnail</label>
-              <input type="file" name="thumbnail" class="form-control">
+              <input type="file" name="thumbnail" class="dropify form-control">
             </div>
           </div>
 
@@ -106,21 +106,42 @@
       </div>
     </form>
 
-    <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
-<script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .catch(error => {
-            console.error(error);
-        });
-
-    ClassicEditor
-        .create(document.querySelector('#editors'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
 
   </div>
 </div>
 
+   {{-- DROPIFY --}}
+        <!-- Include jQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <!-- Include Dropify CSS and JS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
+
+        <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+        <script>
+            ClassicEditor
+                .create(document.querySelector('#editor'))
+                .catch(error => {
+                    console.error(error);
+                });
+        
+            ClassicEditor
+                .create(document.querySelector('#editors'))
+                .catch(error => {
+                    console.error(error);
+                });
+        </script>
+
+<style type="text/css">
+    .ck-editor__editable_inline{
+    height: 150px;
+    }
+    </style>
+    
+        <script>
+          $('.dropify').dropify({ messages: {
+          'default': 'Choose Thumbnail', 'replace': 'Drag and drop or click to replace', 'remove': 'Remove',
+          'error':	'Ooops, something wrong happended.'
+          }
+          });
+        </script>
