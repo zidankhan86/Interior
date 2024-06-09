@@ -120,6 +120,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 
         <script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
+
+
         <script>
             ClassicEditor
                 .create(document.querySelector('#editor'))
@@ -148,8 +150,8 @@
           });
         </script>
 
-        <script>
-          $('.js-example-basic-single').select2({
-            placeholder: 'Select an option'
-          });
-        </script>
+<script>
+  $(document).ready(function() {
+$('.js-example-basic-single').select2();
+});
+            </script>
