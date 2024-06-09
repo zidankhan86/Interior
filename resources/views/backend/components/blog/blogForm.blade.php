@@ -1,3 +1,5 @@
+<link href="path/to/select2.min.css" rel="stylesheet" />
+<script src="path/to/select2.min.js"></script>
 
 <style type="text/css">
 .ck-editor__editable_inline{
@@ -24,7 +26,7 @@
           <div class="col-sm-6 col-md-6">
             <div class="mb-">
                 <label class="form-label">Select Category</label>
-                <select name="category_id" id="" class="form-control">
+                <select name="category_id" id="js-example-basic-single" class="form-control js-example-basic-single">
                     @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->type_name }}</option>
                     @endforeach
@@ -146,4 +148,8 @@
           });
         </script>
 
-        
+        <script>
+          $('.js-example-basic-single').select2({
+            placeholder: 'Select an option'
+          });
+        </script>
