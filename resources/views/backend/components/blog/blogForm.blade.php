@@ -14,7 +14,7 @@
             <form action="{{ route('blog.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
-                  <br><br><h3 class="card-title">Blog Form</h3>
+                  <br><br><h3 class="card-title" style="text-align: center">Blog Form</h3>
                     <div class="row row-cards">
                         <div class="col-md-6">
                             <div class="mb-3">
@@ -102,7 +102,7 @@
           <form action="{{ route('category.store') }}" method="post">
               @csrf
               <div class="card-body"><br><br>
-                  <h2 class="card-title">Category Form</h2>
+                  <h2 class="card-title" style="text-align: center">Category Form</h2>
                   <div class="mb-3">
                       <label class="form-label">Type Name</label>
                       <input type="text" name="type_name" class="form-control" placeholder="Type Name">
