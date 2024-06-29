@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <button type="submit" class="btn btn-primary">Post Blog</button>
+                    <button type="submit" class="btn btn-primary"><span><x-backend.svg.plus-icon/></span>Post Blog</button>
                 </div>
             </form>
         </div>
@@ -119,7 +119,7 @@
                   </div>
               </div>
               <div class="card-footer text-end">
-                  <button type="submit" class="btn btn-primary">Create Category</button>
+                  <button type="submit" class="btn btn-primary"><span><x-backend.svg.plus-icon/></span>Add Category</button>
               </div>
           </form>
       </div>
