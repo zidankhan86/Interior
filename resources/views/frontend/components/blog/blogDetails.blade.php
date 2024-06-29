@@ -45,15 +45,13 @@
 
             </div>
 
-
-
             <p> {!! $blogDetails->post_description !!} </p>
 
 
         </div>
 
            {{-- Hash Tag --}}
-          @include('frontend\components\blog\hashTag')
+          @include('frontend.components.blog.hashTag')
 
 
         <div class="tags-share-box center-box d-flex text-center justify-content-between border-top border-bottom py-3">
@@ -73,7 +71,9 @@
 
 
             <div class="list-posts-share">
-                <a href="{{ route('social-media-share',$blogDetails->id) }}">Share</a>
+                <div class="container">
+                    {!! $shareComponent !!}
+                </div>
             </div>
         </div>
     </div>
@@ -82,19 +82,20 @@
 	<div class="post-author d-flex my-5">
 
                     <div class="author-img">
-		<img alt="" src="frontend/images/author.jpg" class="avatar avatar-100 photo" width="100" height="100">
+		<img alt="" src="{{ url('/uploads/'.$blogDetails->thumbnail) }}" class="avatar avatar-100 photo" width="100" height="100">
 	</div>
 
 	<div class="author-content pl-4">
-		<h4 class="mb-3"><a href="#" title="" rel="author" class="text-capitalize">Themefisher</a></h4>
-		<p>Hey there. My name is Liam. I was born with the love for traveling. I also love taking photos with my phone in order to capture moment..</p>
+		<h4 class="mb-3"><a href="#" title="" rel="author" class="text-capitalize">{{ $blogDetails->title }}</a></h4>
+		<p>Hey there. This blog written by {{ $blogDetails->user->name }}.</p>
 
-		<a target="_blank" class="author-social" href="#"><i class="ti-facebook"></i></a>
-		<a target="_blank" class="author-social" href="#"><i class="ti-twitter"></i></a>
-		<a target="_blank" class="author-social" href="#"><i class="ti-google-plus"></i></a>
-		<a target="_blank" class="author-social" href="#"><i class="ti-instagram"></i></a>
-		<a target="_blank" class="author-social" href="#"><i class="ti-pinterest"></i></a>
-		<a target="_blank" class="author-social" href="#"><i class="ti-tumblr"></i></a>
+       <x-frontend.social-share/>
+        <body>
+            <div class="container">
+                {!! $shareComponent !!}
+            </div>
+        </body>
+    </html>
 	</div>
 
 

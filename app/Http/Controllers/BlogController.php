@@ -137,10 +137,18 @@ class BlogController extends Controller
                 // Count of comments
                 $totalComment = $comments->count();
 
+                $shareComponent = \Share::page(route('blog.view', $blogDetails->id), $blogDetails->title)
+                ->facebook()
+                ->twitter()
+                ->linkedin()
+                ->telegram()
+                ->whatsapp()
+                ->reddit();
+
                 return view('frontend.pages.blogDetails',compact('blogDetails','postImageNames',
                                                                  'youMayLike','hashtags',
                                                                  'previous','next','totalComment',
-                                                                 'comments'));
+                                                                 'comments','shareComponent'));
             }
 
     /**
