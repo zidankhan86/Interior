@@ -2,7 +2,7 @@
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-2 col-md-4 text-center d-none d-lg-block">
-            <a class="navbar-brand " href="index.html">
+            <a class="navbar-brand " href="{{ route('home') }}">
               <img src="frontend/images/logo.png" alt="" class="img-fluid">
             </a>
         </div>
@@ -53,16 +53,13 @@
                           @endguest
                       
                           @auth
-                              <li class="nav-item">
-                                  <a href="{{ route('profile') }}" class="nav-link">
-                                      <strong class="btn btn-info">{{ Auth::user()->name }}</strong>
-                                  </a>
-                              </li>
-                              <li class="nav-item">
-                               
-                                    <a href="{{ route('logout') }}" class="btn btn-danger">Logout</a>
-                                
-                            </li>
+                          
+                            
+                          <li class="nav-item">
+                              <a href="{{ route('logout') }}" class="nav-link">
+                                  <strong class="btn btn-danger">Logout</strong>
+                              </a>
+                          </li>
                           @endauth
                       </ul>
                       

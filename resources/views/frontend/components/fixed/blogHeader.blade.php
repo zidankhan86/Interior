@@ -37,8 +37,30 @@
 
                         <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
 
-                        <li class="nav-item"><a href="{{ route('login') }}" class="nav-link"><strong class="btn btn-success"> SignIn </strong></a></li>
-                        <li class="nav-item"><a href="{{ route('registration') }}" class="nav-link"><strong class="btn btn-info">SignUp</strong></a></li>
+                        <ul class="navbar-nav">
+                            @guest
+                                <li class="nav-item">
+                                    <a href="{{ route('login') }}" class="nav-link">
+                                        <strong class="btn btn-success">Sign In</strong>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ route('registration') }}" class="nav-link">
+                                        <strong class="btn btn-info">Sign Up</strong>
+                                    </a>
+                                </li>
+                            @endguest
+                        
+                            @auth
+                            
+                              
+                            <li class="nav-item">
+                                <a href="{{ route('logout') }}" class="nav-link">
+                                    <strong class="btn btn-danger">Logout</strong>
+                                </a>
+                            </li>
+                            @endauth
+                        </ul>
                     </ul>
                 </div>
 
