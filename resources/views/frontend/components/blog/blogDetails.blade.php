@@ -68,7 +68,8 @@
 
 
             {{-- Like --}}
-            @include('frontend.components.blog.like')
+            <livewire:like-button :blog-id="$blogDetails->id" />
+
 
 
             <div class="list-posts-share">
