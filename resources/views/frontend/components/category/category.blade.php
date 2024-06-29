@@ -68,7 +68,7 @@
 
 
         {{-- trendig Blog --}}
-	@include('frontend\components\blog\trendingBlog')
+	@include('frontend.components.blog.trendingBlog')
 
 
 	<div class="sidebar-widget category mb-5">

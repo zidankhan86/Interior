@@ -1,8 +1,8 @@
-@extends('frontend\layout\app')
+@extends('frontend.layout.app')
 
 @section('content')
 
-@include('frontend\components\fixed\header')
-@include('frontend\components\home\home')
+@include('frontend.components.fixed\header')
+@include('frontend.components.home.home')
 
 @endsection

@@ -35,7 +35,7 @@
 			<div class="row justify-content-center">
 				<div class="col-lg-6">
 					<div class="copyright text-center ">
-						@ copyright all reserved to <a href="https://themefisher.com/">themefisher.com</a>-2019
+						@ copyright all reserved to {{ config('app.name') }}</a>-{{ date('Y') }}
 					</div>
 				</div>
 			</div>

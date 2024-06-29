@@ -1,7 +1,4 @@
 
-
-
-
 <div class="post-tags py-4">
     @foreach ($hashtags as $hashtag)
         @if (!empty($hashtag))

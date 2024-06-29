@@ -1,8 +1,8 @@
-@extends('frontend\layout\app')
+@extends('frontend.layout.app')
 
 @section('content')
 
-@include('frontend\components\fixed\blogHeader')
+@include('frontend.components.fixed.blogHeader')
  <!-- Reply form -->
  <div class="container">
  <div class="reply-form">
