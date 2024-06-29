@@ -68,7 +68,7 @@
 
 
             {{-- Like --}}
-            @include('frontend\components\blog\like')
+            @include('frontend.components.blog.like')
 
 
             <div class="list-posts-share">
