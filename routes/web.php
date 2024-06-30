@@ -84,7 +84,8 @@ Route::get('/category-list',[CategoryController::class,'list'])->name('category.
 Route::get('/category-form',[CategoryController::class,'create'])->name('category.form');
 Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
 Route::get('/blog-form',[BlogController::class,'form'])->name('blog.form');
-
+Route::get('/about-form',[AboutController::class,'about_form'])->name('about.form');
+Route::post('/about-store',[AboutController::class,'store'])->name('about.store');
 //profile
 Route::get('/profile',[ProfileController::class,'index'])->name('profile');
 //post

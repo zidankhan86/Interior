@@ -13,8 +13,13 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('slug');
+            $table->string('thumbnail');
+            $table->text('post_image');
             $table->longText('description');
-            $table->string('image');
+            $table->longText('post_description')->nullable();
+            $table->boolean('status')->default('1');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });

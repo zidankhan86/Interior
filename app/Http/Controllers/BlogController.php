@@ -16,7 +16,7 @@ class BlogController extends Controller
         {
                 $blogs = Blog::simplePaginate(12);
                 Category::with('Category')->where('type_name');
-                return view('frontend\pages\blog',compact('blogs'));
+                return view('frontend.pages.blog',compact('blogs'));
          }
 
 
