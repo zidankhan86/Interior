@@ -14,8 +14,8 @@
 
                     <div class="slider-post-content">
                         <span class="cat-name text-color font-sm font-extra text-uppercase letter-spacing">{{ $blog->Category->type_name }}</span>
-                        <h3 class="post-title mt-1"><a href="blog-single.html">{{ $blog->title }}</a></h3>
-                        <span class=" text-muted  text-capitalize">{{ $blog->created_at->format('Y-M-d')}}</span>
+                        <h3 class="post-title mt-1"><a href="{{ route('blog.view',$blog->id) }}">{{ $blog->title }}</a></h3>
+                        <span class=" text-muted  text-capitalize">{{ $blog->created_at->format('Y M d')}}</span>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
 				<img src="{{ url('/uploads/'.$blog->thumbnail) }}" alt="" class="img-fluid w-100">
 			</a>
 			<span class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1">{{ $blog->Category->type_name }}</span>
-			<h3 class="post-title mt-1"><a href="blog-single.html">{{ $blog->title }}</a></h3>
+			<h3 class="post-title mt-1"><a href="{{ route('blog.view',$blog->id) }}">{{ $blog->title }}</a></h3>
 
 			<span class="text-muted letter-spacing text-uppercase font-sm">{{ $blog->created_at->format('Y-M-d')}}
             </span>
