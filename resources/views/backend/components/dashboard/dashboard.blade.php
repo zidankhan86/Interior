@@ -16,7 +16,7 @@
                   </div>
                 </div>
               </div>
-              <div class="h1 mb-3">75</div>
+              <div class="h1 mb-3">{{ $total_users }}</div>
               <div class="d-flex mb-2">
                
               </div>
@@ -39,7 +39,7 @@
                 </div>
               </div>
               <div class="d-flex align-items-baseline">
-                <div class="h1 mb-0 me-2">4,300</div>
+                <div class="h1 mb-0 me-2">{{ $total_liked }}</div>
                 <div class="me-auto">
                   
                 </div>
@@ -63,7 +63,7 @@
                 </div>
               </div>
               <div class="d-flex align-items-baseline">
-                <div class="h1 mb-3 me-2">6,782</div>
+                <div class="h1 mb-3 me-2">{{ $total_blog }}</div>
 
               </div>
              
@@ -74,7 +74,7 @@
           <div class="card">
             <div class="card-body">
               <div class="d-flex align-items-center">
-                <div class="subheader">Active users</div>
+                <div class="subheader">Total Comments</div>
                 <div class="ms-auto lh-1">
                   <div class="dropdown">
                    
@@ -85,7 +85,7 @@
                 </div>
               </div>
               <div class="d-flex align-items-baseline">
-                <div class="h1 mb-3 me-2">2,986</div>
+                <div class="h1 mb-3 me-2">{{ $total_comments }}</div>
                 <div class="me-auto">
                  
                 </div>
