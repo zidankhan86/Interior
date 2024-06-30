@@ -12,7 +12,7 @@
     <!-- theme meta -->
     <meta name="theme-name" content="revolve" />
     {{-- CSS --}}
-    @include('frontend.components.fixed\style')
+    @include('frontend.components.fixed.style')
 
 </head>
 <body>
