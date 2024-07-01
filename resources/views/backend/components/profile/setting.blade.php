@@ -36,9 +36,8 @@
 
                                 <div class="row align-items-center">
                                     <label for="image-upload" style="cursor: pointer;">
-                                        <p class="label-txt">Choose Image</p>
-                                        <img height="100px" width="100px" id="image-preview" src="{{ asset('/uploads/' . auth()->user()->image) }}" alt="Student Image">
-                                        <input type="file" id="image-upload" name="image">
+                                        <img height="100px" width="100px" id="image-preview" src="{{ asset('/uploads/' . auth()->user()->image) }}" alt="Profile Image">
+                                        <input type="file" id="dropify" class="dropify" name="image">
                                     </label>
                                 </div>
 
@@ -80,4 +79,19 @@
         </div>
     </div>
 </div>
-
+{{-- DROPIFY --}}
+<!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Include Dropify CSS and JS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
+<script>
+    $('.dropify').dropify({
+        messages: {
+            'default': 'Profile Image',
+            'replace': 'Drag and drop or click to replace',
+            'remove': 'Remove',
+            'error': 'Ooops, something wrong happened.'
+        }
+    });
+</script>
