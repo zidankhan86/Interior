@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class AboutController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * About Frontend Page
      */
     public function index()
     {

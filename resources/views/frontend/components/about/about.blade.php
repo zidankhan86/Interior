@@ -2,8 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-12">
+				@php
+					$about = App\Models\About::first();
+				@endphp
+@if ($about)
                 <div class="text-center">
-                   <h2 class="lg-title">About Me</h2>
+                   <h2 class="lg-title">{{ $about->title }}</h2>
                 </div>
             </div>
         </div>
@@ -18,7 +22,7 @@
 
 <div class="row">
     <div class="col-lg-12">
-        <img src="frontend/images/about.jpg" alt="" class="img-fluid w-100">
+        <img src="{{ url('/uploads/'.$about->thumbnail) }}" alt="" class="img-fluid w-100">
     </div>
 </div>
 
@@ -27,12 +31,12 @@
 		<div class="row">
 			<div class="col-lg-4">
 				<h5 class="text-uppercase letter-spacing mb-4">Who is me?</h5>
-				<p>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat</p>
+				<p>{!! $about->description !!}</p>
 
 			</div>
 			<div class="col-lg-4">
 				<h5 class="text-uppercase letter-spacing mb-4">My vission</h5>
-				<p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis biben. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit.</p>
+				<p>{!! $about->post_description !!}</p>
 			</div>
 			<div class="col-lg-4">
 				<h5 class="text-uppercase letter-spacing mb-4">Follow Me :</h5>
@@ -46,34 +50,17 @@
 			</div>
 		</div>
 
-		<h3 class="mb-3 mt-5">I have travel 10+ more countries in this year.</h3>
-		<p class="mb-5">Poor Alice! It was as much as she could do, lying down on one side, to look through into the garden with one eye; but to get through was more hopeless than ever: she sat down and began to cry again.</p>
+		
 
 		<div class="row">
+			@foreach (unserialize($about->post_image) as $image)
 			<div class="col-lg-3 col-md-6">
 				<div class="about-widget mb-4 mb-lg-0">
-					<img src="frontend/images/news/news-1.jpg" alt="" class="img-fluid">
-					<h4 class="mt-3">Hill ward</h4>
+					<img src="{{ url('/uploads/' . $image) }}" alt="Photos" class="img-fluid">
+					{{-- <h4 class="mt-3">Hill ward</h4> --}}
 				</div>
 			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="about-widget mb-4 mb-lg-0">
-					<img src="frontend/images/news/news-2.jpg" alt="" class="img-fluid">
-					<h4 class="mt-3">Awesome ride</h4>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="about-widget mb-4 mb-lg-0">
-					<img src="frontend/images/news/news-3.jpg" alt="" class="img-fluid">
-					<h4 class="mt-3">Newyork</h4>
-				</div>
-			</div>
-			<div class="col-lg-3 col-md-6">
-				<div class="about-widget mb-4 mb-lg-0">
-					<img src="frontend/images/news/news-4.jpg" alt="" class="img-fluid">
-					<h4 class="mt-3">Rising Sea</h4>
-				</div>
-			</div>
+			@endforeach
 		</div>
 
 
@@ -81,5 +68,9 @@
 </div>
 			</div>
 		</div>
+		
+		@else
+		<p>No Data</p>
+		@endif
 	</div>
 </section>
