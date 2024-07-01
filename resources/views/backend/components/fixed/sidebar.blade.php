@@ -214,11 +214,24 @@
                 User
               </span>
             </a>
+            
           </li>
-
-
-
+        <br><br><br>
+          <li class="nav-item ">
+            <a class="nav-link" style="color: red" href="{{ route('user.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
+              <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                <x-backend.svg.logout-icon/>
+              </span>
+              <span class="nav-link-title">
+                <B>Logout</B>
+              </span>
+            </a>
+            
+          </li>
+          
         </ul>
+        
       </div>
+     
     </div>
   </aside>

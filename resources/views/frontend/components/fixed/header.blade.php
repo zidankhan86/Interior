@@ -60,6 +60,11 @@
                                   <strong class="btn btn-danger">Logout</strong>
                               </a>
                           </li>
+                          <li class="nav-item">
+                            <a href="{{ route('app') }}" class="nav-link">
+                                <strong class="btn btn-warning">Dashboard</strong>
+                            </a>
+                        </li>
                           @endauth
                       </ul>
                       
@@ -70,7 +75,7 @@
                       <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
                       <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
                       <li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
-                      <li class="list-inline-item"><a href="#"><i class="ti-pinterest"></i></a></li>
+                     
                     </ul>
                 </div>
             </nav>
@@ -82,7 +87,7 @@
                 <li class="list-inline-item"><a href="#"><i class="ti-facebook"></i></a></li>
                 <li class="list-inline-item"><a href="#"><i class="ti-twitter"></i></a></li>
                 <li class="list-inline-item"><a href="#"><i class="ti-linkedin"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="ti-pinterest"></i></a></li>
+              
               </ul>
             </div>
           </div>
