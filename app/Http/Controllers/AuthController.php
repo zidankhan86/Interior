@@ -37,13 +37,13 @@ class AuthController extends Controller
         $credential = $request->only(['email', 'password']);
 
         if (Auth::attempt($credential)) {
-            if (auth()->user()->role == 'customer') {
+            if (auth()->user()->role == 'admin') {
                 return redirect()->route('home');
             } elseif (auth()->user()->role == 'admin') {
                 return redirect()->route('home')->withSuccess('Login Success');
             }
         } else {
-            return redirect()->back()->withErrors(['error' => 'Invalid credentials. Please try again.']);
+            return redirect()->back()->with(['error' => 'Invalid credentials. Please try again.']);
         }
     }
 
