@@ -53,12 +53,17 @@
                         
                             @auth
                             
-                              
+                            <li class="nav-item">
+                                <a href="{{ route('app') }}" class="nav-link">
+                                    <strong class="btn btn-warning">Dashboard</strong>
+                                </a>
+                            </li>
                             <li class="nav-item">
                                 <a href="{{ route('logout') }}" class="nav-link">
                                     <strong class="btn btn-danger">Logout</strong>
                                 </a>
                             </li>
+
                             @endauth
                         </ul>
                     </ul>
