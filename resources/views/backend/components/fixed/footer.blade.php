@@ -11,11 +11,7 @@
               <a href="." class="link-secondary">{{ config('app.name') }}</a>.
               All rights reserved.
             </li>
-            <li class="list-inline-item">
-              <a href="./changelog.html" class="link-secondary" rel="noopener">
-                v1.0
-              </a>
-            </li>
+            
           </ul>
         </div>
       </div>
