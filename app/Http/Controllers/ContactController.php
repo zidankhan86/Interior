@@ -44,31 +44,29 @@ class ContactController extends Controller
 
            ]);
            // Send the email
-        Mail::to('recipient@example.com')->send(new ContactMessage($contact));
+        // Mail::to('recipient@example.com')->send(new ContactMessage($contact));
 
 
-           return back()->withSuccess(['success' => 'Thank you for your message!']);
+           return back()->with(['success' => 'Thank you for your message!']);
             }
        catch (\Exception $e) {
-           return back()->withErrors(['error' => ' failed: ' . $e->getMessage()]);
+           return back()->with(['error' => ' failed: ' . $e->getMessage()]);
            }
 
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Contact $contact)
-    {
-        //
+    public function contactlist(){
+
+        $feedback = Contact::all();
+
+        return view('backend.components.Contact_Us.list',compact('feedback'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Contact $contact)
-    {
-        //
+    public function contactview($id){
+
+        $messages = Contact::find($id);
+
+        return view('backend.components.Contact_Us.feedback_view',compact('messages'));
     }
 
     /**

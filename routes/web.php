@@ -94,6 +94,10 @@ Route::post('/category-store',[CategoryController::class,'store'])->name('catego
 Route::post('/blog-store',[BlogController::class,'store'])->name('blog.store');
 Route::post('/hash-tag',[BlogController::class,'ashTagStore'])->name('hash.tag.store');
 
+//Contact
+Route::get('/contact-list',[ContactController::class,'contactlist'])->name('contact.list');
+Route::get('/contact-view/{id}',[ContactController::class,'contactview'])->name('contact.view');
+
 
 });
 });
