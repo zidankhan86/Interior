@@ -190,7 +190,7 @@ class BlogController extends Controller
                      ->orWhere('description', 'LIKE', '%' . $request->search_key . '%')
                      ->get();
 
-                 return view('frontend\pages\search',compact('searchResult'));
+                 return view('frontend.pages.search',compact('searchResult'));
             }
 
 
