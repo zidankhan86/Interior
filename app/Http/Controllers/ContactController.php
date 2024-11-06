@@ -35,12 +35,14 @@ class ContactController extends Controller
                'name'           => 'required|string',
                'email'          => 'required',
                'message'        => 'required',
+               'phone'        => 'required',
            ]);
 
          $contact =  Contact::create([
                "name"           => $request->name,
                "email"          => $request->email,
                "message"        => $request->message,
+               "phone"        => $request->phone,
 
            ]);
            // Send the email

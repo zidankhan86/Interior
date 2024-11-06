@@ -213,14 +213,8 @@
 
                     </div>
                 </div>
-
-
                 {{-- Leave Comment --}}
                 @include('frontend.components.blog.leaveComment')
-
-
-
-
             </div>
         </div>
     </div>

@@ -17,6 +17,7 @@ use App\Http\Controllers\LeaveCommentController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\TrandingBlogController;
 use App\Http\Controllers\ChangePasswordController;
+use App\Http\Controllers\frontend\ProjectController;
 use App\Http\Controllers\SocialMediaShareController;
 use App\Http\Controllers\SocialShareButtonsController;
 use App\Http\Controllers\NewsletterSubscriptionController;
@@ -50,6 +51,7 @@ Route::group(['middleware'=>'auth'],function(){
 //Frontend
 
 //Pages
+Route::get('/project',[ProjectController::class,'index'])->name('project');
 Route::get('/blog',[BlogController::class,'index'])->name('blog');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/contact',[ContactController::class,'index'])->name('contact');

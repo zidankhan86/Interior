@@ -1,16 +1,21 @@
- <!--Favicon-->
- <link rel="shortcut icon" href="{{asset ('frontend/images/favicon.ico') }}" type="image/x-icon">
- <!-- THEME CSS
- ================================================== -->
- <!-- Bootstrap -->
- <link rel="stylesheet" href="{{asset ('frontend/plugins/bootstrap/css/bootstrap.min.css') }}">
- <!-- Themify -->
- <link rel="stylesheet" href="{{asset ('frontend/plugins/themify/css/themify-icons.css') }}">
- <link rel="stylesheet" href="{{asset ('frontend/plugins/slick-carousel/slick-theme.css') }}">
- <link rel="stylesheet" href="{{asset ('frontend/plugins/slick-carousel/slick.css') }}">
- <!-- Slick Carousel -->
- <link rel="stylesheet" href="{{asset ('frontend/plugins/owl-carousel/owl.carousel.min.css') }}">
- <link rel="stylesheet" href="{{asset ('frontend/plugins/owl-carousel/owl.theme.default.min.css') }}">
- <link rel="stylesheet" href="{{asset ('frontend/plugins/magnific-popup/magnific-popup.css') }}">
- <!-- manin stylesheet -->
- <link rel="stylesheet" href="{{asset ('frontend/css/style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet">
+
+<link rel="stylesheet" href="{{asset ('frontend/css/open-iconic-bootstrap.min.css') }}">
+<link rel="stylesheet" href="{{asset ('frontend/css/animate.css') }}">
+
+<link rel="stylesheet" href="{{asset ('frontend/css/owl.carousel.min.css') }}">
+<link rel="stylesheet" href="{{asset ('frontend/css/owl.theme.default.min.css') }}">
+<link rel="stylesheet" href="{{asset ('frontend/css/magnific-popup.css') }}">
+
+<link rel="stylesheet" href="{{asset ('frontend/css/aos.css') }}">
+
+<link rel="stylesheet" href="{{asset ('frontend/css/ionicons.min.css') }}">
+
+<link rel="stylesheet" href="{{asset ('frontend/css/bootstrap-datepicker.css') }}">
+<link rel="stylesheet" href="{{asset ('frontend/css/jquery.timepicker.css') }}">
+
+
+<link rel="stylesheet" href="{{asset ('frontend/css/flaticon.css') }}">
+<link rel="stylesheet" href="{{asset ('frontend/css/icomoon.css') }}">
+<link rel="stylesheet" href="{{asset ('frontend/css/style.css') }}">

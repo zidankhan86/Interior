@@ -1,36 +1,37 @@
 
 
-<section class="section-padding">
+<section class="ftco-section">
 	<div class="container">
+		<div class="row justify-content-center mb-5 pb-3">
+  <div class="col-md-7 heading-section ftco-animate">
+	<h2 class="mb-4"> Blog</h2>
+	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+  </div>
+</div>	
 		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-				<div class="row">
 
-                    @foreach ($blogs as $blog)
-
-
-	<div class="col-lg-3 col-md-6">
-		<article class="post-grid mb-5">
-			<a class="post-thumb mb-4 d-block" href="{{ route('blog.view',$blog->id) }}">
-				<img src="{{ url('/uploads/'.$blog->thumbnail) }}" alt="" class="img-fluid w-100">
-			</a>
-			<span class="cat-name text-color font-extra text-sm text-uppercase letter-spacing-1">{{ $blog->Category->type_name }}</span>
-			<h3 class="post-title mt-1">{{ $blog->title }}</a></h3>
-
-			<span class="text-muted letter-spacing text-uppercase font-sm"> {{ $blog->created_at->format('Y-M-d') }}
-            </span>
-
-		</article>
-	</div>
-
-                     @endforeach
-
-</div>
-			</div>
-
-			<div class="m-auto">
-                {{ $blogs->links() }}
-            </div>
+			@foreach ($blogs as $blog)	
+  <div class="col-md-4 ftco-animate">
+	<div class="blog-entry">
+		<a href="{{ route('blog.view', $blog->id) }}" class="block-20" style="background-image: url('{{ asset('uploads/' . $blog->thumbnail) }}');">
+		</a>
+	
+	  <div class="text d-flex py-4">
+		<div class="meta mb-3">
+		  <div><a href="#">{{ $blog->created_at->format('Y-M-d') }}</a></div>
+		  <div><a href="#">Admin</a></div>
+		  
 		</div>
+		<div class="desc pl-3">
+			<h3 class="heading"><a href="{{ route('blog.view',$blog->id) }}">{{ $blog->title }}</a></h3>
+		  </div>
+	  </div>
+	</div>
+  </div>
+  
+  			@endforeach
+</div>
+
+{{ $blogs->links() }}
 	</div>
 </section>

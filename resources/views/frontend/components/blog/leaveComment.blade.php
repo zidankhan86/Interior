@@ -1,3 +1,5 @@
+
+
 <form class="comment-form mb-5 gray-bg p-5" action="{{ route('blog.comment.store') }}" method="post">
     @csrf
     <h3 class="mb-4 text-center">Leave  a comment</h3>

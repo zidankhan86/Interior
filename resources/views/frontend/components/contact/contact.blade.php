@@ -1,65 +1,51 @@
-<div class="breadcrumb-wrapper">
+
+
+<section class="ftco-section contact-section">
     <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="text-center">
-                   <h2 class="lg-title">Contact</h2>
-                </div>
-            </div>
+      <div class="row d-flex mb-5 contact-info">
+        <div class="col-md-12 mb-4">
+          <h2 class="h4">Contact Information</h2>
         </div>
-    </div>
-</div>
-
-
-<section class="pt-5 padding-bottom">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
-
-<div class="row">
-    <div class="col-lg-12">
-        <img src="frontend/images/contact.jpg" alt="" class="img-fluid w-100">
-    </div>
-</div>
-
-<div class="row justify-content-center">
-    <div class="col-lg-8">
-        <p class="mt-5 mb-5">Something splashing about in the pool a little way off, and she swam nearer to make out what it was: at first she thought it must be a walrus or hippopotamus, but then she remembered how small she was now, and she soon made out that it was only a mouse that had slipped in like herself.</p>
-
-        <h2 class="mb-4">Get In Touch</h2>
-
-        <form id="contact-form" class="contact-form" action="{{ route('contact.store') }}" method="post" >
+        
+      </div>
+      <div class="row block-9">
+        <div class="col-md-6 order-md-last pr-md-5">
+          <form action="{{ route('contact.store') }}" method="post">
             @csrf
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <label for="name">Your Name (required)</label>
-                        <input class="form-control form-control-name" name="name" id="name" type="text" required >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Your Email (required)</label>
-
-                        <input class="form-control form-control-email" name="email" id="email" type="email" required >
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea class="form-control form-control-message" name="message" id="message" rows="7" required ></textarea>
-                    </div>
-
-                    <button class="btn btn-primary solid blank mt-3" type="submit">Send Message</button>
-                </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="name" placeholder="Your Name">
             </div>
-        </form>
+            <div class="form-group">
+              <input type="text" class="form-control" name="email" placeholder="Your Email">
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" class="form-control" placeholder="Your Phone">
+            </div>
+            <div class="form-group">
+              <textarea name="message" id="" cols="30" rows="7" class="form-control" placeholder="Message"></textarea>
+            </div>
+            <div class="form-group">
+              <input type="submit" class="btn btn-primary py-3 px-5">
+            </div>
+          </form>
+        
+        </div>
+
+        <div class="col-md-6">
+            <div class="w-100"></div>
+        <div class="col-md-6">
+          <p><span>Address:</span> 198 West 21th Street, Suite 721 New York NY 10016</p>
+        </div>
+        <div class="col-md-6">
+          <p><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a></p>
+        </div>
+        <div class="col-md-6">
+          <p><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a></p>
+        </div>
+        <div class="col-md-6">
+          <p><span>Website</span> <a href="#">yoursite.com</a></p>
+        </div>
+        </div>
+      </div>
     </div>
-</div>
-
-
-
-
-			</div>
-		</div>
-	</div>
-</section>
+  </section>

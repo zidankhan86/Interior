@@ -148,54 +148,95 @@
               </span>
             </a>
           </li>
-          {{-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false" >
-              <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" /><path d="M12 12l8 -4.5" /><path d="M12 12l0 9" /><path d="M12 12l-8 -4.5" /><path d="M16 5.25l-8 4.5" /></svg>
-              </span>
-              <span class="nav-link-title">
-                Test Form
-              </span>
+
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+                <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                        <path d="M12 12l8 -4.5" />
+                        <path d="M12 12l0 9" />
+                        <path d="M12 12l-8 -4.5" />
+                        <path d="M16 5.25l-8 4.5" />
+                    </svg>
+                </span>
+                <span class="nav-link-title">
+                  <b>Portfolio</b>
+                </span>
             </a>
             <div class="dropdown-menu">
-              <div class="dropdown-menu-columns">
-                <div class="dropdown-menu-column">
-                  <a class="dropdown-item" href="{{ route('user.list') }}">
-                   Test Form
-                  </a>
-              </div>
+                <div class="dropdown-menu-columns">
+                    <div class="dropdown-menu-column">
+                      <a class="dropdown-item" href="{{ route('category.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
+                        <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                          
+                        </span>
+                        <span class="nav-link-title">
+                          Category
+                        </span>
+                     
+                       
+                        <a class="dropdown-item" href="{{ route('blog.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
+                          <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                       
+                          </span>
+                          <span class="nav-link-title">
+                            Portfolio
+                          </span>
+                        </a>
+
+                    </div>
+                </div>
             </div>
-          </li> --}}
-
-
-
-          <li class="nav-item ">
-            <a class="nav-link" href="{{ route('category.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
-              <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                <x-backend.svg.category-icon/>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
+              <span class="nav-link-icon d-md-none d-lg-inline-block">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
+                      <path d="M12 12l8 -4.5" />
+                      <path d="M12 12l0 9" />
+                      <path d="M12 12l-8 -4.5" />
+                      <path d="M16 5.25l-8 4.5" />
+                  </svg>
               </span>
               <span class="nav-link-title">
-                Category
+                <b>BLOG</b>
               </span>
-            </a>
-          </li>
+          </a>
+          <div class="dropdown-menu">
+              <div class="dropdown-menu-columns">
+                  <div class="dropdown-menu-column">
+                    <a class="dropdown-item" href="{{ route('category.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
+                      <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                        
+                      </span>
+                      <span class="nav-link-title">
+                        Category
+                      </span>
+                   
+                     
+                      <a class="dropdown-item" href="{{ route('blog.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
+                        <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
+                     
+                        </span>
+                        <span class="nav-link-title">
+                          Blog Post
+                        </span>
+                      </a>
 
-          <li class="nav-item ">
-            <a class="nav-link" href="{{ route('blog.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
-              <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-               <x-backend.svg.blog-icon/>
-              </span>
-              <span class="nav-link-title">
-                Blog
-              </span>
-            </a>
-          </li>
-
-
+                  </div>
+              </div>
+          </div>
+      </li>
           <li class="nav-item ">
             <a class="nav-link" href="{{ route('about.form') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
               <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                <x-backend.svg.about-icon/>
+               
               </span>
               <span class="nav-link-title">
                 About
@@ -206,7 +247,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{ route('user.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
               <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                <x-backend.svg.user-icon/>
+               
               </span>
               <span class="nav-link-title">
                 User
@@ -218,7 +259,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{ route('contact.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
               <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                <x-backend.svg.message-icon/>
+                
               </span>
               <span class="nav-link-title">
                  Messages
@@ -231,7 +272,7 @@
           <li class="nav-item ">
             <a class="nav-link" style="color: red" href="{{ route('logout') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
               <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                <x-backend.svg.logout-icon/>
+                
               </span>
               <span class="nav-link-title">
                 <B>Logout</B>
