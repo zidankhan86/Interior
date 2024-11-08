@@ -153,14 +153,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
                 <span class="nav-link-icon d-md-none d-lg-inline-block">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
-                        <path d="M12 12l8 -4.5" />
-                        <path d="M12 12l0 9" />
-                        <path d="M12 12l-8 -4.5" />
-                        <path d="M16 5.25l-8 4.5" />
-                    </svg>
+                  <x-backend.svg.service-icon />
                 </span>
                 <span class="nav-link-title">
                   <b>Portfolio</b>
@@ -171,7 +164,7 @@
                     <div class="dropdown-menu-column">
                       <a class="dropdown-item" href="{{ route('category.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
                         <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                          
+                          <x-backend.svg.service-icon />
                         </span>
                         <span class="nav-link-title">
                           Category
@@ -180,7 +173,7 @@
                        
                         <a class="dropdown-item" href="{{ route('portfolio.create') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
                           <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                       
+                            <x-backend.svg.service-icon />
                           </span>
                           <span class="nav-link-title">
                             Portfolio
@@ -195,14 +188,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
               <span class="nav-link-icon d-md-none d-lg-inline-block">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                      <path d="M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5" />
-                      <path d="M12 12l8 -4.5" />
-                      <path d="M12 12l0 9" />
-                      <path d="M12 12l-8 -4.5" />
-                      <path d="M16 5.25l-8 4.5" />
-                  </svg>
+                <x-backend.svg.blog-icon />
               </span>
               <span class="nav-link-title">
                 <b>BLOG</b>
@@ -213,7 +199,7 @@
                   <div class="dropdown-menu-column">
                     <a class="dropdown-item" href="{{ route('category.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                        
+                        <x-backend.svg.category-icon />
                       </span>
                       <span class="nav-link-title">
                         Category
@@ -222,7 +208,7 @@
                      
                       <a class="dropdown-item" href="{{ route('blog.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
                         <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                     
+                          <x-backend.svg.blog-post-icon />
                         </span>
                         <span class="nav-link-title">
                           Blog Post
@@ -236,7 +222,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{ route('about.form') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
               <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-               
+                <x-backend.svg.about-icon />
               </span>
               <span class="nav-link-title">
                 About
@@ -247,7 +233,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{ route('user.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
               <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-               
+                <x-backend.svg.user-icon />
               </span>
               <span class="nav-link-title">
                 User
@@ -259,7 +245,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{ route('contact.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
               <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                
+                <x-backend.svg.message-icon />
               </span>
               <span class="nav-link-title">
                  Messages
