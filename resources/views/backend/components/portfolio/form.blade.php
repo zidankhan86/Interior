@@ -14,23 +14,26 @@
       
 
         <br><br><div class="col-md-8">
-            <form action="{{ route('blog.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('portfolio.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
-                  <br><br><h3 class="card-title" style="text-align: center">Blog Form</h3>
+                  <br><br><h3 class="card-title" style="text-align: center">Portfolio Form</h3>
                     <div class="row row-cards">
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">Title</label>
-                                <input type="text" name="title" class="form-control" placeholder="Title">
+                                <input type="text" name="title" class="form-control" placeholder="5375sft Duplex | Rangpur">
                             </div>
+                            @error('title')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label class="form-label">Select Category</label>
-                                <select name="category_id" id="js-example-basic-single" class="form-control js-example-basic-single">
-                                    @foreach ($categories as $category)
+                                <select name="type_name_id" id="js-example-basic-single" class="form-control js-example-basic-single">
+                                    @foreach ($types as $category)
                                         <option value="{{ $category->id }}">{{ $category->type_name }}</option>
                                     @endforeach
                                 </select>
@@ -42,6 +45,9 @@
                                 <label class="form-label">Description</label>
                                 <textarea id="editor" rows="5" name="description" class="form-control" placeholder="Here can be your description"></textarea>
                             </div>
+                            @error('description')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="col-md-12">
@@ -49,25 +55,38 @@
                                 <label class="form-label">Choose Thumbnail</label>
                                 <input type="file" name="thumbnail" class="dropify form-control">
                             </div>
+                            @error('thumbnail')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
 
                         <div class="col-md-12">
-                            <div class="mb-3">
-                                <label class="form-label">Choose Images</label>
-                                <input type="file" name="post_image[]" class="filepond form-control" multiple>
+                            <div class="card">
+                              <div class="card-body">
+                                <h3 class="card-title">Choose Multiple File</h3>
+                                
+                                  <div class="fallback">
+                                    <input name="images[]" type="file"  multiple  />
+                                  </div>
+                                  @error('images')
+                                  <p class="text-danger">{{ $message }}</p>
+                              @enderror
+                              </div>
                             </div>
-                        </div>
-
+                          </div>
                         <div class="col-md-12">
                             <div class="mb-3">
-                                <label class="form-label">Post Description</label>
-                                <textarea id="editors" rows="5" name="post_description" class="form-control" placeholder="Here can be your post description"></textarea>
+                                <label class="form-label">Portfolio Description</label>
+                                <textarea id="editors" rows="5" name="portfolio_description" class="form-control" placeholder="Here can be your post description"></textarea>
                             </div>
+                            @error('portfolio_description')
+                                  <p class="text-danger">{{ $message }}</p>
+                              @enderror
                         </div>
 
-                        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+                       
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="mb-3">
                                 <label class="form-label">Status</label>
                                 <select name="status" class="form-control">
@@ -75,37 +94,61 @@
                                     <option value="0">Inactive</option>
                                 </select>
                             </div>
+                            @error('status')
+                                  <p class="text-danger">{{ $message }}</p>
+                              @enderror
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <div class="mb-3">
-                                <label class="form-label">Featured</label>
-                                <select name="featured" class="form-control">
-                                    <option value="1">True</option>
-                                    <option value="0">False</option>
-                                </select>
+                                <label class="form-label">Complete date (Optional)</label>
+                                <div class="mb-3">
+                                   
+                                    <input type="text" name="complete_date" class="form-control" placeholder="27 oct 2022">
+                                </div>
+                                
                             </div>
+                            @error('complete_date')
+                                  <p class="text-danger">{{ $message }}</p>
+                              @enderror
                         </div>
-
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label class="form-label">Scope</label>
+                                <div class="mb-3">
+                                   
+                                    <input type="text" name="scope" class="form-control" placeholder="Design and Build">
+                                </div>
+                              
+                            </div>
+                            @error('scope')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                        </div>
                         <div class="col-md-12">
                             <div class="mb-3">
-                                <label class="form-label">Hashtags (comma-separated)</label>
-                                <input type="text" name="hashtags" class="form-control" placeholder="E.g., #Health, #Game, #Tour">
+                                <label class="form-label">Location</label>
+                                <input type="text" name="location" class="form-control" placeholder="Rangpur">
                             </div>
+                            @error('location')
+                                  <p class="text-danger">{{ $message }}</p>
+                              @enderror
                         </div>
                     </div>
+
+                    
                 </div>
                 <div class="card-footer text-end">
-                    <button type="submit" class="btn btn-primary"><span><x-backend.svg.plus-icon/></span>Post Blog</button>
+                    <button type="submit" class="btn btn-primary"><span></span>Add</button>
                 </div>
             </form>
         </div>
 
         <div class="col-md-4">
-          <form action="{{ route('category.store') }}" method="post">
+          <form action="{{ route('portfolioType.store') }}" method="post">
               @csrf
               <div class="card-body"><br><br>
-                  <h2 class="card-title" style="text-align: center">Category Form</h2>
+                  <h2 class="card-title" style="text-align: center">Type Form</h2>
                   <div class="mb-3">
                       <label class="form-label">Type Name</label>
                       <input type="text" name="type_name" class="form-control" placeholder="Type Name">
@@ -122,7 +165,7 @@
                   </div>
               </div>
               <div class="card-footer text-end">
-                  <button type="submit" class="btn btn-primary"><span><x-backend.svg.plus-icon/></span>Add Category</button>
+                  <button type="submit" class="btn btn-primary"><span></span>Add</button>
               </div>
           </form>
       </div>
@@ -175,5 +218,7 @@
     });
 </script>
 
+
+<script src="{{asset ('./dist/libs/dropzone/dist/dropzone-min.js?1692870487') }}" defer></script>
 
 @endsection

@@ -178,7 +178,7 @@
                         </span>
                      
                        
-                        <a class="dropdown-item" href="{{ route('blog.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
+                        <a class="dropdown-item" href="{{ route('portfolio.create') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
                           <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
                        
                           </span>

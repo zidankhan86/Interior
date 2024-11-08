@@ -3,9 +3,9 @@
     <h2 style="text-align: center">Blog Table</h2>
     <div style="text-align: right">
 
-        <a href="{{ route('category.list') }}" class="btn btn-primary" style="margin-right: 10px;"><span><x-backend.svg.plus-icon/></span>Category</a>
+        <a href="{{ route('category.list') }}" class="btn btn-primary" style="margin-right: 10px;"><span></span>Category</a>
 
-        <a href="{{ route('blog.form') }}" class="btn btn-info" style="margin-right: 10px;"><span><x-backend.svg.plus-icon/></span>Add Blog</a>
+        <a href="{{ route('blog.form') }}" class="btn btn-info" style="margin-right: 10px;"><span></span>Add Blog</a>
 
     </div>
     <br><br>

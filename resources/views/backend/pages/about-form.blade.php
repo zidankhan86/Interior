@@ -69,7 +69,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-end">
-                    <button type="submit" class="btn btn-primary"><span><x-backend.svg.plus-icon/></span>Add</button>
+                    <button type="submit" class="btn btn-primary"><span></span>Add</button>
                 </div>
             </form>
         </div>

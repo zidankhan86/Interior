@@ -11,20 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('projects', function (Blueprint $table) {
+        Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_name_id')->constrained('project_categories')->onDelete('cascade');
+            $table->foreignId('type_name_id')->constrained('portfolio_types')->onDelete('cascade');
             $table->string('title');
             $table->string('slug');
             $table->string('thumbnail');
             $table->text('images');
-            $table->longText('description');
+            $table->longText('location');
+            $table->longText('scope');
+            $table->longText('complete_date')->nullable();
             $table->longText('portfolio_description')->nullable();
             $table->boolean('status')->default('1');
-            $table->boolean('featured')->default('1');
             $table->timestamp('created_at')->useCurrent();
 	        $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
-            
         });
     }
 
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('projects');
+        Schema::dropIfExists('portfolios');
     }
 };

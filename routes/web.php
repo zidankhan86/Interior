@@ -16,9 +16,11 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\LeaveCommentController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\TrandingBlogController;
+use App\Http\Controllers\PortfolioTypeController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\frontend\ProjectController;
 use App\Http\Controllers\SocialMediaShareController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\SocialShareButtonsController;
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
@@ -51,7 +53,8 @@ Route::group(['middleware'=>'auth'],function(){
 //Frontend
 
 //Pages
-Route::get('/project',[ProjectController::class,'index'])->name('project');
+Route::get('/project',[PortfolioController::class,'portfolio'])->name('portfolio.page');
+Route::get('/project/details/{id}',[PortfolioController::class,'portfolio_details'])->name('portfolio.details');
 Route::get('/blog',[BlogController::class,'index'])->name('blog');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
@@ -75,6 +78,8 @@ Route::post('/subscribe', [NewsletterSubscriptionController::class, 'store'])->n
 Route::group(['middleware'=>'auth','prefix'=>'app'],function(){
 
 //Pages
+Route::resource('portfolio',PortfolioController::class);
+Route::resource('portfolioType',PortfolioTypeController::class);
 Route::get('/',[HomeController::class,'index'])->name('app');
 Route::get('/logout',[TestController::class,'logout'])->name('logout');
 Route::get('/form',[TestController::class,'form'])->name('form');

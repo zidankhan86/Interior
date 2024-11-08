@@ -8,6 +8,7 @@
 <script src="{{asset ('./dist/js/demo.min.js?1684106062') }}" defer></script>
 
             <script src="{{ asset('js/dropify.js') }}"></script>
+            <script src="{{asset ('./dist/libs/dropzone/dist/dropzone-min.js?1692870487') }}" defer></script>
               
 <script>
   // @formatter:off

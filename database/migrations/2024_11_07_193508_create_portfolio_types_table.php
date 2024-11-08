@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project_categories', function (Blueprint $table) {
+        Schema::create('portfolio_types', function (Blueprint $table) {
             $table->id();
             $table->string('type_name');
+            $table->string('slug');
+            $table->boolean('status')->default('1');
             $table->timestamps();
         });
     }
@@ -23,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project_categories');
+        Schema::dropIfExists('portfolio_types');
     }
 };
