@@ -11,8 +11,10 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HashtagController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\LeaveCommentController;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\TrandingBlogController;
@@ -20,7 +22,6 @@ use App\Http\Controllers\PortfolioTypeController;
 use App\Http\Controllers\ChangePasswordController;
 use App\Http\Controllers\frontend\ProjectController;
 use App\Http\Controllers\SocialMediaShareController;
-use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\SocialShareButtonsController;
 use App\Http\Controllers\NewsletterSubscriptionController;
 use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
@@ -47,18 +48,18 @@ Route::post('/store',[AuthController::class,'store'])->name('store');
 //Register
 Route::get('/registration',[RegistrationController::class,'index'])->name('registration');
 Route::post('/registration/store',[RegistrationController::class,'store'])->name('registration.store');
-
-
-Route::group(['middleware'=>'auth'],function(){
-//Frontend
-
 //Pages
 Route::get('/project',[PortfolioController::class,'portfolio'])->name('portfolio.page');
 Route::get('/project/details/{id}',[PortfolioController::class,'portfolio_details'])->name('portfolio.details');
-Route::get('/blog',[BlogController::class,'index'])->name('blog');
 Route::get('/about',[AboutController::class,'index'])->name('about');
+Route::get('/services',[ServiceController::class,'index'])->name('services');
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::post('/contact-store',[ContactController::class,'store'])->name('contact.store');
+Route::group(['middleware'=>'auth'],function(){
+//Frontend
+//Pages
+
+Route::get('/blog',[BlogController::class,'index'])->name('blog');
 Route::get('/category',[CategoryController::class,'index'])->name('category');
 Route::get('/category-wise-blog/{id}',[CategoryController::class,'CategoryWiseBlog'])->name('cat.wise.blog');
 Route::get('/trendingBlog/{id}',[TrandingBlogController::class,'index'])->name('trending');

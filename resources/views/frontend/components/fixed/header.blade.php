@@ -12,7 +12,7 @@
               <li class="nav-item active"><a href="{{ route('home') }}" class="nav-link">Home</a></li>
          
               <li class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+                <a href="{{ route('services') }}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Services
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
