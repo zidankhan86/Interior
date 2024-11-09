@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class category-icon extends Component
+class message_icon extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class category-icon extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.backend.svg.category-icon');
+        return view('components.backend.svg.message_icon');
     }
 }

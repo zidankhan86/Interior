@@ -49,8 +49,5 @@ class LikeButton extends Component
         return Like::where('blog_id', $this->blogId)->count();
     }
 
-    public function render()
-    {
-        return view('livewire.like-button');
-    }
+    
 }

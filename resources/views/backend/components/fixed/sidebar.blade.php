@@ -164,7 +164,7 @@
                     <div class="dropdown-menu-column">
                       <a class="dropdown-item" href="{{ route('portfolioType.index') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
                         <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                          <x-backend.svg.category-icon />
+                          <x-backend.svg.category_icon />
                         </span>
                         <span class="nav-link-title">
                           Category
@@ -199,7 +199,7 @@
                   <div class="dropdown-menu-column">
                     <a class="dropdown-item" href="{{ route('category.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
                       <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                        <x-backend.svg.category-icon />
+                        <x-backend.svg.category_icon />
                       </span>
                       <span class="nav-link-title">
                         Category

@@ -2,16 +2,14 @@
 
 @section('content')
 
-@include('frontend.components.fixed.blogHeader')
-
 
 <!-- Featured Section Begin -->
-<br><section class="featured spad">
+<br><section class="featured spad" style="padding-top: 100px; padding-bottom: 50px;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="section-title">
-                    <h2>Search Blogs </h2>
+                    <h2>Search Results</h2>
                 </div>
             </div>
         </div>
@@ -39,7 +37,18 @@
 
              @endforeach
              @else
-             <p class="alert alert-danger">No Blog Match.</p>
+             <div class="d-flex align-items-center justify-content-center vh-100">
+                <div class="no-results-message text-center">
+                    <div class="alert alert-warning py-4">
+                        <h4 class="alert-heading">No Results Found</h4>
+                        <p>We couldn't find any blogs matching "<strong>{{ request('search_key') }}</strong>".</p>
+                        <p class="mb-0">Try using different keywords or explore our latest blogs.</p>
+                        <a href="{{ route('blog') }}" class="btn btn-primary mt-3">Browse All Blogs</a>
+                    </div>
+                </div>
+            </div>
+            
+            
          @endif
 
 

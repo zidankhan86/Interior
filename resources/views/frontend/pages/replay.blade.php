@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('frontend.components.fixed.blogHeader')
+
  <!-- Reply form -->
  <div class="container">
  <div class="reply-form">

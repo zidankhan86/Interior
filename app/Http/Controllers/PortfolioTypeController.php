@@ -29,17 +29,6 @@ class PortfolioTypeController extends Controller
         return back()->withSuccess(['success' => 'Category Create Success!']);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $portfolioType = PortfolioType::findOrFail($id);

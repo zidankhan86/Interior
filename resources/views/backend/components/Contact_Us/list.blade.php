@@ -24,7 +24,7 @@
                                 <td>{{ $item->name }}</td>
                                 <td>{{ $item->email }}</td>
                                 <td>
-                                    <a href="{{ route('contact.view', $item->id) }}"><x-backend.svg.eye-icon /></i> </a>
+                                    <a href="{{ route('contact.view', $item->id) }}"><x-backend.svg.eye_icon /></i> </a>
                                 </td>
 
                             </tr>

@@ -1,220 +1,137 @@
-<style>
-    .image-container {
-        margin-bottom: 20px;
-    }
-</style>
 
-<section class="single-block-wrapper section-padding">
+<section class="single-block-wrapper section-padding" style="padding-top: 100px; padding-bottom: 50px;">
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+            <div class="col-lg-8">
+                <!-- Dynamic Blog Post -->
                 <div class="single-post">
                     <div class="post-header mb-5 text-center">
-                        <div class="meta-cat">
-                            <a class="post-category font-extra text-color text-uppercase font-sm letter-spacing-1"
-                                href="#">{{ $blogDetails->Category->type_name }}</a>
-
-                        </div>
-                        <h2 class="post-title mt-2">
-                            {{ $blogDetails->title }}
-                        </h2>
-
+                        <h2 class="post-title">{{ $blogDetails->title }}</h2>
                         <div class="post-meta">
-                            <span class="text-uppercase font-sm letter-spacing-1 mr-3">by
-                                {{ $blogDetails->user->name }}</span>
-                            <span
-                                class="text-uppercase font-sm letter-spacing-1">{{ $blogDetails->created_at->format('Y-M-d') }}</span>
+                            <span class="text-uppercase font-sm letter-spacing-1 mr-3">by {{ $blogDetails->user->name }}</span>
+                            <span class="text-uppercase font-sm letter-spacing-1">{{ $blogDetails->created_at->format('Y-M-d') }}</span>
                         </div>
                         <div class="post-featured-image mt-5">
-                            <img src="{{ url('/uploads/' . $blogDetails->thumbnail) }}" class="img-fluid w-100"
-                                alt="featured-image">
+                            <img src="{{ url('/uploads/' . $blogDetails->thumbnail) }}" class="img-fluid w-100" alt="featured-image">
                         </div>
                     </div>
                     <div class="post-body">
                         <div class="entry-content">
-                            <p> {!! $blogDetails->description !!} </p>
-
+                            <p>{!! $blogDetails->description !!}</p>
 
                             <div class="row">
+                                @foreach (unserialize($blogDetails->post_image) as $image)
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="image-container">
+                                            <img src="{{ url('/uploads/' . $image) }}" alt="post-ads" class="img-fluid mr-4 w-100">
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
 
-                                <div class="row">
-                                    @foreach (unserialize($blogDetails->post_image) as $image)
-                                        <div class="col-lg-6 col-md-6">
-                                            <div class="image-container">
-                                                <img src="{{ url('/uploads/' . $image) }}" alt="post-ads"
-                                                    class="img-fluid mr-4 w-100">
+                            <p>{!! $blogDetails->post_description !!}</p>
+                        </div>
+
+                        <!-- Comments Section -->
+                        <div class="comment-area my-5">
+                            <h3 class="mb-4 text-center">
+                                {{ $totalComment > 0 ? $totalComment . ' Comments' : '0 Comments' }}
+                            </h3>
+
+                            @if ($comments->count() > 0)
+                                @foreach ($comments as $comment)
+                                    <div class="comment-area-box media">
+                                        <img alt="" height="50" width="50" src="{{ url('/uploads/', auth()->user()->image) }}" class="img-fluid float-left mr-3 mt-2">
+                                        <div class="media-body ml-4">
+                                            <h4 class="mb-0">{{ $comment->user->name }}</h4>
+                                            <span class="date-comm font-sm text-capitalize text-color"><i class="ti-time mr-2"></i>{{ $comment->created_at->format('F j, Y') }}</span>
+                                            <div class="comment-content mt-3">
+                                                <p>{{ $comment->content }}</p>
                                             </div>
                                         </div>
-                                    @endforeach
-                                </div>
-
-                            </div>
-
-                            <p> {!! $blogDetails->post_description !!} </p>
-
-
-                        </div>
-
-                        {{-- Hash Tag --}}
-                        @include('frontend.components.blog.hashTag')
-
-
-                        <div
-                            class="tags-share-box center-box d-flex text-center justify-content-between border-top border-bottom py-3">
-
-                            <span class="single-comment-o"><i class="fa fa-comment-o"></i>
-                                <h3 class="mb-4 text-center">
-                                    @if ($totalComment > 0)
-                                        {{ $totalComment }} Comments
-                                    @else
-                                        0 Comments
-                                    @endif
-                                </h3>
-                            </span>
-
-
-                            {{-- Like --}}
-                            <livewire:like-button :blog-id="$blogDetails->id" />
-
-
-
-                            <div class="list-posts-share">
-                                <div class="container">
-                                    {!! $shareComponent !!}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="post-author d-flex my-5">
-
-                    <div class="author-img">
-                        <img alt="" src="{{ url('/uploads/' . $blogDetails->thumbnail) }}"
-                            class="avatar avatar-100 photo" width="100" height="100">
-                    </div>
-
-                    <div class="author-content pl-4">
-                        <h4 class="mb-3"><a href="#" title="" rel="author"
-                                class="text-capitalize">{{ $blogDetails->title }}</a></h4>
-                        <p>Hey there. This blog written by {{ $blogDetails->user->name }}.</p>
-
-                        <x-frontend.social-share />
-
-                        <body>
-                            <div class="container">
-                                {!! $shareComponent !!}
-                            </div>
-                        </body>
-
-                        </html>
-                    </div>
-
-
-                </div>
-
-
-
-                <nav class="post-pagination clearfix border-top border-bottom py-4">
-                    @if ($previous)
-                        <div class="prev-post">
-                            <a href="{{ route('blog.view', ['id' => $previous->id]) }}">
-                                <span class="text-uppercase font-sm letter-spacing">Previous</span>
-                                <h4 class="mt-3">{{ $previous->title }}</h4>
-                            </a>
-                        </div>
-                    @endif
-
-                    @if ($next)
-                        <div class="next-post">
-                            <a href="{{ route('blog.view', ['id' => $next->id]) }}">
-                                <span class="text-uppercase font-sm letter-spacing">Next</span>
-                                <h4 class="mt-3">{{ $next->title }}</h4>
-                            </a>
-                        </div>
-                    @endif
-                </nav>
-
-
-
-
-                <div class="comment-area my-5">
-
-                    <h3 class="mb-4 text-center">
-                        @if ($totalComment > 0)
-                            {{ $totalComment }} Comments
-                        @else
-                            0 Comments
-                        @endif
-                    </h3>
-
-
-                    <form action="{{ route('comments.store') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="blog_id" value="{{ $blogDetails->id }}">
-                        <div class="form-group">
-                            <label for="content">Comment</label>
-                            <textarea name="content" id="content" rows="4" class="form-control" placeholder="Write Comment .."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Comment</button>
-                    </form> <br>
-
-                    @if ($comments->count() > 0)
-                        @foreach ($comments as $comment)
-                            <div class="comment-area-box media">
-                                <img alt="" height="50" width="50"
-                                    src="{{ url('/uploads/', auth()->user()->image) }}"
-                                    class="img-fluid float-left mr-3 mt-2">
-                                <div class="media-body ml-4">
-                                    <h4 class="mb-0">{{ $comment->user->name }}</h4>
-                                    <span class="date-comm font-sm text-capitalize text-color"><i
-                                            class="ti-time mr-2"></i>{{ $comment->created_at->format('F j, Y') }}</span>
-                                    <div class="comment-content mt-3">
-                                        <p>{{ $comment->content }}</p>
                                     </div>
-                                    <div class="comment-meta mt-4 mt-lg-0 mt-md-0">
-                                        {{-- <a href="{{ route('reply',$comment->id) }}" class="text-underline reply-link" data-comment-id="{{ $comment->id }}">Reply</a> --}}
-                                    </div>
+                                @endforeach
+                            @else
+                                <p>No comments yet.</p>
+                            @endif
+                            {{ $comments->links() }}
+                        </div>
+
+                        <!-- Comment Form -->
+                        <div class="comment-form-wrap pt-5">
+                            <h3 class="mb-5">Leave a comment</h3>
+                            <form action="{{ route('comments.store') }}" method="POST" class="p-5 bg-light">
+                                @csrf
+                                <input type="hidden" name="blog_id" value="{{ $blogDetails->id }}">
+                                <div class="form-group">
+                                    <label for="content">Comment</label>
+                                    <textarea name="content" id="content" rows="4" class="form-control" placeholder="Write Comment .."></textarea>
                                 </div>
-                            </div>
-                        @endforeach
-                    @else
-                        <p>No comments yet.</p>
-                    @endif
-                    {{ $comments->links() }}
-
-
-
-
+                                <button type="submit" class="btn btn-primary">Comment</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Related Posts -->
                 <div class="related-posts-block mt-5">
-                    <h3 class="news-title mb-4 text-center">
-                        You May Also Like
-                    </h3>
+                    <h3 class="news-title mb-4 text-center">You May Also Like</h3>
                     <div class="row">
-
                         @foreach ($youMayLike as $relatedPost)
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="post-block-wrapper mb-4 mb-lg-0">
                                     <a href="{{ route('blog.view', $relatedPost->id) }}">
-                                        <img class="img-fluid" src="{{ asset('/uploads/' . $relatedPost->thumbnail) }}"
-                                            alt="post-thumbnail">
+                                        <img class="img-fluid" src="{{ asset('/uploads/' . $relatedPost->thumbnail) }}" alt="post-thumbnail">
                                     </a>
                                     <div class="post-content mt-3">
                                         <h5>
-                                            <a
-                                                href="{{ route('blog.view', $relatedPost->id) }}">{{ $relatedPost->title }}</a>
+                                            <a href="{{ route('blog.view', $relatedPost->id) }}">{{ $relatedPost->title }}</a>
                                         </h5>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
-
-
                     </div>
                 </div>
-                {{-- Leave Comment --}}
-                @include('frontend.components.blog.leaveComment')
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4 sidebar">
+                <div class="sidebar-box">
+                    <form action="{{ route('blog.search') }}" method="GET" class="search-form">
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                name="search_key" 
+                                class="form-control" 
+                                placeholder="Type a keyword and hit enter" 
+                                value="{{ request('search_key') }}">
+                            <button type="submit">
+                                <i class="icon icon-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                    
+                    
+                </div>
+                <div class="sidebar-box">
+                    <h3>Popular Articles</h3>
+                    @foreach ($youMayLike as $relatedPost)
+               
+
+                    <div class="block-21 mb-4 d-flex">
+                        <a class="blog-img mr-4" style="background-image: url({{ asset('/uploads/' . $relatedPost->thumbnail) }});"></a>
+                        <div class="text">
+                            <h3 class="heading"><a href="{{ route('blog.view', $relatedPost->id) }}">{{ $relatedPost->title }}</a></h3>
+                            <div class="meta">
+                                <div><a href="#"><span class="icon-calendar"></span> {{ $relatedPost->created_at->format('Y-M-d') }}</a></div>
+                                <div><a href="#"><span class="icon-person"></span> {{ $relatedPost->user->name }}</a></div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+                </div>
             </div>
         </div>
     </div>
