@@ -54,7 +54,7 @@
                                 <td>
                                     <div class="btn-list flex-nowrap">
                                         <a href="{{ route('portfolioType.edit',$category->id) }}" class="btn">Edit</a>
-                                        <a href="#" class="btn">delete</a>
+                                        <a href="{{ route('portfolioType.delete',$category->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger" class="btn">delete</a>
                                     </div>
                                 </td>
                             </tr>

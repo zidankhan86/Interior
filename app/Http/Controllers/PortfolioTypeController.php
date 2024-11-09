@@ -63,8 +63,11 @@ class PortfolioTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete($id)
     {
-        //
+        $delete = PortfolioType::find($id);
+        $delete->delete();
+        return redirect()->back()->with('warning','Type name has been deleted successfully');
+    
     }
 }

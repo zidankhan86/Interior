@@ -82,6 +82,7 @@ Route::group(['middleware'=>'auth','prefix'=>'app'],function(){
 Route::resource('portfolio',PortfolioController::class);
 Route::get('/delete/{id}',[PortfolioController::class,'delete'])->name('portfolio.delete');
 Route::resource('portfolioType',PortfolioTypeController::class);
+Route::get('/delete/{id}',[PortfolioTypeController::class,'delete'])->name('portfolioType.delete');
 Route::get('/',[HomeController::class,'index'])->name('app');
 Route::get('/logout',[TestController::class,'logout'])->name('logout');
 Route::get('/form',[TestController::class,'form'])->name('form');
