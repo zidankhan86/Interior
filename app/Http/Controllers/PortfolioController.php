@@ -32,8 +32,8 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-
-        return view('backend.components.portfolio.form');
+            $portfolios  = Portfolio::paginate(20);
+        return view('backend.components.portfolio.list',compact('portfolios'));
     }
 
     /**
@@ -111,24 +111,72 @@ class PortfolioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $portfolio = Portfolio::findOrFail($id);
+        $types = PortfolioType::all();
+        return view('backend.components.portfolio.edit',compact('types','portfolio'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+
+        $validator = Validator::make($request->all(), [
+
+            'thumbnail'               => 'required', 
+            'images.*'                  => 'required', 
+          
+        ]);
+        
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        
+        $update = Portfolio::find($id);
+    
+        $imageName = null;
+        $images = [];
+
+        if ($request->hasFile('thumbnail')) {
+               $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
+               $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
+        }
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+               $imageUniqueName = time() . '_' . $image->getClientOriginalName();
+               $image->storeAs('uploads', $imageUniqueName, 'public');
+               $images[] = $imageUniqueName;
+            }
+        }
+    
+        $update->update([
+            "type_name_id"            => $request->type_name_id,
+            "title"                   => $request->title,
+            "slug"                    => Str::slug($request->title), 
+            "thumbnail"               => $imageName,
+            "images"                  => serialize($images),
+            "location"                => $request->location,
+            "scope"                   => $request->scope,
+            "complete_date"           => $request->complete_date,
+            "portfolio_description"   => $request->portfolio_description,
+            "status"                  => $request->status,
+        ]);
+    
+        return back()->with('success', 'Portfolio Updated');
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete($id)
     {
-        //
+       $delete = Portfolio::find($id);
+       $delete->delete();
+       return redirect()->route('portfolio.index')->with('warning','Portfolio has been deleted ');
     }
 }

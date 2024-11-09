@@ -80,6 +80,7 @@ Route::group(['middleware'=>'auth','prefix'=>'app'],function(){
 
 //Pages
 Route::resource('portfolio',PortfolioController::class);
+Route::get('/delete/{id}',[PortfolioController::class,'delete'])->name('portfolio.delete');
 Route::resource('portfolioType',PortfolioTypeController::class);
 Route::get('/',[HomeController::class,'index'])->name('app');
 Route::get('/logout',[TestController::class,'logout'])->name('logout');

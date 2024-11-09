@@ -13,7 +13,8 @@ class PortfolioTypeController extends Controller
      */
     public function index()
     {
-        //
+        $categories = PortfolioType::all();
+        return view('backend.components.portfolio.category.list',compact('categories'));
     }
 
 
@@ -39,17 +40,24 @@ class PortfolioTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $portfolioType = PortfolioType::findOrFail($id);
+        return view('backend.components.portfolio.category.edit', compact('portfolioType'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request,$id)
     {
-        //
+        $portfolioType = PortfolioType::findOrFail($id);
+        $portfolioType->update([
+            'type_name' => $request->type_name,
+            'status' => $request->status,
+        ]);
+
+        return redirect()->route('portfolioType.index')->with('success','Type name updated successfully');
     }
 
     /**

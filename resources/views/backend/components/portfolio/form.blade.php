@@ -40,16 +40,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12">
-                            <div class="mb-3">
-                                <label class="form-label">Description</label>
-                                <textarea id="editor" rows="5" name="description" class="form-control" placeholder="Here can be your description"></textarea>
-                            </div>
-                            @error('description')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-
+                       
                         <div class="col-md-12">
                             <div class="mb-3">
                                 <label class="form-label">Choose Thumbnail</label>

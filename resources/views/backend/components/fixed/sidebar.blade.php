@@ -162,16 +162,16 @@
             <div class="dropdown-menu">
                 <div class="dropdown-menu-columns">
                     <div class="dropdown-menu-column">
-                      <a class="dropdown-item" href="{{ route('category.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
+                      <a class="dropdown-item" href="{{ route('portfolioType.index') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
                         <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                          <x-backend.svg.service-icon />
+                          <x-backend.svg.category-icon />
                         </span>
                         <span class="nav-link-title">
                           Category
                         </span>
                      
                        
-                        <a class="dropdown-item" href="{{ route('portfolio.create') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
+                        <a class="dropdown-item" href="{{ route('portfolio.index') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
                           <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
                             <x-backend.svg.service-icon />
                           </span>
