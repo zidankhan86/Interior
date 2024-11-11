@@ -20,16 +20,9 @@
                               <td data-label="Name">{{ $category->type_name }}</td>
                               <td>
                                   <div class="btn-list flex-nowrap">
-                                      <a href="#" class="btn">Edit</a>
-                                      <div class="dropdown">
-                                          <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
-                                              Actions
-                                          </button>
-                                          <div class="dropdown-menu dropdown-menu-end">
-                                              <a class="dropdown-item" href="#">Action</a>
-                                              <a class="dropdown-item" href="#">Another action</a>
-                                          </div>
-                                      </div>
+                                      <a href="{{ route('category.edit',$category->id) }}" class="btn">Edit</a>
+                                      <a href="#" class="btn">Delete</a>
+                                     
                                   </div>
                               </td>
                           </tr>

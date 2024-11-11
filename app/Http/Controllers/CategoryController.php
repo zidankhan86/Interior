@@ -71,10 +71,17 @@ class CategoryController extends Controller
                 return view('backend.pages.categoryForm');
             }
 
+            public function edit($id)
+            {
+                $categories = Category::find($id);
+                return view('backend.components.category.categoryEdit',compact('categories'));
+            }
+
+
 
       public function store(Request $request)
       {
-        try {
+       
              $request->validate([
                 'type_name'     => 'required|string',
                 'status'        => 'required',
@@ -87,10 +94,7 @@ class CategoryController extends Controller
             ]);
 
             return back()->withSuccess(['success' => 'Category Create Success!']);
-             }
-        catch (\Exception $e) {
-            return back()->withErrors(['error' => 'Category creation failed: ' . $e->getMessage()]);
-            }
+            
 
     }
 
@@ -101,5 +105,16 @@ class CategoryController extends Controller
             return view('backend.pages.categoryList',compact('categories'));
             }
 
+
+            public function update(Request $request,$id)
+            {
+                $categories = Category::find($id);
+            $categories->update([
+                "type_name"     => $request->type_name,
+                "status"        => $request->status,
+            ]);
+
+            return redirect()->back()->with('success','Category updated');
+            }
 
 }
