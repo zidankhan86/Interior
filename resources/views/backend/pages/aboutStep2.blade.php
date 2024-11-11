@@ -11,24 +11,24 @@
 </style>
 <div class="container">
     <div class="col-12">
-        <form action="{{ route('about.storeStep1') }}" method="post">
+        <form action="{{ route('about.storeStep2', $about->id) }}" method="post">
             @csrf
             <div class="card-body">
-                <h3 class="card-title">Step 1</h3>
+                <h3 class="card-title">Step 2</h3>
                 <div class="row row-cards">
                     <div class="col-md-12">
                         <div class="mb-3">
-                            <label class="form-label"> Name</label>
-                            <input type="text" name="title" class="form-control" placeholder="Type Name">
-                            @if ($errors->has('title'))
-                                <p class="text-danger">{{ $errors->first('description') }}</p>
+                            <label class="form-label"> Icon</label>
+                            <input type="text" name="icon" class="form-control" placeholder="Type Name">
+                            @if ($errors->has('icon'))
+                                <p class="text-danger">{{ $errors->first('icon') }}</p>
                             @endif
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Type Name</label>
-                            <input type="text" name="description" class="form-control" placeholder="Type Name">
-                            @if ($errors->has('description'))
-                                <p class="text-danger">{{ $errors->first('description') }}</p>
+                            <label class="form-label">Icon Title</label>
+                            <input type="text" name="icon_title" class="form-control" placeholder="Type Name">
+                            @if ($errors->has('icon_title'))
+                                <p class="text-danger">{{ $errors->first('icon_title') }}</p>
                             @endif
                         </div>
                     </div>
@@ -40,7 +40,6 @@
         </form>
     </div>
 </div>
-
 
 {{-- DROPIFY --}}
 <!-- Include jQuery -->

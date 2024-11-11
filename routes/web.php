@@ -96,8 +96,21 @@ Route::get('/category-edit/{id}',[CategoryController::class,'edit'])->name('cate
 Route::post('/category-update/{id}',[CategoryController::class,'update'])->name('category.update');
 Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
 Route::get('/blog-form',[BlogController::class,'form'])->name('blog.form');
-Route::get('/about-form',[AboutController::class,'about_form'])->name('about.form');
-Route::post('/about-store',[AboutController::class,'store'])->name('about.store');
+
+
+
+// routes/web.php
+// Routes for displaying each step
+Route::get('about/step1', [AboutController::class, 'showStep1'])->name('about.form');
+Route::get('about/step2/{about}', [AboutController::class, 'showStep2'])->name('about.showStep2');
+Route::get('about/step3/{about}', [AboutController::class, 'showStep3'])->name('about.showStep3');
+
+// Routes for submitting each step
+Route::post('about/step1', [AboutController::class, 'storeStep1'])->name('about.storeStep1');
+Route::post('about/step2/{about}', [AboutController::class, 'storeStep2'])->name('about.storeStep2');
+Route::post('about/step3/{about}', [AboutController::class, 'storeStep3'])->name('about.storeStep3');
+
+
 //profile
 Route::get('/profile',[ProfileController::class,'index'])->name('profile');
 //post

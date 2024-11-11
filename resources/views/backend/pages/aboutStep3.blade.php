@@ -11,36 +11,35 @@
 </style>
 <div class="container">
     <div class="col-12">
-        <form action="{{ route('about.storeStep1') }}" method="post">
+        <form action="{{ route('about.storeStep3', $about->id) }}" method="post">
             @csrf
             <div class="card-body">
-                <h3 class="card-title">Step 1</h3>
+                <h3 class="card-title">Step 3</h3>
                 <div class="row row-cards">
                     <div class="col-md-12">
                         <div class="mb-3">
-                            <label class="form-label"> Name</label>
-                            <input type="text" name="title" class="form-control" placeholder="Type Name">
-                            @if ($errors->has('title'))
-                                <p class="text-danger">{{ $errors->first('description') }}</p>
+                            <label class="form-label"> Brand Name</label>
+                            <input type="text" name="brand_name" class="form-control" placeholder="Type Name">
+                            @if ($errors->has('brand_name'))
+                                <p class="text-danger">{{ $errors->first('brand_name') }}</p>
                             @endif
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Type Name</label>
-                            <input type="text" name="description" class="form-control" placeholder="Type Name">
-                            @if ($errors->has('description'))
-                                <p class="text-danger">{{ $errors->first('description') }}</p>
+                            <label class="form-label">Brand Image</label>
+                            <input type="file" class="dropify" id="dropify" name="thumbnail" class="form-control" placeholder="Type Name">
+                            @if ($errors->has('thumbnail'))
+                                <p class="text-danger">{{ $errors->first('thumbnail') }}</p>
                             @endif
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card-footer text-end">
-                <button type="submit" class="btn btn-primary"><span></span>Next</button>
+                <button type="submit" class="btn btn-primary"><span></span>Submit</button>
             </div>
         </form>
     </div>
 </div>
-
 
 {{-- DROPIFY --}}
 <!-- Include jQuery -->

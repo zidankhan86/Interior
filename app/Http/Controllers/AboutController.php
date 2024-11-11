@@ -19,10 +19,85 @@ class AboutController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function about_form()
+    public function showStep1()
     {
         return view('backend.pages.about-form');
     }
+
+
+    public function showStep2(About $about)
+{
+    return view('backend.pages.aboutStep2', compact('about'));
+}
+
+public function showStep3(About $about)
+{
+    return view('backend.pages.aboutStep3', compact('about'));
+}
+
+
+
+
+    public function storeStep1(Request $request)
+    {
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+        ]);
+
+        $about = new About();
+        $about->title = $validated['title'];
+        $about->description = $validated['description'];
+        $about->save();
+
+        return redirect()->route('about.storeStep2', ['about' => $about->id]);
+    }
+
+    public function storeStep2(Request $request, About $about)
+    {
+        $validated = $request->validate([
+            'icon' => 'required|string|max:255',
+            'icon_title' => 'required|string|max:255',
+        ]);
+
+        $about->icon = $validated['icon'];
+        $about->icon_title = $validated['icon_title'];
+        $about->save();
+
+        return redirect()->route('about.storeStep3', ['about' => $about->id]);
+    }
+
+    public function storeStep3(Request $request, About $about)
+    {
+        $validated = $request->validate([
+            'brand_name' => 'required|string|max:255',
+            'thumbnail' => 'required',
+        ]);
+
+        $imageName = null;
+        $postImageNames = [];
+
+        if ($request->hasFile('thumbnail')) {
+               $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
+               $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
+        }
+
+        if ($request->hasFile('post_image')) {
+            foreach ($request->file('post_image') as $image) {
+               $imageUniqueName = time() . '_' . $image->getClientOriginalName();
+               $image->storeAs('uploads', $imageUniqueName, 'public');
+               $postImageNames[] = $imageUniqueName;
+            }
+        }
+
+        $about->brand_name = $validated['brand_name'];
+        $about->save();
+
+        return redirect()->route('about.form')->with('success', 'About created successfully!');
+    }
+
+
+
 
     /**
      * Store a newly created resource in storage.
