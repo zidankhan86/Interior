@@ -10,10 +10,11 @@
     }
 </style>
 <div class="container">
-    <div class="col-12">
+    <div class="col-8">
         <form action="{{ route('about.storeStep2', $about->id) }}" method="post">
             @csrf
-            <div class="card-body">
+            <div class="card-body"><br>
+                <h3 style="text-align: center">About Achivement</h3>
                 <h3 class="card-title">Step 2</h3>
                 <div class="row row-cards">
                     <div class="col-md-12">
@@ -29,6 +30,14 @@
                             <input type="text" name="icon_title" class="form-control" placeholder="Type Name">
                             @if ($errors->has('icon_title'))
                                 <p class="text-danger">{{ $errors->first('icon_title') }}</p>
+                            @endif
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Icon Description</label>
+                            <textarea name="icon_description" id="" cols="40" rows="5" class="form-control" placeholder="Enter description"></textarea>
+                            @if ($errors->has('icon_description'))
+                                <p class="text-danger">{{ $errors->first('icon_description') }}</p>
                             @endif
                         </div>
                     </div>

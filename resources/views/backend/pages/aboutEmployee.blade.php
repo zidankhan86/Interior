@@ -11,11 +11,11 @@
 </style>
 <div class="container">
     <div class="col-12">
-        <form action="{{ route('about.storeStep3', $about->id) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('employee.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <h3 style="text-align: center">Team</h3>
-                <h3 class="card-title">Step 3</h3>
+               
                 <div class="row row-cards">
                     <div class="col-md-12">
                         <div class="mb-3">
@@ -26,7 +26,7 @@
                             @endif
                         </div>
                         <div class="mb-3">
-                            <label class="form-label">Brand Image</label>
+                            <label class="form-label">Employee Image</label>
                             <input type="file" class="dropify" id="dropify" name="thumbnail" class="form-control" placeholder="Type Name">
                             @if ($errors->has('thumbnail'))
                                 <p class="text-danger">{{ $errors->first('thumbnail') }}</p>

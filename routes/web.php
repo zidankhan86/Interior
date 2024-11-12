@@ -101,14 +101,18 @@ Route::get('/blog-form',[BlogController::class,'form'])->name('blog.form');
 
 // routes/web.php
 // Routes for displaying each step
+Route::get('about/list', [AboutController::class, 'list'])->name('about.list');
+
 Route::get('about/step1', [AboutController::class, 'showStep1'])->name('about.form');
 Route::get('about/step2/{about}', [AboutController::class, 'showStep2'])->name('about.showStep2');
-Route::get('about/step3/{about}', [AboutController::class, 'showStep3'])->name('about.showStep3');
+Route::get('about/brand', [AboutController::class, 'brand'])->name('about.brand');
+Route::get('about/employee', [AboutController::class, 'employee'])->name('about.employee');
 
 // Routes for submitting each step
 Route::post('about/step1', [AboutController::class, 'storeStep1'])->name('about.storeStep1');
 Route::post('about/step2/{about}', [AboutController::class, 'storeStep2'])->name('about.storeStep2');
-Route::post('about/step3/{about}', [AboutController::class, 'storeStep3'])->name('about.storeStep3');
+Route::post('about/employee', [AboutController::class, 'employee'])->name('employee.store');
+Route::post('about/brand', [AboutController::class, 'brand'])->name('brand.store');
 
 
 //profile

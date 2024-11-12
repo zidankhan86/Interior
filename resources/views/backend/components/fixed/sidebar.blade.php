@@ -220,7 +220,7 @@
           </div>
       </li>
           <li class="nav-item ">
-            <a class="nav-link" href="{{ route('about.form') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
+            <a class="nav-link" href="{{ route('about.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
               <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
                 <x-backend.svg.about-icon />
               </span>

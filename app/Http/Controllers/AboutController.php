@@ -16,6 +16,24 @@ class AboutController extends Controller
         return view('frontend.pages.about');
     }
 
+
+    public function employee()
+    {
+        return view('backend.pages.aboutBrand');
+    }
+
+
+    public function brand()
+    {
+        return view('backend.pages.aboutEmployee');
+    }
+
+    public function list(){
+        $abouts = About::all();
+
+        return view('backend.pages.aboutList',compact('abouts'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -58,46 +76,18 @@ public function showStep3(About $about)
         $validated = $request->validate([
             'icon' => 'required|string|max:255',
             'icon_title' => 'required|string|max:255',
+            'icon_description' => 'required|string',
         ]);
 
         $about->icon = $validated['icon'];
         $about->icon_title = $validated['icon_title'];
+        $about->icon_description = $validated['icon_description'];
+
+        
         $about->save();
 
-        return redirect()->route('about.storeStep3', ['about' => $about->id]);
+        return redirect()->route('about.list')->with('success', 'About created successfully!');
     }
-
-    public function storeStep3(Request $request, About $about)
-    {
-        $validated = $request->validate([
-            'brand_name' => 'required|string|max:255',
-            'thumbnail' => 'required',
-        ]);
-
-        $imageName = null;
-        $postImageNames = [];
-
-        if ($request->hasFile('thumbnail')) {
-               $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
-               $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
-        }
-
-        if ($request->hasFile('post_image')) {
-            foreach ($request->file('post_image') as $image) {
-               $imageUniqueName = time() . '_' . $image->getClientOriginalName();
-               $image->storeAs('uploads', $imageUniqueName, 'public');
-               $postImageNames[] = $imageUniqueName;
-            }
-        }
-
-        $about->brand_name = $validated['brand_name'];
-        $about->save();
-
-        return redirect()->route('about.form')->with('success', 'About created successfully!');
-    }
-
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -152,35 +142,6 @@ public function showStep3(About $about)
               }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(About $about)
-    {
-        //
-    }
+   
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(About $about)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, About $about)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(About $about)
-    {
-        //
-    }
 }

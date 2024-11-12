@@ -20,8 +20,8 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->string('icon')->nullable();
             $table->string('icon_title')->nullable();
-            $table->string('brand_name')->nullable();
-            $table->boolean('status')->default('1')->nullable();
+            $table->string('icon_description')->nullable();
+            $table->string('employee_name')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
