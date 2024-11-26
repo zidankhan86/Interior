@@ -15,8 +15,8 @@ class AboutController extends Controller
      */
     public function index()
     {
-       
-        return view('frontend.pages.about');
+       $employees = AboutEmployee::all();
+        return view('frontend.pages.about',compact('employees'));
     }
 
 
@@ -149,31 +149,29 @@ class AboutController extends Controller
          $request->validate([
             'employee_name'             => 'required',
             'thumbnail'         => 'required',
-            
+            'about_employee'         => 'required',
+            'position'         => 'required',
           
             ]);
 
             $imageName = null;
-           
 
             if ($request->hasFile('thumbnail')) {
                    $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
                    $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
             }
 
-
          AboutEmployee::create([
 
-          
             "thumbnail"             => $imageName,
-        
-            "employee_name"                => $request->employee_name,
+            "about_employee"        => $request->about_employee,
+            "position"              => $request->position,
+            "employee_name"         => $request->employee_name,
            
-        ]);
+            ]);
           
              return back()->with('success','Employee added successfully');
        
-
     }
 
 }

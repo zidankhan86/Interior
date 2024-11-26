@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('employee_name');
             $table->string('thumbnail');
+            $table->string('position');
+            $table->longText('about_employee');
             $table->boolean('status')->default('0');
             $table->timestamps();
         });

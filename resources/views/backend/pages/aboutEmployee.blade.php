@@ -18,13 +18,35 @@
                
                 <div class="row row-cards">
                     <div class="col-md-12">
-                        <div class="mb-3">
-                            <label class="form-label">Name</label>
-                            <input type="text" name="employee_name" class="form-control" placeholder="Team Member Name">
-                            @if ($errors->has('employee_name'))
-                                <p class="text-danger">{{ $errors->first('employee_name') }}</p>
-                            @endif
+
+                        <div class="row">
+                           
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">Name</label>
+                                    <input type="text" name="employee_name" class="form-control" placeholder="Team Member Name">
+                                    @if ($errors->has('employee_name'))
+                                        <p class="text-danger">{{ $errors->first('employee_name') }}</p>
+                                    @endif
+                                
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Position</label>
+                                <input type="text" name="position" class="form-control" placeholder="Enter Position">
+                                @if ($errors->has('position'))
+                                    <p class="text-danger">{{ $errors->first('position') }}</p>
+                                @endif
+                            
                         </div>
+                        
+                        </div>
+                        <div class="col-md-12 mb-3">
+                            <label class="form-label">About Employee</label>
+                           <textarea name="about_employee" id="" cols="132" rows="6" class="form-control"></textarea>
+                            @if ($errors->has('about_employee'))
+                                <p class="text-danger">{{ $errors->first('about_employee') }}</p>
+                            @endif
+                        
+                    </div>
                         <div class="mb-3">
                             <label class="form-label">Employee Image</label>
                             <input type="file" class="dropify" id="dropify" name="thumbnail" class="form-control" placeholder="Type Name">

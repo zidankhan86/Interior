@@ -122,7 +122,7 @@
                 </div>
             </div>
             <!-- Brand Card 4 -->
-			@foreach ($brands as $brand)
+			{{-- @foreach ($brands as $brand) --}}
 			<div class="col-md-3 mb-4">
                 <div class="card border-light shadow-sm">
                    
@@ -131,7 +131,7 @@
                     </div>
                 </div>
             </div>
-			@endforeach
+			{{-- @endforeach --}}
             
 
 		
@@ -157,70 +157,22 @@
   </div>
 </div>	
 		<div class="row">
-			<div class="col-md-6 col-lg-3 ftco-animate">
-				<div class="staff">
-					<div class="img" style="background-image: url(frontend/images/staff-1.jpg);"></div>
-					<div class="text pt-4">
-						<h3>David Smith</h3>
-						<span class="position mb-2">Achitect</span>
-						<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-						<ul class="ftco-social d-flex">
-			<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-		  </ul>
-					</div>
+		
+		@foreach ($employees as $employee)
+		<div class="col-md-6 col-lg-3 ftco-animate">
+			<div class="staff">
+				<div class="img" style="background-image: url({{ asset('uploads/' . $employee->thumbnail) }});"></div>
+				<div class="text pt-4">
+					<h3>{{ $employee->employee_name }}</h3>
+					<span class="position mb-2">{{ $employee->position }}</span>
+					<p>{!! $employee->about_employee !!}</p>
+				
 				</div>
 			</div>
-			<div class="col-md-6 col-lg-3 ftco-animate">
-				<div class="staff">
-					<div class="img" style="background-image: url(frontend/images/staff-2.jpg);"></div>
-					<div class="text pt-4">
-						<h3>David Smith</h3>
-						<span class="position mb-2">Achitect</span>
-						<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-						<ul class="ftco-social d-flex">
-			<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-		  </ul>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-3 ftco-animate">
-				<div class="staff">
-					<div class="img" style="background-image: url(frontend/images/staff-3.jpg);"></div>
-					<div class="text pt-4">
-						<h3>David Smith</h3>
-						<span class="position mb-2">Achitect</span>
-						<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-						<ul class="ftco-social d-flex">
-			<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-		  </ul>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-6 col-lg-3 ftco-animate">
-				<div class="staff">
-					<div class="img" style="background-image: url(frontend/images/staff-4.jpg);"></div>
-					<div class="text pt-4">
-						<h3>David Smith</h3>
-						<span class="position mb-2">Achitect</span>
-						<p>I am an ambitious workaholic, but apart from that, pretty simple person.</p>
-						<ul class="ftco-social d-flex">
-			<li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-google-plus"></span></a></li>
-			<li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
-		  </ul>
-					</div>
-				</div>
-			</div>
+		</div>
+		@endforeach
+			
+
 		</div>
 	</div>
 </section>
