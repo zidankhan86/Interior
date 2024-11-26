@@ -10,12 +10,12 @@
     }
 </style>
 <div class="container">
-    <div class="col-8">
-        <form action="{{ route('about.storeStep1') }}" method="post">
+    <div class="col-12">
+        <form action="{{ route('about.store') }}" method="post">
             @csrf
             <div class="card-body"><br>
-                <h3 style="text-align: center"><b>Setup About</b></h3>
-                <h3 class="card-title">Step 1</h3>
+                <h3 style="text-align: center"><b> About</b></h3>
+                
                 <div class="row row-cards">
                     <div class="col-md-12">
                         <div class="mb-3">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="card-footer text-end">
-                <button type="submit" class="btn btn-primary"><span></span>Next</button>
+                <button type="submit" class="btn btn-primary"><span></span>Add</button>
             </div>
         </form>
     </div>

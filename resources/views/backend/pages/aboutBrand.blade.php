@@ -20,9 +20,9 @@
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" placeholder="Brand Name">
-                            @if ($errors->has('name'))
-                                <p class="text-danger">{{ $errors->first('name') }}</p>
+                            <input type="text" name="brand_name" class="form-control" placeholder="Brand Name">
+                            @if ($errors->has('brand_name'))
+                                <p class="text-danger">{{ $errors->first('brand_name') }}</p>
                             @endif
                         </div>
                         <div class="mb-3">
@@ -62,11 +62,6 @@
     });
 </script>
 
-<script>
-    $(document).ready(function() {
-        $('.js-example-basic-single').select2();
-    });
-</script>
 
 
 @endsection

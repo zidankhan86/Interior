@@ -16,7 +16,8 @@ class AboutController extends Controller
     public function index()
     {
        $employees = AboutEmployee::all();
-        return view('frontend.pages.about',compact('employees'));
+        $brands = AboutBrand::all();
+        return view('frontend.pages.about',compact('employees','brands'));
     }
 
 
@@ -46,51 +47,6 @@ class AboutController extends Controller
     }
 
 
-    public function showStep2(About $about)
-{
-    return view('backend.pages.aboutStep2', compact('about'));
-}
-
-
-
-
-    public function storeStep1(Request $request)
-    {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'description' => 'required|string',
-        ]);
-
-        $about = new About();
-        $about->title = $validated['title'];
-        $about->description = $validated['description'];
-        $about->save();
-
-        return redirect()->route('about.storeStep2', ['about' => $about->id]);
-    }
-
-    public function storeStep2(Request $request)
-    {
-        $validated = $request->validate([
-            'icon' => 'required|array',
-            'icon.*' => 'required|string|max:255',
-            'icon_title' => 'required|array',
-            'icon_title.*' => 'required|string|max:255',
-            'icon_description' => 'required|array',
-            'icon_description.*' => 'required|string',
-        ]);
-    
-        foreach ($request->icon as $index => $icon) {
-            About::create([
-                'icon' => $icon,
-                'icon_title' => $request->icon_title[$index],
-                'icon_description' => $request->icon_description[$index],
-            ]);
-        }
-    
-        return redirect()->route('about.list')->with('success', 'About entries created successfully!');
-    }
-    
 
     /**
      * Store a newly created resource in storage.
@@ -101,39 +57,16 @@ class AboutController extends Controller
             // dd($request->all());
               $request->validate([
                  'title'             => 'required',
-                 'thumbnail'         => 'required',
-                 'description'       => 'required',
-                 'status'            => 'required',
-                 'post_image.*'      => 'image|mimes:jpeg,png,jpg,gif',
-                 'post_description'  =>'nullable'
+                 'description'  =>'nullable'
                  ]);
  
-                 $imageName = null;
-                 $postImageNames = [];
- 
-                 if ($request->hasFile('thumbnail')) {
-                        $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
-                        $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
-                 }
- 
-                 if ($request->hasFile('post_image')) {
-                     foreach ($request->file('post_image') as $image) {
-                        $imageUniqueName = time() . '_' . $image->getClientOriginalName();
-                        $image->storeAs('uploads', $imageUniqueName, 'public');
-                        $postImageNames[] = $imageUniqueName;
-                     }
-                 }
+               
  
               About::create([
 
                  "title"                 => $request->title,
-                 "slug"                  => $request->slug,
-                 "thumbnail"             => $imageName,
+                
                  "description"           => $request->description,
-                 "status"                => $request->status,
-                 "slug"                  => Str::slug($request['title']),
-                 "post_image"            => serialize($postImageNames),
-                 "post_description"      => $request->post_description
  
              ]);
                
@@ -171,6 +104,35 @@ class AboutController extends Controller
             ]);
           
              return back()->with('success','Employee added successfully');
+       
+    }
+
+
+    public function brand_store(Request $request){
+
+        //  dd($request->all());
+         $request->validate([
+            'brand_name'             => 'required',
+            'thumbnail'         => 'required',
+           
+          
+            ]);
+
+            $imageName = null;
+
+            if ($request->hasFile('thumbnail')) {
+                   $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
+                   $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
+            }
+
+         AboutBrand::create([
+
+            "thumbnail"             => $imageName,
+            "brand_name"         => $request->brand_name,
+           
+            ]);
+          
+             return back()->with('success','Brand added successfully');
        
     }
 

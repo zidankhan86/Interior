@@ -93,56 +93,22 @@
         <h2 class="text-center text-dark mb-4"><b>Brands We Use</b></h2>
         <div class="row justify-content-center">
             <!-- Brand Card 1 -->
+
+			@foreach ($brands as $brand)
             <div class="col-md-3 mb-4">
                 <div class="card border-light shadow-sm">
                    
                     <div class="card-body text-center">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7XorYssDMhe6hxBjb6GulGkycGR0buLocQ&s" class="card-img-top" alt="Brand 1">
+						<img src="{{ url('uploads/' . $brand->thumbnail) }}" class="card-img-top" alt="Brand 1">
+
                     </div>
                 </div>
             </div>
 
-            <!-- Brand Card 2 -->
-            <div class="col-md-3 mb-4">
-                <div class="card border-light shadow-sm">
-                   
-                    <div class="card-body text-center">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7XorYssDMhe6hxBjb6GulGkycGR0buLocQ&s" class="card-img-top" alt="Brand 1">
-                    </div>
-                </div>
-            </div>
+           @endforeach
 
-            <!-- Brand Card 3 -->
-            <div class="col-md-3 mb-4">
-                <div class="card border-light shadow-sm">
-                   
-                    <div class="card-body text-center">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7XorYssDMhe6hxBjb6GulGkycGR0buLocQ&s" class="card-img-top" alt="Brand 1">
-                    </div>
-                </div>
-            </div>
-            <!-- Brand Card 4 -->
-			{{-- @foreach ($brands as $brand) --}}
-			<div class="col-md-3 mb-4">
-                <div class="card border-light shadow-sm">
-                   
-                    <div class="card-body text-center">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7XorYssDMhe6hxBjb6GulGkycGR0buLocQ&s" class="card-img-top" alt="Brand 1">
-                    </div>
-                </div>
-            </div>
-			{{-- @endforeach --}}
-            
-
-		
-			<div class="col-md-3 mb-4">
-                <div class="card border-light shadow-sm">
-                   
-                    <div class="card-body text-center">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7XorYssDMhe6hxBjb6GulGkycGR0buLocQ&s" class="card-img-top" alt="Brand 1">
-                    </div>
-                </div>
-            </div>
+           
+          
         </div>
     </div>
 </section>

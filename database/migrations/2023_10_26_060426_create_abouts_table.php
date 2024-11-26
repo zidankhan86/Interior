@@ -15,13 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('title')->nullable();
             $table->string('slug')->nullable();
-          
             $table->text('post_image')->nullable();
             $table->longText('description')->nullable();
             $table->string('icon')->nullable();
             $table->string('icon_title')->nullable();
             $table->string('icon_description')->nullable();
-           
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
