@@ -20,9 +20,9 @@
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" name="employee_name" class="form-control" placeholder="Type Name">
-                            @if ($errors->has('employee_name'))
-                                <p class="text-danger">{{ $errors->first('employee_name') }}</p>
+                            <input type="text" name="name" class="form-control" placeholder="Brand Name">
+                            @if ($errors->has('name'))
+                                <p class="text-danger">{{ $errors->first('name') }}</p>
                             @endif
                         </div>
                         <div class="mb-3">
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="card-footer text-end">
-                <button type="submit" class="btn btn-primary"><span></span>Submit</button>
+                <button type="submit" class="btn btn-primary"><span></span>Add</button>
             </div>
         </form>
     </div>
@@ -49,32 +49,12 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 
-<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
-<script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .catch(error => {
-            console.error(error);
-        });
-
-    ClassicEditor
-        .create(document.querySelector('#editors'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
-
-<style type="text/css">
-    .ck-editor__editable_inline {
-        height: 150px;
-    }
-</style>
 
 <script>
     $('.dropify').dropify({
         messages: {
-            'default': 'Image',
+            'default': 'Brand Image',
             'replace': 'Drag and drop or click to replace',
             'remove': 'Remove',
             'error': 'Ooops, something wrong happened.'

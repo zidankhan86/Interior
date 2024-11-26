@@ -20,7 +20,7 @@
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label class="form-label">Name</label>
-                            <input type="text" name="employee_name" class="form-control" placeholder="Type Name">
+                            <input type="text" name="employee_name" class="form-control" placeholder="Team Member Name">
                             @if ($errors->has('employee_name'))
                                 <p class="text-danger">{{ $errors->first('employee_name') }}</p>
                             @endif
@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="card-footer text-end">
-                <button type="submit" class="btn btn-primary"><span></span>Submit</button>
+                <button type="submit" class="btn btn-primary"><span></span>Add</button>
             </div>
         </form>
     </div>

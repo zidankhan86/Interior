@@ -49,12 +49,12 @@
 	  <div class="row mb-5">
 		<div class="col-md">
 		  <div class="ftco-footer-widget mb-4">
-			<h2 class="ftco-heading-2">Klift</h2>
-			<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+			<h2 class="ftco-heading-2">Innards Design Studio</h2>
+			<p>CONSULTANCY, INTERIOR AND DECORATION.</p>
 			<ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
 			  <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
-			  <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
-			  <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+			  <li class="ftco-animate"><a href="https://www.facebook.com/innardsdesignstudio"><span class="icon-facebook"></span></a></li>
+			  <li class="ftco-animate"><a href="https://www.instagram.com/innards_design_studio?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><span class="icon-instagram"></span></a></li>
 			</ul>
 		  </div>
 		</div>
@@ -62,11 +62,12 @@
 		  <div class="ftco-footer-widget mb-4 ml-md-4">
 			<h2 class="ftco-heading-2">Links</h2>
 			<ul class="list-unstyled">
-			  <li><a href="#">Home</a></li>
-			  <li><a href="#">About</a></li>
-			  <li><a href="#">Services</a></li>
-			  <li><a href="#">Projects</a></li>
-			  <li><a href="#">Contact</a></li>
+			  <li><a href="
+				{{ route('home') }}">Home</a></li>
+			  <li><a href="{{ route('about') }}">About</a></li>
+			  <li><a href="{{ route('services') }}">Services</a></li>
+			  <li><a href="{{ route('blog') }}">Blog</a></li>
+			  <li><a href="{{ route('contact') }}">Contact</a></li>
 			</ul>
 		  </div>
 		</div>
@@ -87,9 +88,9 @@
 			  <h2 class="ftco-heading-2">Have a Questions?</h2>
 			  <div class="block-23 mb-3">
 				<ul>
-				  <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-				  <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-				  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+				  <li><span class="icon icon-map-marker"></span><span class="text">road:23, sector:10, Dhaka, Bangladesh</span></li>
+				  <li><a href="#"><span class="icon icon-phone"></span><span class="text">01768-810999</span></a></li>
+				  <li><a href="#"><span class="icon icon-envelope"></span><span class="text">innards.ds@gmail.com</span></a></li>
 				</ul>
 			  </div>
 		  </div>
@@ -98,9 +99,9 @@
 	  <div class="row">
 		<div class="col-md-12 text-center">
 
-		  <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+		  <p>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> {{ config('app.name') }}</a>
+</p>
 		</div>
 	  </div>
 	</div>

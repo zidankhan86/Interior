@@ -111,7 +111,7 @@ Route::get('about/employee', [AboutController::class, 'employee'])->name('about.
 // Routes for submitting each step
 Route::post('about/step1', [AboutController::class, 'storeStep1'])->name('about.storeStep1');
 Route::post('about/step2/{about}', [AboutController::class, 'storeStep2'])->name('about.storeStep2');
-Route::post('about/employee', [AboutController::class, 'employee'])->name('employee.store');
+Route::post('about/employee', [AboutController::class, 'employee_store'])->name('employee.store');
 Route::post('about/brand', [AboutController::class, 'brand'])->name('brand.store');
 
 

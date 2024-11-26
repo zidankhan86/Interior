@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('about_employees', function (Blueprint $table) {
             $table->id();
+            $table->string('employee_name');
+            $table->string('thumbnail');
+            $table->boolean('status')->default('0');
             $table->timestamps();
         });
     }

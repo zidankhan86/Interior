@@ -11,7 +11,7 @@
 
 <!-- YouTube Video Section -->
 <section class="py-5 bg-light">
-    <div class="container" style="max-width: 1200px;">
+    <div class="container" style="max-width: 1000px;">
         <div class="embed-responsive embed-responsive-16by9 position-relative">
             <!-- Corrected YouTube Embed URL -->
             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/EXibdjbRLfY?rel=0" allowfullscreen></iframe>

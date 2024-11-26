@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\About;
+use App\Models\AboutBrand;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\AboutEmployee;
 
 class AboutController extends Controller
 {
@@ -13,19 +15,20 @@ class AboutController extends Controller
      */
     public function index()
     {
+       
         return view('frontend.pages.about');
     }
 
 
     public function employee()
     {
-        return view('backend.pages.aboutBrand');
+        return view('backend.pages.aboutEmployee');
     }
 
 
     public function brand()
     {
-        return view('backend.pages.aboutEmployee');
+        return view('backend.pages.aboutBrand');
     }
 
     public function list(){
@@ -48,11 +51,6 @@ class AboutController extends Controller
     return view('backend.pages.aboutStep2', compact('about'));
 }
 
-public function showStep3(About $about)
-{
-    return view('backend.pages.aboutStep3', compact('about'));
-}
-
 
 
 
@@ -71,32 +69,35 @@ public function showStep3(About $about)
         return redirect()->route('about.storeStep2', ['about' => $about->id]);
     }
 
-    public function storeStep2(Request $request, About $about)
+    public function storeStep2(Request $request)
     {
         $validated = $request->validate([
-            'icon' => 'required|string|max:255',
-            'icon_title' => 'required|string|max:255',
-            'icon_description' => 'required|string',
+            'icon' => 'required|array',
+            'icon.*' => 'required|string|max:255',
+            'icon_title' => 'required|array',
+            'icon_title.*' => 'required|string|max:255',
+            'icon_description' => 'required|array',
+            'icon_description.*' => 'required|string',
         ]);
-
-        $about->icon = $validated['icon'];
-        $about->icon_title = $validated['icon_title'];
-        $about->icon_description = $validated['icon_description'];
-
-        
-        $about->save();
-
-        return redirect()->route('about.list')->with('success', 'About created successfully!');
+    
+        foreach ($request->icon as $index => $icon) {
+            About::create([
+                'icon' => $icon,
+                'icon_title' => $request->icon_title[$index],
+                'icon_description' => $request->icon_description[$index],
+            ]);
+        }
+    
+        return redirect()->route('about.list')->with('success', 'About entries created successfully!');
     }
+    
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        try {
-
-
+       
             // dd($request->all());
               $request->validate([
                  'title'             => 'required',
@@ -137,11 +138,42 @@ public function showStep3(About $about)
              ]);
                
                   return back()->withSuccess(['success' => 'About Create Success!']);
-              } catch (\Exception $e) {
-                  return back()->withErrors(['error' => 'About creation failed: ' . $e->getMessage()]);
-              }
+            
     }
 
    
+
+    public function employee_store(Request $request){
+
+        //  dd($request->all());
+         $request->validate([
+            'employee_name'             => 'required',
+            'thumbnail'         => 'required',
+            
+          
+            ]);
+
+            $imageName = null;
+           
+
+            if ($request->hasFile('thumbnail')) {
+                   $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
+                   $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
+            }
+
+
+         AboutEmployee::create([
+
+          
+            "thumbnail"             => $imageName,
+        
+            "employee_name"                => $request->employee_name,
+           
+        ]);
+          
+             return back()->with('success','Employee added successfully');
+       
+
+    }
 
 }

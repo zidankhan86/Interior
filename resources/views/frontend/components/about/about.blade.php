@@ -122,7 +122,8 @@
                 </div>
             </div>
             <!-- Brand Card 4 -->
-            <div class="col-md-3 mb-4">
+			@foreach ($brands as $brand)
+			<div class="col-md-3 mb-4">
                 <div class="card border-light shadow-sm">
                    
                     <div class="card-body text-center">
@@ -130,31 +131,10 @@
                     </div>
                 </div>
             </div>
+			@endforeach
+            
 
-			<div class="col-md-3 mb-4">
-                <div class="card border-light shadow-sm">
-                   
-                    <div class="card-body text-center">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7XorYssDMhe6hxBjb6GulGkycGR0buLocQ&s" class="card-img-top" alt="Brand 1">
-                    </div>
-                </div>
-            </div>
-			<div class="col-md-3 mb-4">
-                <div class="card border-light shadow-sm">
-                   
-                    <div class="card-body text-center">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7XorYssDMhe6hxBjb6GulGkycGR0buLocQ&s" class="card-img-top" alt="Brand 1">
-                    </div>
-                </div>
-            </div>
-			<div class="col-md-3 mb-4">
-                <div class="card border-light shadow-sm">
-                   
-                    <div class="card-body text-center">
-						<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST7XorYssDMhe6hxBjb6GulGkycGR0buLocQ&s" class="card-img-top" alt="Brand 1">
-                    </div>
-                </div>
-            </div>
+		
 			<div class="col-md-3 mb-4">
                 <div class="card border-light shadow-sm">
                    

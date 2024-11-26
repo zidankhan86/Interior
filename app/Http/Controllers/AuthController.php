@@ -16,13 +16,7 @@ class AuthController extends Controller
         return view('backend.components.auth.login');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    
 
     /**
      * Store a newly created resource in storage.
