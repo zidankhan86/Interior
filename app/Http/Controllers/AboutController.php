@@ -17,7 +17,8 @@ class AboutController extends Controller
     {
        $employees = AboutEmployee::all();
         $brands = AboutBrand::all();
-        return view('frontend.pages.about',compact('employees','brands'));
+        $about = About::latest()->first();
+        return view('frontend.pages.about',compact('employees','brands','about'));
     }
 
 
