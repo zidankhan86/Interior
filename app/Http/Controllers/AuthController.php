@@ -43,9 +43,5 @@ class AuthController extends Controller
 
    
 
-    public function list()
-    {
-        $users = User::all();
-        return view('backend.pages.userList',compact('users'));
-    }
+   
 }

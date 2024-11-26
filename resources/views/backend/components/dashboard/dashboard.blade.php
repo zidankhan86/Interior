@@ -95,26 +95,74 @@
           </div>
         </div>
       
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <div class="card">
             <div class="card-body">
-              <h3 class="card-title">Traffic summary</h3>
-              <div id="chart-mentions" class="chart-lg"></div>
+              <h3 class="card-title">Users</h3>
+             
+
+<div class="container">
+ 
+  <div class="col-12">
+      <div class="card">
+        <div class="table-responsive">
+          <table
+  class="table table-vcenter table-mobile-md card-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Role</th>
+                <th class="w-1"></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              @foreach ($users as $user)
+              <tr>
+                <td data-label="Name" >
+                  <div class="d-flex py-1 align-items-center">
+                    
+                    <div class="flex-fill">
+                      <div class="font-weight-medium">{{ $user->name }}</div>
+                      <div class="text-muted"><a href="#" class="text-reset">{{ $user->email }}</a></div>
+                    </div>
+                  </div>
+                </td>
+                <td data-label="Title" >
+                  <div>{{ $user->role }}</div>
+                
+                </td>
+                <td class="text-muted" data-label="Role" >
+                  {{ $user->role }}
+                </td>
+                <td>
+                  <div class="btn-list flex-nowrap">
+                    
+                    <div class="dropdown">
+                     
+                     
+                    </div>
+                  </div>
+                </td>
+              </tr> 
+              @endforeach
+              
+            
+            
+            
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+</div>
+
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="card-title">Locations</h3>
-              <div class="ratio ratio-21x9">
-                <div>
-                  <div id="map-world" class="w-100 h-100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
 
 
 

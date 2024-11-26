@@ -19,7 +19,8 @@ class HomeController extends Controller
         $total_liked=Like::count();
         $total_blog=Blog::count();
         $total_comments=Comment::count();
-        return view('backend.pages.dashboard',compact('total_users','total_liked','total_blog','total_comments'));
+        $users=User::paginate(12);
+        return view('backend.pages.dashboard',compact('total_users','total_liked','total_blog','total_comments','users'));
     }
 
 }
