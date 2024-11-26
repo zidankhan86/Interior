@@ -153,7 +153,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
                 <span class="nav-link-icon d-md-none d-lg-inline-block">
-                  <x-backend.svg.service-icon />
+                  <x-backend.svg.service_icon />
                 </span>
                 <span class="nav-link-title">
                   <b>Portfolio</b>
@@ -173,7 +173,7 @@
                        
                         <a class="dropdown-item" href="{{ route('portfolio.index') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
                           <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                            <x-backend.svg.service-icon />
+                            <x-backend.svg.service_icon />
                           </span>
                           <span class="nav-link-title">
                             Portfolio
@@ -188,7 +188,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" data-bs-auto-close="false" role="button" aria-expanded="false">
               <span class="nav-link-icon d-md-none d-lg-inline-block">
-                <x-backend.svg.blog-icon />
+                <x-backend.svg.blog_icon />
               </span>
               <span class="nav-link-title">
                 <b>BLOG</b>
@@ -208,7 +208,7 @@
                      
                       <a class="dropdown-item" href="{{ route('blog.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
                         <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                          <x-backend.svg.blog-post-icon />
+                          <x-backend.svg.blog_post_icon />
                         </span>
                         <span class="nav-link-title">
                           Blog Post
@@ -222,7 +222,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{ route('about.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
               <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                <x-backend.svg.about-icon />
+                <x-backend.svg.about_icon />
               </span>
               <span class="nav-link-title">
                 About
@@ -233,7 +233,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{ route('user.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
               <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                <x-backend.svg.user-icon />
+                <x-backend.svg.user_icon />
               </span>
               <span class="nav-link-title">
                 User
@@ -245,7 +245,7 @@
           <li class="nav-item ">
             <a class="nav-link" href="{{ route('contact.list') }}"  data-bs-auto-close="false" role="button" aria-expanded="false" >
               <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
-                <x-backend.svg.message-icon />
+                <x-backend.svg.message_icon />
               </span>
               <span class="nav-link-title">
                  Messages

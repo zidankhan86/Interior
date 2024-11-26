@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class about-icon extends Component
+class blog_post_icon extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class about-icon extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.backend.svg.about-icon');
+        return view('components.backend.svg.blog_post_icon');
     }
 }

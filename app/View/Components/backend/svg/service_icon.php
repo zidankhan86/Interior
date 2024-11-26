@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class service-icon extends Component
+class service_icon extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class service-icon extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.backend.svg.service-icon');
+        return view('components.backend.svg.service_icon');
     }
 }
