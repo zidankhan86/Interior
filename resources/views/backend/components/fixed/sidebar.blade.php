@@ -6,7 +6,7 @@
       </button>
       <h1 class="navbar-brand navbar-brand-autodark">
         <a href=".">
-          <img src="{{url('frontend/images/logo.png') }}" width="110" height="32" alt="Zidan's Blog" class="navbar-brand-image">
+          <img src="{{url('frontend/images/logo.png') }}" width="110" height="32" alt="InnardsDS" class="navbar-brand-image">
         </a>
       </h1>
       <div class="navbar-nav flex-row d-lg-none">

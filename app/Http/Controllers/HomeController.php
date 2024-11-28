@@ -6,7 +6,9 @@ use App\Models\Blog;
 use App\Models\Like;
 use App\Models\User;
 use App\Models\Comment;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use App\Models\AboutEmployee;
 
 class HomeController extends Controller
 {
@@ -16,11 +18,11 @@ class HomeController extends Controller
     public function index()
     {
         $total_users=User::count();
-        $total_liked=Like::count();
+        $total_portfolio=Portfolio::count();
         $total_blog=Blog::count();
-        $total_comments=Comment::count();
+        $total_team_members=AboutEmployee::count();
         $users=User::paginate(12);
-        return view('backend.pages.dashboard',compact('total_users','total_liked','total_blog','total_comments','users'));
+        return view('backend.pages.dashboard',compact('total_users','total_portfolio','total_blog','total_team_members','users'));
     }
 
 }

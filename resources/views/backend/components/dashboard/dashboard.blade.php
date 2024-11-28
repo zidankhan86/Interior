@@ -28,7 +28,7 @@
           <div class="card">
             <div class="card-body">
               <div class="d-flex align-items-center">
-                <div class="subheader">Total Liked</div>
+                <div class="subheader">Total Portfolio</div>
                 <div class="ms-auto lh-1">
                   <div class="dropdown">
 
@@ -39,7 +39,7 @@
                 </div>
               </div>
               <div class="d-flex align-items-baseline">
-                <div class="h1 mb-0 me-2">{{ $total_liked }}</div>
+                <div class="h1 mb-0 me-2">{{ $total_portfolio }}</div>
                 <div class="me-auto">
                   
                 </div>
@@ -74,7 +74,7 @@
           <div class="card">
             <div class="card-body">
               <div class="d-flex align-items-center">
-                <div class="subheader">Total Comments</div>
+                <div class="subheader">Total Team Members</div>
                 <div class="ms-auto lh-1">
                   <div class="dropdown">
                    
@@ -85,7 +85,7 @@
                 </div>
               </div>
               <div class="d-flex align-items-baseline">
-                <div class="h1 mb-3 me-2">{{ $total_comments }}</div>
+                <div class="h1 mb-3 me-2">{{ $total_team_members }}</div>
                 <div class="me-auto">
                  
                 </div>
