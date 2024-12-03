@@ -75,11 +75,10 @@
 		   <div class="ftco-footer-widget mb-4">
 			<h2 class="ftco-heading-2">Services</h2>
 			<ul class="list-unstyled">
-			  <li><a href="#">Architectural Design</a></li>
-			  <li><a href="#">Interior Design</a></li>
-			  <li><a href="#">Exterior Design</a></li>
-			  <li><a href="#">Lighting Design</a></li>
-			  <li><a href="#">AutoCAD Service</a></li>
+			  <li><a href="#">Commercial Interior</a></li>
+			  <li><a href="#">Residential Interior</a></li>
+			  <li><a href="#">Architectural Interior</a></li>
+		
 			</ul>
 		  </div>
 		</div>
@@ -100,7 +99,7 @@
 		<div class="col-md-12 text-center">
 
 		  <p>
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> {{ config('app.name') }}</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Innards Design Studio</a>
 </p>
 		</div>
 	  </div>

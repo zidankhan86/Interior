@@ -28,21 +28,7 @@
               <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
               <li class="nav-item"><a href="{{ route('blog') }}" class="nav-link">Blog</a></li>
               <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link">Contact</a></li>
-              @guest
-                 <div class="d-flex justify-content-end align-items-center gap-3">
-    <li class="nav-item">
-        <a href="{{ route('login') }}" class="nav-link btn btn-info px-4 py-2">
-            <b>Sign In</b>
-        </a>
-    </li>
-    <li class="nav-item">
-        <a href="{{ route('registration') }}" class="nav-link btn btn-success px-4 py-2">
-            <b>Sign Up</b>
-        </a>
-    </li>
-</div>
-
-              @endguest
+             
               @auth
                   <li class="nav-item"><a href="{{ route('logout') }}" class="nav-link btn btn-danger"><b>Logout</b></a></li>
               @endauth
