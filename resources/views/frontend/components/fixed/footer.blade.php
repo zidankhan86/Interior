@@ -77,7 +77,7 @@
 			<ul class="list-unstyled">
 			  <li><a href="#">Commercial Interior</a></li>
 			  <li><a href="#">Residential Interior</a></li>
-			  <li><a href="#">Architectural Interior</a></li>
+			  <li><a href="{{ route('architect') }}">Architectural Interior</a></li>
 		
 			</ul>
 		  </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -17,8 +18,10 @@ class ServiceController extends Controller
     }
 
     public function architect(){
-
-        return view('backend.pages.architec');
+        $architects = Portfolio::whereHas('project_category', function ($query) {
+            $query->where('type_name', 'Architectural');
+        })->with('project_category')->get();
+        return view('backend.pages.architec',compact('architects'));
     }
 
     public function commercial(){

@@ -9,7 +9,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Residential</title>
 </head>
-<body><BR><BR></BR></BR>
+<body><BR><BR></BR></BR><br>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -26,30 +26,25 @@
             <p>Explore our stunning residential interior projects designed to bring harmony and elegance to your living spaces.</p>
         </section>
         <main class="projects-container">
-            <!-- Project 1 -->
+
+            @forelse ($architects as $achitect)
+                <!-- Project 1 -->
             <article class="project">
-                <img src="image1-placeholder.jpg" alt="Modern Flat Design" class="project-img">
+               <a href="{{ route('portfolio.details',$achitect->id) }}"> <img src="{{ asset('uploads/' . $achitect->thumbnail) }}" alt="Modern Flat Design" class="project-img"></a>
                 <div class="project-content">
-                    <h2>2115 sqft Flat - Bashundhara</h2>
-                    <p><strong>Scope:</strong> Full interior design and construction</p>
-                    <p><strong>Completion:</strong> March 2023</p>
+                    <h2>{{ $achitect->title }}</h2>
+                    <p><strong>Scope:</strong> {{ $achitect->scope }}</p>
+                    <p><strong>Completion:</strong> {{ $achitect->complete_date }}</p>
                     <p>Experience luxurious and modern interiors tailored to your needs. This project features open spaces, modern kitchens, and elegant bedrooms.</p>
                 </div>
             </article>
-            <!-- Project 2 -->
-            <article class="project">
-                <img src="image2-placeholder.jpg" alt="Stylish Apartment" class="project-img">
-                <div class="project-content">
-                    <h2>1265 sqft Flat - Kafrul</h2>
-                    <p><strong>Scope:</strong> Renovation and decor</p>
-                    <p><strong>Completion:</strong> January 2024</p>
-                    <p>A blend of functionality and aesthetics, this project maximizes space while adding a touch of minimalism and sophistication.</p>
-                </div>
-            </article>
+            @empty
+                <p>Create a portfolio for Architectural interior</p>
+            @endforelse
+            
+            
         </main>
-        <footer class="footer">
-            <p>&copy; 2024 Minimal Limited - Residential Interior Showcase</p>
-        </footer>
+       
     </body>
     </html>
     
