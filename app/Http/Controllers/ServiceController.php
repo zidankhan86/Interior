@@ -10,4 +10,19 @@ class ServiceController extends Controller
 
         return view('frontend.pages.service');
     }
+
+    public function residential(){
+
+        return view('backend.pages.residential');
+    }
+
+    public function architect(){
+
+        return view('backend.pages.architec');
+    }
+
+    public function commercial(){
+
+        return view('backend.pages.commertial');
+    }
 }

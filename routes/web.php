@@ -41,7 +41,9 @@ use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
 
 //Landing Page
 Route::get('/',[FrontendHomeController::class,'index'])->name('home');
-
+Route::get('/commercial',[ServiceController::class,'commercial'])->name('commercial');
+Route::get('/architect',[ServiceController::class,'architect'])->name('architect');
+Route::get('/residential',[ServiceController::class,'residential'])->name('residential');
 //Auth
 Route::get('/login',[AuthController::class,'index'])->name('login');
 Route::post('/store',[AuthController::class,'store'])->name('store');
@@ -54,6 +56,10 @@ Route::get('/project',[PortfolioController::class,'portfolio'])->name('portfolio
 Route::get('/project/details/{id}',[PortfolioController::class,'portfolio_details'])->name('portfolio.details');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/services',[ServiceController::class,'index'])->name('services');
+
+
+
+
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::post('/contact-store',[ContactController::class,'store'])->name('contact.store');
 Route::group(['middleware'=>'auth'],function(){

@@ -1,5 +1,5 @@
 
-<br><br><br><br>
+<br><br><br><br><br><br>
 <section class="ftc-no-pb">
 	<div class="container">
 		
@@ -7,11 +7,15 @@
 		  <div class="pl-md-5 ml-md-5">
 			  
 			  
-			<h2 class="mb-4" style="text-align: center">{{ $about->title }}</h2>
+			<h2 class="mb-4" style="text-align: center">The Inception</h2>
 		</div>
 	  </div>
 	  <div class="pl-md-5 ml-md-5 mb-5">
-					<p>{!! $about->description !!}</p>
+					<p>It’s 2016, when six young minds with different educational backgrounds have come together to build a meaningful thing that inspires them, cherishes their dreams and creates solvency, by allowing creative gestures.</p>
+
+					<p>7 years after the inception of Minimal Limited, we have a greater vision to become the foremost lifestyle brand, introducing a great way of living.
+
+						Minimal is uniquely identified with sensible design thinking and a connection to heritage and culture. Our goal is to make your space feel connected and alive, while maintaining balance and harmony, by having less but meaningful items.</p>
 				</div>
 			</div>
 		</div>
@@ -88,18 +92,18 @@
         <div class="row justify-content-center">
             <!-- Brand Card 1 -->
 
-			@foreach ($brands as $brand)
-            <div class="col-md-3 mb-4">
+			
+            <div class="col-md-12 mb-12">
                 <div class="card border-light shadow-sm">
                    
                     <div class="card-body text-center">
-						<img src="{{ url('uploads/' . $brand->thumbnail) }}" class="card-img-top" alt="Brand 1">
+						<img src="{{ url('brands.png') }}" class="card-img-top" alt="Brand 1">
 
                     </div>
                 </div>
             </div>
 
-           @endforeach
+         
 
            
           

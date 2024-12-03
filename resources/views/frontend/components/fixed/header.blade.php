@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-white ftco-navbar-light" id="ftco-navbar">
   <div class="container">
-      <a class="navbar-brand" href="index.html">Klift</a>
+      <a class="navbar-brand" href="{{ route('home') }}" style="color: black">Innards DS</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="oi oi-menu"></span> Menu
       </button>
@@ -16,9 +16,9 @@
                     Services
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#">Residential Interior</a></li>
-                    <li><a class="dropdown-item" href="#">Commercial Interior</a></li>
-                    <li><a class="dropdown-item" href="#">Architectural Consultancy</a></li>
+                    <li><a class="dropdown-item" href="{{ route('residential') }}">Residential Interior</a></li>
+                    <li><a class="dropdown-item" href="{{ route('commercial') }}">Commercial Interior</a></li>
+                    <li><a class="dropdown-item" href="{{ route('architect') }}">Architectural Consultancy</a></li>
                     
                 </ul>
             </li>

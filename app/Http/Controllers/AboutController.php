@@ -16,9 +16,9 @@ class AboutController extends Controller
     public function index()
     {
         $employees = AboutEmployee::all();
-        $brands = AboutBrand::all();
-        $about = About::latest()->first();
-        return view('frontend.pages.about',compact('employees','brands','about'));
+       
+
+        return view('frontend.pages.about',compact('employees'));
     }
 
 
@@ -28,50 +28,16 @@ class AboutController extends Controller
     }
 
 
-    public function brand()
-    {
-        return view('backend.pages.aboutBrand');
-    }
+  
 
     public function list(){
-        $abouts = About::all();
+        $abouts = AboutEmployee::all();
 
         return view('backend.pages.aboutList',compact('abouts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function showStep1()
-    {
-        return view('backend.pages.about-form');
-    }
-
-
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-       
-            // dd($request->all());
-              $request->validate([
-                 'title'             => 'required',
-                 'description'       =>'nullable'
-                 ]);
  
-              About::create([
-
-                 "title"                 => $request->title,
-                 "description"           => $request->description,
- 
-                ]);
-               
-                  return back()->withSuccess(['success' => 'About Create Success!']);
-            
-    }
-
+   
    
 
     public function employee_store(Request $request){
@@ -106,31 +72,5 @@ class AboutController extends Controller
     }
 
 
-    public function brand_store(Request $request){
-
-        //  dd($request->all());
-         $request->validate([
-            'brand_name'             => 'required',
-            'thumbnail'              => 'required',
-
-            ]);
-
-            $imageName = null;
-
-            if ($request->hasFile('thumbnail')) {
-                   $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
-                   $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
-            }
-
-         AboutBrand::create([
-
-            "thumbnail"             => $imageName,
-            "brand_name"            => $request->brand_name,
-           
-            ]);
-          
-             return back()->with('success','Brand added successfully');
-       
-    }
-
+   
 }
