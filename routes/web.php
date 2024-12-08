@@ -56,7 +56,7 @@ Route::get('/project',[PortfolioController::class,'portfolio'])->name('portfolio
 Route::get('/project/details/{id}',[PortfolioController::class,'portfolio_details'])->name('portfolio.details');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/services',[ServiceController::class,'index'])->name('services');
-Route::get('/blog',[BlogController::class,'index'])->name('blog');
+Route::get('/blog-page',[BlogController::class,'index'])->name('blog');
 Route::get('/category-wise-blog/{id}',[CategoryController::class,'CategoryWiseBlog'])->name('cat.wise.blog');
 Route::get('/trendingBlog/{id}',[TrandingBlogController::class,'index'])->name('trending');
 Route::get('/search',[BlogController::class,'search'])->name('blog.search');

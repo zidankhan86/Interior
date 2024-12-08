@@ -91,7 +91,7 @@ class BlogController extends Controller
                 $blog->save();
 
                  return back()->withSuccess(['success' => 'Blog Create Success!']);
-            
+
 
              }
 
@@ -146,7 +146,7 @@ class BlogController extends Controller
                                                                  'comments','shareComponent'));
             }
 
-    
+
 
             public function list()
             {
