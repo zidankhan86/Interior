@@ -21,7 +21,6 @@
                 <tr>
                   <td data-label="Name" >
                     <div class="d-flex py-1 align-items-center">
-                      <span class="avatar me-2" style="background-image: url(./static/avatars/010m.jpg)"></span>
                       <div class="flex-fill">
                         <div class="font-weight-medium">{{ $user->name }}</div>
                         <div class="text-muted"><a href="#" class="text-reset">{{ $user->email }}</a></div>
@@ -30,15 +29,15 @@
                   </td>
                   <td data-label="Title" >
                     <div>{{ $user->role }}</div>
-                  
+
                   </td>
                   <td class="text-muted" data-label="Role" >
                     {{ $user->role }}
                   </td>
                   <td>
                     <div class="btn-list flex-nowrap">
-                      
-                      <div class="dropdown">
+
+                      {{-- <div class="dropdown">
                         <button class="btn dropdown-toggle align-text-top" data-bs-toggle="dropdown">
                           Actions
                         </button>
@@ -50,15 +49,15 @@
                            Unblock
                           </a>
                         </div>
-                      </div>
+                      </div> --}}
                     </div>
                   </td>
-                </tr> 
+                </tr>
                 @endforeach
-                
-              
-              
-              
+
+
+
+
               </tbody>
             </table>
           </div>

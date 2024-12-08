@@ -4,8 +4,7 @@
       <div class="container">
         <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-end" data-scrollax-parent="true">
         <div class="col-md-7 text ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-          <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Life is a Celebration
-            The start is just a click away.</p>
+          <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Create a home that defines who  you are</p>
           <p><a href="{{ url('portfolio.page') }}" class="btn btn-white btn-outline-white px-4 py-3 mt-3">View our works</a></p>
         </div>
       </div>

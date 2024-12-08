@@ -56,9 +56,20 @@ Route::get('/project',[PortfolioController::class,'portfolio'])->name('portfolio
 Route::get('/project/details/{id}',[PortfolioController::class,'portfolio_details'])->name('portfolio.details');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/services',[ServiceController::class,'index'])->name('services');
+Route::get('/blog',[BlogController::class,'index'])->name('blog');
+Route::get('/category-wise-blog/{id}',[CategoryController::class,'CategoryWiseBlog'])->name('cat.wise.blog');
+Route::get('/trendingBlog/{id}',[TrandingBlogController::class,'index'])->name('trending');
+Route::get('/search',[BlogController::class,'search'])->name('blog.search');
+Route::post('/likes/{id}',[LikeController::class,'like'])->name('blog.like');
+Route::post('/blog-comment',[LeaveCommentController::class,'store'])->name('blog.comment.store');
+Route::get('/blog-view/{id}',[BlogController::class,'show'])->name('blog.view');
 
-
-
+Route::get('/social-media-share/{id}', [SocialShareButtonsController::class,'ShareWidget'])->name('social-media-share');
+//Post comment and reply
+Route::post('/post-comment',[CommentController::class,'store'])->name('comments.store');
+Route::get('/reply/{id}',[CommentController::class,'index'])->name('reply');
+//News letter
+Route::post('/subscribe', [NewsletterSubscriptionController::class, 'store'])->name('subscribe');
 
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::post('/contact-store',[ContactController::class,'store'])->name('contact.store');
@@ -66,20 +77,9 @@ Route::group(['middleware'=>'auth'],function(){
 //Frontend
 //Pages
 
-Route::get('/blog',[BlogController::class,'index'])->name('blog');
+
 Route::get('/category',[CategoryController::class,'index'])->name('category');
-Route::get('/category-wise-blog/{id}',[CategoryController::class,'CategoryWiseBlog'])->name('cat.wise.blog');
-Route::get('/trendingBlog/{id}',[TrandingBlogController::class,'index'])->name('trending');
-Route::get('/search',[BlogController::class,'search'])->name('blog.search');
-Route::post('/likes/{id}',[LikeController::class,'like'])->name('blog.like');
-Route::post('/blog-comment',[LeaveCommentController::class,'store'])->name('blog.comment.store');
-Route::get('/blog-view/{id}',[BlogController::class,'show'])->name('blog.view');
-Route::get('/social-media-share/{id}', [SocialShareButtonsController::class,'ShareWidget'])->name('social-media-share');
-//Post comment and reply
-Route::post('/post-comment',[CommentController::class,'store'])->name('comments.store');
-Route::get('/reply/{id}',[CommentController::class,'index'])->name('reply');
-//News letter
-Route::post('/subscribe', [NewsletterSubscriptionController::class, 'store'])->name('subscribe');
+
 //Backend
 
 //Middleware

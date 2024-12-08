@@ -2,20 +2,27 @@
 <br><br><br><br><br><br>
 <section class="ftc-no-pb">
 	<div class="container">
-		
-	  <div class="heading-section mb-5 pl-md-5 heading-section-with-line">
-		  <div class="pl-md-5 ml-md-5">
-			  
-			  
-			<h2 class="mb-4" style="text-align: center">The Inception</h2>
+
+	  <div class="heading-section mb-3 pl-md-3 heading-section-with-line">
+		  <div class="pl-md-3 ml-md-3">
+
+
+			<h2 class="mb-4" style="text-align: center">About</h2>
 		</div>
 	  </div>
-	  <div class="pl-md-5 ml-md-5 mb-5">
-					<p>It’s 2016, when six young minds with different educational backgrounds have come together to build a meaningful thing that inspires them, cherishes their dreams and creates solvency, by allowing creative gestures.</p>
+	  <div class="pl-md-4 ml-md-4 mb-4">
+        <p>Greeting,
+        </p>
+					<p>Innards Design Studio is a reputed , recognized and one of the most successful interior design companies in Bangladesh which specializes in delivering Interior design ,
+                        Architectural and creative space planning & drawing projects throughout.</p>
 
-					<p>7 years after the inception of Minimal Limited, we have a greater vision to become the foremost lifestyle brand, introducing a great way of living.
-
-						Minimal is uniquely identified with sensible design thinking and a connection to heritage and culture. Our goal is to make your space feel connected and alive, while maintaining balance and harmony, by having less but meaningful items.</p>
+					<p>Innards Design Studio is specialized in providing elegant and stunning interior design services for both residential and commercial projects. We turn our clients' dreams into reality . translating their tastes and needs into beautiful and functional spaces.
+                    </p>
+                    <p>As a team of highly qualified interior designers and engineers , Innards offers complete architectural services from mall design to corporate office design as well as the exterior design of any project based on customers needs</p>
+                    <p>We're a passionate team of Interior Designers , Architects and Engineers . Everyday we help clients to solve interior design problems and create engaging spaces .
+                    </p>
+                    <p>Thank You……..
+                    </p>
 				</div>
 			</div>
 		</div>
@@ -43,7 +50,7 @@
 					</div>
 				</div>
 			</div>
-			
+
             <!-- Card 2 -->
             <div class="col-md-4 mb-4">
 				<div class="card border-light shadow-sm" style="background-color: #2c2c2c; border: 1px solid #444444; margin-bottom: 20px;">
@@ -58,8 +65,8 @@
 					</div>
 				</div>
 			</div>
-			
-			
+
+
             <!-- Card 3 -->
             <div class="col-md-4 mb-4">
 				<div class="card border-light shadow-sm" style="background-color: #2c2c2c; border: 1px solid #444444; margin-bottom: 20px;">
@@ -75,8 +82,8 @@
 					</div>
 				</div>
 			</div>
-			
-           
+
+
         </div>
 
         <!-- Call to Action Button -->
@@ -92,10 +99,10 @@
         <div class="row justify-content-center">
             <!-- Brand Card 1 -->
 
-			
+
             <div class="col-md-12 mb-12">
                 <div class="card border-light shadow-sm">
-                   
+
                     <div class="card-body text-center">
 						<img src="{{ url('brands.png') }}" class="card-img-top" alt="Brand 1">
 
@@ -103,15 +110,15 @@
                 </div>
             </div>
 
-         
 
-           
-          
+
+
+
         </div>
     </div>
 </section>
 
-	
+
 <section class="ftco-section">
 	<div class="container">
 		<div class="row justify-content-center mb-5 pb-3">
@@ -119,9 +126,9 @@
 	<h2 class="mb-4">The Team Behind Minimal</h2>
 	<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
   </div>
-</div>	
+</div>
 		<div class="row">
-		
+
 		@foreach ($employees as $employee)
 		<div class="col-md-6 col-lg-3 ftco-animate">
 			<div class="staff">
@@ -130,12 +137,12 @@
 					<h3>{{ $employee->employee_name }}</h3>
 					<span class="position mb-2">{{ $employee->position }}</span>
 					<p>{!! $employee->about_employee !!}</p>
-				
+
 				</div>
 			</div>
 		</div>
 		@endforeach
-			
+
 
 		</div>
 	</div>
