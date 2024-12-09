@@ -105,8 +105,6 @@ Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
 Route::get('/blog-form',[BlogController::class,'form'])->name('blog.form');
 
 
-
-// routes/web.php
 // Routes for displaying each step
 Route::get('about/list', [AboutController::class, 'list'])->name('about.list');
 
