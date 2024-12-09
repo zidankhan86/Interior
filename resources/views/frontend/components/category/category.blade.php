@@ -44,15 +44,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
 				<div class="sidebar sidebar-right">
 					<div class="sidebar-wrap mt-5 mt-lg-0">
-	<div class="sidebar-widget about mb-5 text-center p-3">
-		<div class="about-author">
-			<img src="{{ url('/uploads/',auth()->user()->image) }}" alt="" class="img-fluid">
-		</div>
-		<h4 class="mb-0 mt-4">{{ auth()->user()->name }}</h4>
-		<p>{{ auth()->user()->role }}</p>
-		<p>I'm Liam, last year I decided to quit my job and travel the world. You can follow my journey on this blog!</p>
-		<img src="frontend/images/liammason.png" alt="" class="img-fluid">
-	</div>
+
 
 	<div class="sidebar-widget follow mb-5 text-center">
 		<h4 class="text-center widget-title">Follow Me</h4>

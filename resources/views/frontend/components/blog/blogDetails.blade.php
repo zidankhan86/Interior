@@ -41,7 +41,6 @@
                             @if ($comments->count() > 0)
                                 @foreach ($comments as $comment)
                                     <div class="comment-area-box media">
-                                        <img alt="" height="50" width="50" src="{{ url('/uploads/', auth()->user()->image) }}" class="img-fluid float-left mr-3 mt-2">
                                         <div class="media-body ml-4">
                                             <h4 class="mb-0">{{ $comment->user->name }}</h4>
                                             <span class="date-comm font-sm text-capitalize text-color"><i class="ti-time mr-2"></i>{{ $comment->created_at->format('F j, Y') }}</span>
@@ -100,24 +99,24 @@
                 <div class="sidebar-box">
                     <form action="{{ route('blog.search') }}" method="GET" class="search-form">
                         <div class="input-group">
-                            <input 
-                                type="text" 
-                                name="search_key" 
-                                class="form-control" 
-                                placeholder="Type a keyword and hit enter" 
+                            <input
+                                type="text"
+                                name="search_key"
+                                class="form-control"
+                                placeholder="Type a keyword and hit enter"
                                 value="{{ request('search_key') }}">
                             <button type="submit">
                                 <i class="icon icon-search"></i>
                             </button>
                         </div>
                     </form>
-                    
-                    
+
+
                 </div>
                 <div class="sidebar-box">
                     <h3>Popular Articles</h3>
                     @foreach ($youMayLike as $relatedPost)
-               
+
 
                     <div class="block-21 mb-4 d-flex">
                         <a class="blog-img mr-4" style="background-image: url({{ asset('/uploads/' . $relatedPost->thumbnail) }});"></a>
@@ -126,7 +125,7 @@
                             <div class="meta">
                                 <div><a href="#"><span class="icon-calendar"></span> {{ $relatedPost->created_at->format('Y-M-d') }}</a></div>
                                 <div><a href="#"><span class="icon-person"></span> {{ $relatedPost->user->name }}</a></div>
-                                
+
                             </div>
                         </div>
                     </div>
