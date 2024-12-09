@@ -32,43 +32,8 @@
                             <p>{!! $blogDetails->post_description !!}</p>
                         </div>
 
-                        <!-- Comments Section -->
-                        <div class="comment-area my-5">
-                            <h3 class="mb-4 text-center">
-                                {{ $totalComment > 0 ? $totalComment . ' Comments' : '0 Comments' }}
-                            </h3>
 
-                            @if ($comments->count() > 0)
-                                @foreach ($comments as $comment)
-                                    <div class="comment-area-box media">
-                                        <div class="media-body ml-4">
-                                            <h4 class="mb-0">{{ $comment->user->name }}</h4>
-                                            <span class="date-comm font-sm text-capitalize text-color"><i class="ti-time mr-2"></i>{{ $comment->created_at->format('F j, Y') }}</span>
-                                            <div class="comment-content mt-3">
-                                                <p>{{ $comment->content }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            @else
-                                <p>No comments yet.</p>
-                            @endif
-                            {{ $comments->links() }}
-                        </div>
 
-                        <!-- Comment Form -->
-                        <div class="comment-form-wrap pt-5">
-                            <h3 class="mb-5">Leave a comment</h3>
-                            <form action="{{ route('comments.store') }}" method="POST" class="p-5 bg-light">
-                                @csrf
-                                <input type="hidden" name="blog_id" value="{{ $blogDetails->id }}">
-                                <div class="form-group">
-                                    <label for="content">Comment</label>
-                                    <textarea name="content" id="content" rows="4" class="form-control" placeholder="Write Comment .."></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-primary">Comment</button>
-                            </form>
-                        </div>
                     </div>
                 </div>
 
