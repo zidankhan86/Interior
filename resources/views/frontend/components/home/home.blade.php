@@ -9,13 +9,10 @@
 {{-- hero --}}
 @include('frontend.components.fixed.hero')
 
-<!-- YouTube Video Section -->
 <section class="py-5 bg-light">
     <div class="container" style="max-width: 1000px;">
         <div class="embed-responsive embed-responsive-16by9 position-relative">
-            <!-- Corrected YouTube Embed URL -->
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/EXibdjbRLfY?rel=0" allowfullscreen></iframe>
-            <!-- Play Button Overlay -->
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0qmGsWIP_mQ?rel=0&showinfo=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <div class="play-button">
                 <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill text-white" viewBox="0 0 16 16">
                     <path d="M11.596 8.004L5.792 4.328a.5.5 0 0 0-.792.408v7.528a.5.5 0 0 0 .792.408l5.804-3.676a.5.5 0 0 0 0-.816z"/>
@@ -24,6 +21,7 @@
         </div>
     </div>
 </section>
+
 
 
 
@@ -40,7 +38,7 @@
         </div>
       </div>
     </div>
-  
+
     <div class="container overflow-hidden">
         <div class="row gy-5 gx-md-5 justify-content-center">
           <div class="col-10 col-md-5 col-xl-4 overflow-hidden text-center">
@@ -91,7 +89,7 @@
           </div>
         </div>
       </div>
-      
+
   </section>
 
 
@@ -139,7 +137,7 @@
             </div>
         </div>
 
- 
+
     </div>
 </section>
 
