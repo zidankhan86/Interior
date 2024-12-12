@@ -52,17 +52,17 @@ class PortfolioController extends Controller
     {
 
         $validator = Validator::make($request->all(), [
-          
+
             'title'                   => 'required',
-            'thumbnail'               => 'required', 
-            'images.*'                  => 'required', 
+            'thumbnail'               => 'required',
+            'images.*'                  => 'required',
             'location'                => 'required|string',
             'scope'                   => 'required|string',
-            'complete_date'           => 'nullable', 
+            'complete_date'           => 'nullable',
             'portfolio_description'   => 'nullable|string',
             'status'                  => 'required',
         ]);
-        
+
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
@@ -82,11 +82,11 @@ class PortfolioController extends Controller
             }
         }
 
-        
+
         Portfolio::create([
             "type_name_id"            => $request->type_name_id,
             "title"                   => $request->title,
-            "slug"                    => Str::slug($request->title), 
+            "slug"                    => Str::slug($request->title),
             "thumbnail"               => $imageName,
             "images"                  => serialize($images),
             "location"                => $request->location,
@@ -97,20 +97,9 @@ class PortfolioController extends Controller
         ]);
 
         return back()->with('success','New Portfolio has been created');
-        
+
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $portfolio = Portfolio::findOrFail($id);
@@ -126,17 +115,17 @@ class PortfolioController extends Controller
 
         $validator = Validator::make($request->all(), [
 
-            'thumbnail'               => 'required', 
-            'images.*'                  => 'required', 
-          
+            'thumbnail'               => 'required',
+            'images.*'                  => 'required',
+
         ]);
-        
+
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        
+
         $update = Portfolio::find($id);
-    
+
         $imageName = null;
         $images = [];
 
@@ -152,11 +141,11 @@ class PortfolioController extends Controller
                $images[] = $imageUniqueName;
             }
         }
-    
+
         $update->update([
             "type_name_id"            => $request->type_name_id,
             "title"                   => $request->title,
-            "slug"                    => Str::slug($request->title), 
+            "slug"                    => Str::slug($request->title),
             "thumbnail"               => $imageName,
             "images"                  => serialize($images),
             "location"                => $request->location,
@@ -165,10 +154,10 @@ class PortfolioController extends Controller
             "portfolio_description"   => $request->portfolio_description,
             "status"                  => $request->status,
         ]);
-    
+
         return back()->with('success', 'Portfolio Updated');
     }
-    
+
 
     /**
      * Remove the specified resource from storage.

@@ -78,52 +78,53 @@ Route::get('/category',[CategoryController::class,'index'])->name('category');
 
 
 //Middleware
-Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
-//Backend
-//Pages
-Route::resource('portfolio',PortfolioController::class);
-Route::get('/delete/{id}',[PortfolioController::class,'delete'])->name('portfolio.delete');
-Route::resource('portfolioType',PortfolioTypeController::class);
-Route::get('/delete/{id}',[PortfolioTypeController::class,'delete'])->name('portfolioType.delete');
-Route::get('/',[HomeController::class,'index'])->name('app');
-Route::get('/logout',[AuthController::class,'logout'])->name('logout');
-Route::get('/setting',[SettingController::class,'index'])->name('setting');
-Route::get('/change-password',[ChangePasswordController::class,'index'])->name('change.password');
-Route::post('/update-password/{id}',[ChangePasswordController::class,'update'])->name('update.password');
-Route::get('/user-list',[UserController::class,'list'])->name('user.list');
-Route::get('/category-list',[CategoryController::class,'list'])->name('category.list');
-Route::get('/category-form',[CategoryController::class,'create'])->name('category.form');
-Route::get('/category-edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
-Route::post('/category-update/{id}',[CategoryController::class,'update'])->name('category.update');
-Route::get('/blog-list',[BlogController::class,'list'])->name('blog.list');
-Route::get('/blog-form',[BlogController::class,'form'])->name('blog.form');
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+    // Backend
+    // Pages
+    Route::resource('portfolio', PortfolioController::class);
+    Route::get('/portfolio/delete/{id}', [PortfolioController::class, 'delete'])->name('portfolio.delete');
+    Route::resource('portfolioType', PortfolioTypeController::class);
+    Route::get('/portfolio-type/delete/{id}', [PortfolioTypeController::class, 'delete'])->name('portfolioType.delete');
 
+    // Dashboard
+    Route::get('/', [HomeController::class, 'index'])->name('app');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting');
+    Route::get('/change-password', [ChangePasswordController::class, 'index'])->name('change.password');
+    Route::post('/update-password/{id}', [ChangePasswordController::class, 'update'])->name('update.password');
 
-// Routes for displaying each step
-Route::get('about/list', [AboutController::class, 'list'])->name('about.list');
+    // User Management
+    Route::get('/user-list', [UserController::class, 'list'])->name('user.list');
 
-Route::get('about/step1', [AboutController::class, 'showStep1'])->name('about.form');
-Route::get('about/brand', [AboutController::class, 'brand'])->name('about.brand');
-Route::get('about/employee', [AboutController::class, 'employee'])->name('about.employee');
+    // Category Management
+    Route::get('/category-list', [CategoryController::class, 'list'])->name('category.list');
+    Route::get('/category-form', [CategoryController::class, 'create'])->name('category.form');
+    Route::get('/category-edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::post('/category-update/{id}', [CategoryController::class, 'update'])->name('category.update');
+    Route::post('/category-store', [CategoryController::class, 'store'])->name('category.store');
+    // Blog Management
+    Route::get('/blog-list', [BlogController::class, 'list'])->name('blog.list');
+    Route::get('/blog-form', [BlogController::class, 'form'])->name('blog.form');
+    Route::post('/blog-store', [BlogController::class, 'store'])->name('blog.store');
+    Route::post('/hash-tag', [BlogController::class, 'ashTagStore'])->name('hash.tag.store');
 
-// Routes for submitting each step
-Route::post('about/step1', [AboutController::class, 'store'])->name('about.store');
-Route::post('about/employee', [AboutController::class, 'employee_store'])->name('employee.store');
-Route::post('about/brand', [AboutController::class, 'brand_store'])->name('brand.store');
+    // About Section
+    Route::get('about/list', [AboutController::class, 'list'])->name('about.list');
+    Route::get('about/step1', [AboutController::class, 'showStep1'])->name('about.form');
+    Route::get('about/brand', [AboutController::class, 'brand'])->name('about.brand');
+    Route::get('about/employee', [AboutController::class, 'employee'])->name('about.employee');
+    Route::post('about/step1', [AboutController::class, 'store'])->name('about.store');
+    Route::post('about/employee', [AboutController::class, 'employee_store'])->name('employee.store');
+    Route::post('about/brand', [AboutController::class, 'brand_store'])->name('brand.store');
 
+    // Profile
+    Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
-//profile
-Route::get('/profile',[ProfileController::class,'index'])->name('profile');
-//post
-Route::post('/registration/update{id}',[RegistrationController::class,'update'])->name('registration.update');
-Route::post('/category-store',[CategoryController::class,'store'])->name('category.store');
-Route::post('/blog-store',[BlogController::class,'store'])->name('blog.store');
-Route::post('/hash-tag',[BlogController::class,'ashTagStore'])->name('hash.tag.store');
+    // Registration
+    Route::post('/registration/update{id}', [RegistrationController::class, 'update'])->name('registration.update');
 
-//Contact
-Route::get('/contact-list',[ContactController::class,'contactlist'])->name('contact.list');
-Route::get('/contact-view/{id}',[ContactController::class,'contactview'])->name('contact.view');
-
-
+    // Contact Management
+    Route::get('/contact-list', [ContactController::class, 'contactlist'])->name('contact.list');
+    Route::get('/contact-view/{id}', [ContactController::class, 'contactview'])->name('contact.view');
 });
 });

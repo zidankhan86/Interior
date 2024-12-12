@@ -17,17 +17,7 @@ class ContactController extends Controller
        return view('frontend.pages.contact');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         try {
@@ -71,19 +61,4 @@ class ContactController extends Controller
         return view('backend.components.Contact_Us.feedback_view',compact('messages'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, Contact $contact)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Contact $contact)
-    {
-        //
-    }
 }
