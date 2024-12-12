@@ -8,8 +8,8 @@
     <title>{{ config('app.name') }}</title>
             {{-- CSS --}}
             @include('backend.components.fixed.style')
-           
-            
+
+
   </head>
   <body >
     <script src="{{asset ('./dist/js/demo-theme.min.js?1684106062') }}"></script>
@@ -34,7 +34,7 @@
         {{-- Js --}}
         @include('backend.components.fixed.script')
 
-       
+
 
   </body>
 </html>

@@ -1,6 +1,6 @@
 @extends('backend.layout.app')
 @section('content')
- 
+
 <link href="path/to/select2.min.css" rel="stylesheet" />
 <script src="path/to/select2.min.js"></script>
 
@@ -15,19 +15,19 @@
             @csrf
             <div class="card-body">
                 <h3 style="text-align: center">Team</h3>
-               
+
                 <div class="row row-cards">
                     <div class="col-md-12">
 
                         <div class="row">
-                           
+
                                 <div class="col-md-6 mb-3">
                                     <label class="form-label">Name</label>
                                     <input type="text" name="employee_name" class="form-control" placeholder="Team Member Name">
                                     @if ($errors->has('employee_name'))
                                         <p class="text-danger">{{ $errors->first('employee_name') }}</p>
                                     @endif
-                                
+
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label class="form-label">Position</label>
@@ -35,9 +35,9 @@
                                 @if ($errors->has('position'))
                                     <p class="text-danger">{{ $errors->first('position') }}</p>
                                 @endif
-                            
+
                         </div>
-                        
+
                         </div>
                         <div class="col-md-12 mb-3">
                             <label class="form-label">About Employee</label>
@@ -45,7 +45,7 @@
                             @if ($errors->has('about_employee'))
                                 <p class="text-danger">{{ $errors->first('about_employee') }}</p>
                             @endif
-                        
+
                     </div>
                         <div class="mb-3">
                             <label class="form-label">Employee Image</label>
@@ -71,27 +71,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/css/dropify.min.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Dropify/0.2.2/js/dropify.min.js"></script>
 
-<script src="https://cdn.ckeditor.com/ckeditor5/40.0.0/classic/ckeditor.js"></script>
 
-<script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .catch(error => {
-            console.error(error);
-        });
-
-    ClassicEditor
-        .create(document.querySelector('#editors'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
-
-<style type="text/css">
-    .ck-editor__editable_inline {
-        height: 150px;
-    }
-</style>
 
 <script>
     $('.dropify').dropify({

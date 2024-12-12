@@ -15,4 +15,50 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="{{asset ('frontend/js/google-map.js') }}"></script>
   <script src="{{asset ('frontend/js/main.js') }}"></script>
-  
+
+
+  <style>
+    .navbar-nav .nav-link {
+  color: #333 !important;  /* Dark text for navbar links */
+}
+
+.navbar-nav .btn {
+  color: rgb(235, 225, 225);            /* White text for buttons */
+}
+
+.navbar-nav .btn-info {
+  background-color: #17a2b8;
+}
+
+.navbar-nav .btn-success {
+  background-color: #28a745;
+}
+
+.navbar-nav .btn-danger {
+  background-color: #dc3545;
+}
+
+  </style>
+
+  <style>
+    .nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropdownElements = document.querySelectorAll('.dropdown-toggle');
+        dropdownElements.forEach(function (dropdown) {
+            dropdown.addEventListener('mouseover', function () {
+                let dropdownMenu = this.nextElementSibling;
+                dropdownMenu.classList.add('show');
+            });
+            dropdown.addEventListener('mouseout', function () {
+                let dropdownMenu = this.nextElementSibling;
+                dropdownMenu.classList.remove('show');
+            });
+        });
+    });
+</script>
+

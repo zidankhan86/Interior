@@ -16,7 +16,7 @@ class AuthController extends Controller
         return view('backend.components.auth.login');
     }
 
-    
+
 
     /**
      * Store a newly created resource in storage.
@@ -41,7 +41,12 @@ class AuthController extends Controller
         }
     }
 
-   
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('home')->withSuccess('Logout Success');
+     }
 
-   
+
+
+
 }

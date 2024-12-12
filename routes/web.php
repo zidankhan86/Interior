@@ -60,7 +60,6 @@ Route::get('/blog-page',[BlogController::class,'index'])->name('blog');
 Route::get('/category-wise-blog/{id}',[CategoryController::class,'CategoryWiseBlog'])->name('cat.wise.blog');
 Route::get('/trendingBlog/{id}',[TrandingBlogController::class,'index'])->name('trending');
 Route::get('/search',[BlogController::class,'search'])->name('blog.search');
-Route::post('/likes/{id}',[LikeController::class,'like'])->name('blog.like');
 Route::post('/blog-comment',[LeaveCommentController::class,'store'])->name('blog.comment.store');
 Route::get('/blog-view/{id}',[BlogController::class,'show'])->name('blog.view');
 
@@ -68,31 +67,26 @@ Route::get('/social-media-share/{id}', [SocialShareButtonsController::class,'Sha
 //Post comment and reply
 Route::post('/post-comment',[CommentController::class,'store'])->name('comments.store');
 Route::get('/reply/{id}',[CommentController::class,'index'])->name('reply');
-//News letter
-Route::post('/subscribe', [NewsletterSubscriptionController::class, 'store'])->name('subscribe');
 
 Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::post('/contact-store',[ContactController::class,'store'])->name('contact.store');
+
+
 Route::group(['middleware'=>'auth'],function(){
-//Frontend
-//Pages
-
-
 Route::get('/category',[CategoryController::class,'index'])->name('category');
 
-//Backend
+
 
 //Middleware
-Route::group(['middleware'=>'auth','prefix'=>'app'],function(){
-
+Route::group(['middleware'=>'auth','prefix'=>'admin'],function(){
+//Backend
 //Pages
 Route::resource('portfolio',PortfolioController::class);
 Route::get('/delete/{id}',[PortfolioController::class,'delete'])->name('portfolio.delete');
 Route::resource('portfolioType',PortfolioTypeController::class);
 Route::get('/delete/{id}',[PortfolioTypeController::class,'delete'])->name('portfolioType.delete');
 Route::get('/',[HomeController::class,'index'])->name('app');
-Route::get('/logout',[TestController::class,'logout'])->name('logout');
-Route::get('/form',[TestController::class,'form'])->name('form');
+Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 Route::get('/setting',[SettingController::class,'index'])->name('setting');
 Route::get('/change-password',[ChangePasswordController::class,'index'])->name('change.password');
 Route::post('/update-password/{id}',[ChangePasswordController::class,'update'])->name('update.password');
