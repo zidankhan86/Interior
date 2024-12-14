@@ -166,5 +166,78 @@ class BlogController extends Controller
                  return view('frontend.pages.search',compact('searchResult'));
             }
 
+            public function edit($id){
+
+                $data['blog']=Blog::find($id);
+                $data['Category']=Category::all();
+
+                return view('backend.pages.blogEdit',$data);
+            }
+
+            public function update(Request $request, $id = null)
+            {
+                $request->validate([
+                    'category_id'       => 'required',
+                    'title'             => 'required',
+                    'thumbnail'         => 'nullable|image|mimes:jpeg,png,jpg,gif',
+                    'description'       => 'required',
+                    'status'            => 'required',
+                    'featured'          => 'required',
+                    'post_image.*'      => 'image|mimes:jpeg,png,jpg,gif',
+                    'post_description'  => 'nullable'
+                ]);
+
+                if ($id) {
+                    $blog = Blog::find($id);
+                } else {
+                    $blog = new Blog;
+                }
+
+                $blog->user_id = $request->user_id;
+                $blog->category_id = $request->category_id;
+                $blog->title = $request->title;
+                $blog->slug = Str::slug($request->title);
+                $blog->description = $request->description;
+                $blog->status = $request->status;
+                $blog->featured = $request->featured;
+                $blog->post_description = $request->post_description;
+
+                if ($request->hasFile('thumbnail')) {
+                    $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
+                    $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
+                    $blog->thumbnail = $imageName;
+                }
+
+                if ($request->hasFile('post_image')) {
+                    $postImageNames = [];
+                    foreach ($request->file('post_image') as $image) {
+                        $imageUniqueName = time() . '_' . $image->getClientOriginalName();
+                        $image->storeAs('uploads', $imageUniqueName, 'public');
+                        $postImageNames[] = $imageUniqueName;
+                    }
+                    $blog->post_image = serialize($postImageNames);
+                }
+
+                // Extract and process hashtags
+                $hashtags = explode(',', $request->input('hashtags'));
+                $hashtags = array_map('trim', $hashtags);
+                $hashtags = array_filter($hashtags);
+                $blog->hashtags = json_encode($hashtags);
+
+                // Save the blog post
+                $blog->save();
+
+                return back()->withSuccess(['success' => 'Blog ' . ($id ? 'Updated' : 'Created') . ' Successfully!']);
+            }
+
+
+            public function delete($id){
+
+                $delete = Blog::find($id);
+
+                $delete->delete();
+
+                return redirect()->back()->with('success','Blog deleted!');
+            }
 
 }

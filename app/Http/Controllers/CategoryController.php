@@ -81,7 +81,7 @@ class CategoryController extends Controller
 
       public function store(Request $request)
       {
-       
+
              $request->validate([
                 'type_name'     => 'required|string',
                 'status'        => 'required',
@@ -94,11 +94,11 @@ class CategoryController extends Controller
             ]);
 
             return back()->withSuccess(['success' => 'Category Create Success!']);
-            
+
 
     }
 
-   
+
             public function list()
             {
                 $categories = Category::all();
@@ -115,6 +115,15 @@ class CategoryController extends Controller
             ]);
 
             return redirect()->back()->with('success','Category updated');
+            }
+
+            public function delete($id){
+
+                $delete = Category::find($id);
+                $delete->delete();
+
+                return redirect()->back()->with('success','Category Deleted');
+
             }
 
 }

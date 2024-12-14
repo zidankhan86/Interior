@@ -44,13 +44,13 @@
                                 <td data-label="Date" class="align-middle">{{ $blog->created_at->format('D-M-Y') }}</td>
                                 <td data-label="Action" class="align-middle">
                                     <div class="btn-list flex-nowrap">
-                                        <a href="#" class="btn btn-info">Edit</a>
+                                        <a href="{{ route('blog.edit',$blog->id) }}" class="btn btn-info">Edit</a>
                                         <div class="dropdown">
                                             <button class="btn btn-secondary dropdown-toggle align-text-top"
                                                 data-bs-toggle="dropdown">Actions</button>
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="#">Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
+                                                <a class="dropdown-item"  onclick="return confirmDelete()" href="{{ route('blog.delete',$blog->id) }}">Delete</a>
+
                                             </div>
                                         </div>
                                     </div>
@@ -64,5 +64,6 @@
     </div>
 </div>
 
+<script> function confirmDelete() { return confirm('Do you want to delete?'); } </script>
 
 @endsection

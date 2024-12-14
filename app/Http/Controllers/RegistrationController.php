@@ -64,8 +64,6 @@ class RegistrationController extends Controller
             public function update(Request $request, string $id)
             {
 
-
-
             $userUpdate= User::find($id);
 
 

@@ -14,19 +14,23 @@
                           </tr>
                       </thead>
                       <tbody>
-                          @foreach ($categories as $category)
+                          @forelse ( $categories as $category )
+
                           <tr>
                               <td>{{ $category->id }}</td>
                               <td data-label="Name">{{ $category->type_name }}</td>
                               <td>
                                   <div class="btn-list flex-nowrap">
                                       <a href="{{ route('category.edit',$category->id) }}" class="btn">Edit</a>
-                                      <a href="#" class="btn">Delete</a>
-                                     
+                                      <a href="{{ route('category.delete', $category->id) }}" class="btn" onclick="return confirmDelete()">Delete</a>
+
                                   </div>
                               </td>
                           </tr>
-                          @endforeach
+
+                          @empty
+                              <br><p style="text-align: center"><b>Create a category first</b></p>
+                          @endforelse ()
                       </tbody>
                   </table>
               </div>
@@ -63,3 +67,4 @@
       </div>
   </div>
 </div>
+<script> function confirmDelete() { return confirm('Do you want to delete?'); } </script>

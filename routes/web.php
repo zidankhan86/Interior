@@ -102,11 +102,17 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::get('/category-edit/{id}', [CategoryController::class, 'edit'])->name('category.edit');
     Route::post('/category-update/{id}', [CategoryController::class, 'update'])->name('category.update');
     Route::post('/category-store', [CategoryController::class, 'store'])->name('category.store');
+    Route::get('/category-delete/{id}', [CategoryController::class, 'delete'])->name('category.delete');
+
     // Blog Management
     Route::get('/blog-list', [BlogController::class, 'list'])->name('blog.list');
     Route::get('/blog-form', [BlogController::class, 'form'])->name('blog.form');
     Route::post('/blog-store', [BlogController::class, 'store'])->name('blog.store');
     Route::post('/hash-tag', [BlogController::class, 'ashTagStore'])->name('hash.tag.store');
+    Route::put('/blog/update/{id}', [BlogController::class, 'update'])->name('blog.update');
+    Route::get('/blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
+    Route::get('/blog/delete/{id}', [BlogController::class, 'delete'])->name('blog.delete');
+
 
     // About Section
     Route::get('about/list', [AboutController::class, 'list'])->name('about.list');
