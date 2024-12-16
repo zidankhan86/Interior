@@ -14,9 +14,11 @@ class BlogController extends Controller
 
         public function index()
         {
-                $blogs = Blog::simplePaginate(9);
+            $data['title']="Blog -innards";
+
+                $data['blogs'] = Blog::simplePaginate(9);
                 Category::with('Category')->where('type_name');
-                return view('frontend.pages.blog',compact('blogs'));
+                return view('frontend.pages.blog',$data);
          }
 
 

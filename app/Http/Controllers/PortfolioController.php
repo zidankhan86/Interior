@@ -14,9 +14,12 @@ class PortfolioController extends Controller
         //Frontend Page
         public function portfolio(){
 
-            $portfolio = Portfolio::where('status', 1)->paginate(9);
 
-            return view('frontend.pages.portfolio',compact('portfolio'));
+            $data['title']="Portfolio -innards";
+
+            $data['portfolio'] = Portfolio::where('status', 1)->paginate(9);
+
+            return view('frontend.pages.portfolio',$data);
         }
 
         public function portfolio_details($id){
@@ -32,8 +35,9 @@ class PortfolioController extends Controller
      */
     public function index()
     {
-            $portfolios  = Portfolio::paginate(20);
-        return view('backend.components.portfolio.list',compact('portfolios'));
+
+        $data['portfolios']  = Portfolio::paginate(20);
+        return view('backend.components.portfolio.list',$data);
     }
 
     /**

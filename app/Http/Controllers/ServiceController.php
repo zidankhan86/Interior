@@ -9,7 +9,9 @@ class ServiceController extends Controller
 {
     public function index(){
 
-        return view('frontend.pages.service');
+        $data['title']="Service -innards";
+
+        return view('frontend.pages.service',$data);
     }
 
     public function residential(){

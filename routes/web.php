@@ -52,7 +52,7 @@ Route::post('/store',[AuthController::class,'store'])->name('store');
 Route::get('/registration',[RegistrationController::class,'index'])->name('registration');
 Route::post('/registration/store',[RegistrationController::class,'store'])->name('registration.store');
 //Pages
-Route::get('/project',[PortfolioController::class,'portfolio'])->name('portfolio.page');
+Route::get('/portfolio',[PortfolioController::class,'portfolio'])->name('portfolio.page');
 Route::get('/project/details/{id}',[PortfolioController::class,'portfolio_details'])->name('portfolio.details');
 Route::get('/about',[AboutController::class,'index'])->name('about');
 Route::get('/services',[ServiceController::class,'index'])->name('services');

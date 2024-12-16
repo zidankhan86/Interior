@@ -15,15 +15,18 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $employees = AboutEmployee::all();
+        $data['title']="Employee -innards";
 
-        return view('frontend.pages.about',compact('employees'));
+        $data['employees'] = AboutEmployee::all();
+
+        return view('frontend.pages.about',$data);
     }
 
 
     public function employee()
     {
-        return view('backend.pages.aboutEmployee');
+        $data['title'] = 'Employee -innards';
+        return view('backend.pages.aboutEmployee',$data);
     }
 
     public function list(){

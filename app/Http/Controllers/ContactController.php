@@ -14,7 +14,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-       return view('frontend.pages.contact');
+        $data['title']='Contact - Innards';
+       return view('frontend.pages.contact',$data);
     }
 
 

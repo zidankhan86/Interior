@@ -1,4 +1,4 @@
-@extends('backend.layout.app') 
+@extends('backend.layout.app')
 @section('content')
     <div class="container">
         <br><a href="{{ route('portfolio.create') }}" class="btn btn-info">Create Portfolio</a>
@@ -47,8 +47,8 @@
                         <td>
                             {{-- <a href="{{ route('portfolio.view', $portfolio->id) }}"><x-backend.svg.eye_icon /></a> --}}
                             <a href="{{ route('portfolio.edit', $portfolio->id) }}" class="btn btn-info"><x-backend.svg.edit_icon /></a>
-             
-                            <a href="{{ route('portfolioType.delete', $portfolio->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger"><x-backend.svg.delete_icon /></a>
+
+                            <a href="{{ route('po             rtfolioType.delete', $portfolio->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger"><x-backend.svg.delete_icon /></a>
                         </td>
                     </tr>
                 @endforeach
