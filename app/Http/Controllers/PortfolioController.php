@@ -24,8 +24,11 @@ class PortfolioController extends Controller
 
         public function portfolio_details($id){
 
-            $portfolio_details = Portfolio::find($id);
-            return view('frontend.pages.portfolioDetail',compact('portfolio_details'));
+            $data['title']="Portfolio details -innards";
+
+            $data['portfolio_details'] = Portfolio::find($id);
+
+            return view('frontend.pages.portfolioDetail',$data);
         }
 
 
