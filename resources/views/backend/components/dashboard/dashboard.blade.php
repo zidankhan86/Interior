@@ -1,172 +1,179 @@
  <!-- Page body -->
  <div class="page-body">
-    <div class="container-xl">
-      <div class="row row-deck row-cards">
-        <div class="col-sm-6 col-lg-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex align-items-center">
-                <div class="subheader">Number of users</div>
-                <div class="ms-auto lh-1">
-                  <div class="dropdown">
-                    
-                    <div class="dropdown-menu dropdown-menu-end">
-                     
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="h1 mb-3">{{ $total_users }}</div>
-              <div class="d-flex mb-2">
-               
-              </div>
-             
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex align-items-center">
-                <div class="subheader">Total Portfolio</div>
-                <div class="ms-auto lh-1">
-                  <div class="dropdown">
+     <div class="container-xl">
+         <div class="row row-deck row-cards">
+             <div class="col-sm-6 col-lg-3">
+                 <div class="card">
+                     <div class="card-body">
+                         <div class="d-flex align-items-center">
+                             <div class="subheader">Number of users</div>
+                             <div class="ms-auto lh-1">
+                                 <div class="dropdown">
 
-                    <div class="dropdown-menu dropdown-menu-end">
-                  
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="d-flex align-items-baseline">
-                <div class="h1 mb-0 me-2">{{ $total_portfolio }}</div>
-                <div class="me-auto">
-                  
-                </div>
-              </div>
-            </div>
-          
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex align-items-center">
-                <div class="subheader">Total Blog</div>
-                <div class="ms-auto lh-1">
-                  <div class="dropdown">
-                    
-                    <div class="dropdown-menu dropdown-menu-end">
-                    
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="d-flex align-items-baseline">
-                <div class="h1 mb-3 me-2">{{ $total_blog }}</div>
+                                     <div class="dropdown-menu dropdown-menu-end">
 
-              </div>
-             
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-          <div class="card">
-            <div class="card-body">
-              <div class="d-flex align-items-center">
-                <div class="subheader">Total Team Members</div>
-                <div class="ms-auto lh-1">
-                  <div class="dropdown">
-                   
-                    <div class="dropdown-menu dropdown-menu-end">
-                 
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="d-flex align-items-baseline">
-                <div class="h1 mb-3 me-2">{{ $total_team_members }}</div>
-                <div class="me-auto">
-                 
-                </div>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      
-        <div class="col-lg-12">
-          <div class="card">
-            <div class="card-body">
-              <h3 class="card-title">Users</h3>
-             
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="h1 mb-3">{{ $total_users }}</div>
+                         <div class="d-flex mb-2">
 
-<div class="container">
- 
-  <div class="col-12">
-      <div class="card">
-        <div class="table-responsive">
-          <table
-  class="table table-vcenter table-mobile-md card-table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Title</th>
-                <th>Role</th>
-                <th class="w-1"></th>
-              </tr>
-            </thead>
-            <tbody>
+                         </div>
 
-              @foreach ($users as $user)
-              <tr>
-                <td data-label="Name" >
-                  <div class="d-flex py-1 align-items-center">
-                    
-                    <div class="flex-fill">
-                      <div class="font-weight-medium">{{ $user->name }}</div>
-                      <div class="text-muted"><a href="#" class="text-reset">{{ $user->email }}</a></div>
-                    </div>
-                  </div>
-                </td>
-                <td data-label="Title" >
-                  <div>{{ $user->role }}</div>
-                
-                </td>
-                <td class="text-muted" data-label="Role" >
-                  {{ $user->role }}
-                </td>
-                <td>
-                  <div class="btn-list flex-nowrap">
-                    
-                    <div class="dropdown">
-                     
-                     
-                    </div>
-                  </div>
-                </td>
-              </tr> 
-              @endforeach
-              
-            
-            
-            
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="col-sm-6 col-lg-3">
+                 <div class="card">
+                     <div class="card-body">
+                         <div class="d-flex align-items-center">
+                             <div class="subheader">Total Portfolio</div>
+                             <div class="ms-auto lh-1">
+                                 <div class="dropdown">
 
-</div>
+                                     <div class="dropdown-menu dropdown-menu-end">
 
-            </div>
-          </div>
-        </div>
-        
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="d-flex align-items-baseline">
+                             <div class="h1 mb-0 me-2">{{ $total_portfolio }}</div>
+                             <div class="me-auto">
+
+                             </div>
+                         </div>
+                     </div>
+
+                 </div>
+             </div>
+             <div class="col-sm-6 col-lg-3">
+                 <div class="card">
+                     <div class="card-body">
+                         <div class="d-flex align-items-center">
+                             <div class="subheader">Total Blog</div>
+                             <div class="ms-auto lh-1">
+                                 <div class="dropdown">
+
+                                     <div class="dropdown-menu dropdown-menu-end">
+
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="d-flex align-items-baseline">
+                             <div class="h1 mb-3 me-2">{{ $total_blog }}</div>
+
+                         </div>
+
+                     </div>
+                 </div>
+             </div>
+             <div class="col-sm-6 col-lg-3">
+                 <div class="card">
+                     <div class="card-body">
+                         <div class="d-flex align-items-center">
+                             <div class="subheader">Total Team Members</div>
+                             <div class="ms-auto lh-1">
+                                 <div class="dropdown">
+
+                                     <div class="dropdown-menu dropdown-menu-end">
+
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="d-flex align-items-baseline">
+                             <div class="h1 mb-3 me-2">{{ $total_team_members }}</div>
+                             <div class="me-auto">
+
+                             </div>
+                         </div>
+
+                     </div>
+                 </div>
+             </div>
 
 
+                 <div class="container">
+                     <br>
+
+                     <br><br>
+                     <div class="col-12">
+                         <div class="card">
+                             <div class="table-responsive">
+                                 <table class="table table-vcenter table-mobile-md card-table">
+                                     <thead>
+                                         <tr>
+                                             <th>Image</th>
+                                             <th>Title</th>
+                                             <th>Category</th>
+                                             <th>Status</th>
+                                             <th>Date</th>
+                                             <th class="w-1">Action</th>
+                                         </tr>
+                                     </thead>
+                                     <tbody>
+                                         @foreach ($blogs as $blog)
+                                             <tr>
+                                                 <td data-label="Image" class="align-middle">
+                                                     @foreach (unserialize($blog->post_image) as $image)
+                                                         <div class="d-inline-block" style="margin-right: 10px;">
+                                                             <img src="{{ url('/uploads/' . $image) }}" alt="Image"
+                                                                 class="img-thumbnail"
+                                                                 style="max-width: 100px; max-height: 100px;">
+                                                         </div>
+                                                     @endforeach
+                                                 </td>
+                                                 <td data-label="Title" class="align-middle">{{ $blog->title }}</td>
+                                                 <td data-label="Category" class="align-middle">
+                                                     {{ $blog->category->type_name }}</td>
+                                                 <td data-label="Status" class="align-middle">
+                                                     {{ $blog->status == 1 ? 'Active' : 'Inactive' }}</td>
+                                                 <td data-label="Date" class="align-middle">
+                                                     {{ $blog->created_at->format('D-M-Y') }}</td>
+                                                 <td data-label="Action" class="align-middle">
+                                                     <div class="btn-list flex-nowrap">
+                                                         <a href="{{ route('blog.edit', $blog->id) }}"
+                                                             class="btn btn-info">Edit</a>
+                                                         <div class="dropdown">
+                                                             <button
+                                                                 class="btn btn-secondary dropdown-toggle align-text-top"
+                                                                 data-bs-toggle="dropdown">Actions</button>
+                                                             <div class="dropdown-menu dropdown-menu-end">
+                                                                 <a class="dropdown-item" onclick="return confirmDelete()"
+                                                                     href="{{ route('blog.delete', $blog->id) }}">Delete</a>
+
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </td>
+                                             </tr>
+                                         @endforeach
+                                     </tbody>
+                                 </table>
+                             </div>
+
+                         </div>
+
+                     </div>
+                     {{ $blogs->links() }}
+
+                 </div>
+
+                 <script>
+                     function confirmDelete() {
+                         return confirm('Do you want to delete?');
+                     }
+                 </script>
 
 
-      </div>
-    </div>
-  </div>
+
+
+
+
+
+         </div>
+     </div>
+ </div>

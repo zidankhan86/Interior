@@ -20,5 +20,15 @@ class PortfolioTypeSeeder extends Seeder
             "slug"=>"architectural"
 
            ]);
+
+           PortfolioType::create([
+
+            "type_name"=>"Residential",
+            "status"=>"2",
+            "slug"=>"residential"
+
+           ]);
+
+
     }
 }

@@ -35,6 +35,7 @@ class BlogController extends Controller
         public function store(Request $request)
         {
 
+            try {
            // dd($request->all());
              $request->validate([
                 'category_id'       => 'required',
@@ -92,7 +93,12 @@ class BlogController extends Controller
                 // Save the blog post
                 $blog->save();
 
-                 return back()->withSuccess(['success' => 'Blog Create Success!']);
+                return back()->with(['success' => 'Blog Create Success!']);
+            } catch (\Exception $e) {
+
+                // dd($e->getMessage());
+                return back()->with(['error' => 'An error occurred: ' . $e->getMessage()]);
+            }
 
 
              }

@@ -16,14 +16,20 @@ class ServiceController extends Controller
 
     public function residential(){
 
-        return view('backend.pages.residential');
+        $data['residential']=Portfolio::whereHas('project_category',function($query){
+        $query->where('type_name','Residential');
+        })->with('project_category')->get();
+
+        return view('backend.pages.residential',$data);
     }
 
     public function architect(){
-        $architects = Portfolio::whereHas('project_category', function ($query) {
+
+        $data['architects'] = Portfolio::whereHas('project_category', function ($query) {
             $query->where('type_name', 'Architectural');
         })->with('project_category')->get();
-        return view('backend.pages.architec',compact('architects'));
+
+        return view('backend.pages.architec',$data);
     }
 
     public function commercial(){

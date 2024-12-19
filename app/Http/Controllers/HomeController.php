@@ -17,12 +17,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $total_users=User::count();
-        $total_portfolio=Portfolio::count();
-        $total_blog=Blog::count();
-        $total_team_members=AboutEmployee::count();
-        $users=User::paginate(12);
-        return view('backend.pages.dashboard',compact('total_users','total_portfolio','total_blog','total_team_members','users'));
+        $data['total_users']=User::count();
+        $data['total_portfolio']=Portfolio::count();
+        $data['total_blog']=Blog::count();
+        $data['total_team_members']=AboutEmployee::count();
+        $data['users']=User::paginate(12);
+        $data['blogs'] = Blog::with('category')->paginate(10);
+
+        return view('backend.pages.dashboard',$data);
     }
 
 }
