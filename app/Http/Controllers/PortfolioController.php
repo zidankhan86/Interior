@@ -39,7 +39,7 @@ class PortfolioController extends Controller
         public function index()
         {
 
-            $data['portfolios']  = Portfolio::paginate(20);
+            $data['portfolios']  = Portfolio::paginate(5);
 
             return view('backend.components.portfolio.list',$data);
         }

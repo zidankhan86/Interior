@@ -54,17 +54,44 @@
                                 <td>
                                     <div class="btn-list flex-nowrap">
                                         <a href="{{ route('portfolioType.edit',$category->id) }}" class="btn">Edit</a>
-                                        <a href="{{ route('portfolioType.delete',$category->id) }}" onclick="return confirm('Are you sure?')" class="btn btn-danger" class="btn">delete</a>
+                                        <a href="javascript:void(0);" onclick="confirmDelete('{{ route('portfolioType.delete', $category->id) }}')" class="btn btn-danger" class="btn">delete</a>
                                     </div>
                                 </td>
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
-                </div>
+                </div><br>
+            {{ $categories->links() }}
+
             </div>
         </div>
     </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function confirmDelete(url) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url; // Redirect to the delete route
+        }
+    });
+}
+
+</script>
+
 @endsection
+
+
+
+

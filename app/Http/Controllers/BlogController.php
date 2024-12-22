@@ -16,7 +16,7 @@ class BlogController extends Controller
         {
             $data['title']="Blog -innards";
 
-                $data['blogs'] = Blog::simplePaginate(9);
+                $data['blogs'] = Blog::simplePaginate(6);
                 Category::with('Category')->where('type_name');
                 return view('frontend.pages.blog',$data);
          }

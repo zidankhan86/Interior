@@ -9,7 +9,8 @@
             {{-- CSS --}}
             @include('backend.components.fixed.style')
 
-
+        {{-- Additional CSS --}}
+        @stack('css')
   </head>
   <body >
     <script src="{{asset ('./dist/js/demo-theme.min.js?1684106062') }}"></script>
@@ -34,7 +35,8 @@
         {{-- Js --}}
         @include('backend.components.fixed.script')
 
-
+            {{-- Additional Scripts --}}
+            @stack('scripts')
 
   </body>
 </html>

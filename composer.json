@@ -14,6 +14,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.5",
+        "pola5h/laravel-flags": "^1.0",
         "yoeunes/toastr": "^2.3"
     },
     "require-dev": {

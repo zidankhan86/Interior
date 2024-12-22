@@ -13,8 +13,9 @@ class PortfolioTypeController extends Controller
      */
     public function index()
     {
-        $categories = PortfolioType::all();
-        return view('backend.components.portfolio.category.list',compact('categories'));
+        $data['categories'] = PortfolioType::paginate(5);
+
+        return view('backend.components.portfolio.category.list',$data);
     }
 
 
@@ -57,6 +58,6 @@ class PortfolioTypeController extends Controller
         $delete = PortfolioType::find($id);
         $delete->delete();
         return redirect()->back()->with('warning','Type name has been deleted successfully');
-    
+
     }
 }

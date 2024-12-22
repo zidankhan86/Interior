@@ -49,7 +49,7 @@
                                             <button class="btn btn-secondary dropdown-toggle align-text-top"
                                                 data-bs-toggle="dropdown">Actions</button>
                                             <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item"  onclick="return confirmDelete()" href="{{ route('blog.delete',$blog->id) }}">Delete</a>
+                                                <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" onclick="confirmDelete('{{ route('blog.delete', $blog->id) }}')">Delete</a>
 
                                             </div>
                                         </div>
@@ -64,6 +64,30 @@
     </div>
 </div>
 
-<script> function confirmDelete() { return confirm('Do you want to delete?'); } </script>
+
 
 @endsection
+
+
+@push('scripts')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function confirmDelete(url) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url; // Redirect to the delete route
+        }
+    });
+}
+
+</script>
+@endpush

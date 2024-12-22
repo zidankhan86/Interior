@@ -22,7 +22,7 @@
                               <td>
                                   <div class="btn-list flex-nowrap">
                                       <a href="{{ route('category.edit',$category->id) }}" class="btn">Edit</a>
-                                      <a href="{{ route('category.delete', $category->id) }}" class="btn" onclick="return confirmDelete()">Delete</a>
+                                      <a href="javascript:void(0);" onclick="confirmDelete('{{ route('category.delete', $category->id) }}')" class="btn">Delete</a>
 
                                   </div>
                               </td>
@@ -34,7 +34,8 @@
                       </tbody>
                   </table>
               </div>
-          </div>
+          </div><br>
+          {{ $categories->links() }}
       </div>
 
       <!-- Category Form Column -->
@@ -67,4 +68,7 @@
       </div>
   </div>
 </div>
-<script> function confirmDelete() { return confirm('Do you want to delete?'); } </script>
+
+
+
+

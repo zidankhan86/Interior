@@ -82,7 +82,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     // Backend
     // Pages
     Route::resource('portfolio', PortfolioController::class);
-    Route::get('/portfolio/delete/{id}', [PortfolioController::class, 'delete'])->name('portfolio.delete');
+    Route::get('/portfolio/delete/{id}', [pPortfolioController::class, 'delete'])->name('portfolio.delete');
     Route::resource('portfolioType', PortfolioTypeController::class);
     Route::get('/portfolio-type/delete/{id}', [PortfolioTypeController::class, 'delete'])->name('portfolioType.delete');
 

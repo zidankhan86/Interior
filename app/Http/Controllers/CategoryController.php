@@ -101,8 +101,10 @@ class CategoryController extends Controller
 
             public function list()
             {
-                $categories = Category::all();
-            return view('backend.pages.categoryList',compact('categories'));
+
+                $data['categories'] = Category::paginate(5);
+
+            return view('backend.pages.categoryList',$data);
             }
 
 

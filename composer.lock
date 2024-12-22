@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a89f5b4051707c7aa92b09b370be85df",
+    "content-hash": "ba9c5c60def6d9fc9ff08541acd222b2",
     "packages": [
         {
             "name": "brick/math",
@@ -2894,6 +2894,44 @@
                 }
             ],
             "time": "2024-07-20T21:41:07+00:00"
+        },
+        {
+            "name": "pola5h/laravel-flags",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Pola5h/FlagIcons.git",
+                "reference": "efd341f69065816c23e62469a9f503ca42982468"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Pola5h/FlagIcons/zipball/efd341f69065816c23e62469a9f503ca42982468",
+                "reference": "efd341f69065816c23e62469a9f503ca42982468",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "FlagIcons\\FlagIconsServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FlagIcons\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A Laravel package for country and language flag icons.",
+            "support": {
+                "issues": "https://github.com/Pola5h/FlagIcons/issues",
+                "source": "https://github.com/Pola5h/FlagIcons/tree/v1.0.1"
+            },
+            "time": "2024-09-07T15:52:12+00:00"
         },
         {
             "name": "psr/clock",

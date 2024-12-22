@@ -9,7 +9,27 @@
 
             <script src="{{ asset('js/dropify.js') }}"></script>
             <script src="{{asset ('./dist/libs/dropzone/dist/dropzone-min.js?1692870487') }}" defer></script>
-              
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function confirmDelete(url) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url; // Redirect to the delete route
+        }
+    });
+}
+
+</script>
 <script>
   // @formatter:off
   document.addEventListener("DOMContentLoaded", function () {
