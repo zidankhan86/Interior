@@ -46,12 +46,8 @@
                                     <div class="btn-list flex-nowrap">
                                         <a href="{{ route('blog.edit',$blog->id) }}" class="btn btn-info">Edit</a>
                                         <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle align-text-top"
-                                                data-bs-toggle="dropdown">Actions</button>
-                                            <div class="dropdown-menu dropdown-menu-end">
-                                                <a class="dropdown-item" href="javascript:void(0);" class="dropdown-item" onclick="confirmDelete('{{ route('blog.delete', $blog->id) }}')">Delete</a>
+                                            <a class="btn btn-danger" href="javascript:void(0);" onclick="confirmDelete('{{ route('blog.delete', $blog->id) }}')">Delete</a>
 
-                                            </div>
                                         </div>
                                     </div>
                                 </td>
@@ -69,7 +65,6 @@
 @endsection
 
 
-@push('scripts')
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
@@ -90,4 +85,4 @@
 }
 
 </script>
-@endpush
+

@@ -35,7 +35,7 @@
                                     <!-- Actions -->
                                     <td data-label="Action" class="align-middle">
                                         <div class="btn-list flex-nowrap">
-                                            <a href="#" class="btn btn-info">Edit</a>
+                                            <a href="#" class="btn btn-danger">Delete</a>
 
                                         </div>
                                     </td>
@@ -48,3 +48,23 @@
         </div>
     </div>
 @endsection
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script>
+    function confirmDelete(url) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href = url; // Redirect to the delete route
+        }
+    });
+}
+
+</script>

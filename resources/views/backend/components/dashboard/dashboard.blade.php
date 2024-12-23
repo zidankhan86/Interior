@@ -142,8 +142,7 @@
                                                                  class="btn btn-secondary dropdown-toggle align-text-top"
                                                                  data-bs-toggle="dropdown">Actions</button>
                                                              <div class="dropdown-menu dropdown-menu-end">
-                                                                 <a class="dropdown-item" onclick="return confirmDelete()"
-                                                                     href="{{ route('blog.delete', $blog->id) }}">Delete</a>
+                                                                 <a class="dropdown-item" href="javascript:void(0);" onclick="confirmDelete('{{ route('blog.delete', $blog->id) }}')">Delete</a>
 
                                                              </div>
                                                          </div>
@@ -161,18 +160,6 @@
                      {{ $blogs->links() }}
 
                  </div>
-
-                 <script>
-                     function confirmDelete() {
-                         return confirm('Do you want to delete?');
-                     }
-                 </script>
-
-
-
-
-
-
 
          </div>
      </div>

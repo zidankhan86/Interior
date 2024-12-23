@@ -22,7 +22,7 @@
                               <td>
                                   <div class="btn-list flex-nowrap">
                                       <a href="{{ route('category.edit',$category->id) }}" class="btn">Edit</a>
-                                      <a href="javascript:void(0);" onclick="confirmDelete('{{ route('category.delete', $category->id) }}')" class="btn">Delete</a>
+                                      <a href="javascript:void(0);" onclick="confirmDelete('{{ route('category.delete', $category->id) }}')" class="btn btn-danger">Delete</a>
 
                                   </div>
                               </td>
