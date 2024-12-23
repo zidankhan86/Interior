@@ -16,7 +16,7 @@
   <script src="{{asset ('frontend/js/main.js') }}"></script>
 
 
-  {{-- <style>
+  <style>
     .navbar-nav .nav-link {
   color: #333 !important;
 }
@@ -59,5 +59,5 @@
             });
         });
     });
-</script> --}}
+</script>
 
