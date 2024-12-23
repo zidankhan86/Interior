@@ -9,25 +9,25 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
           <ul class="navbar-nav ml-auto">
-              <li class="nav-item active"><a href="{{ route('home') }}" class="nav-link"><b>Home</b></a></li>
+              <li class="nav-item active"><a href="{{ route('home') }}" class="nav-link" style="color: black"><b>Home</b></a></li>
 
               <li class="nav-item dropdown">
-                <a href="{{ route('services') }}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <a href="{{ route('services') }}" class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black">
                     Services
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="{{ route('residential') }}"><b>Residential Interior</b></a></li>
-                    <li><a class="dropdown-item" href="{{ route('commercial') }}"><b>Commercial Interior</b></a></li>
-                    <li><a class="dropdown-item" href="{{ route('architect') }}"><b>Architectural Consultancy</b></a></li>
+                    <li><a class="dropdown-item" href="{{ route('residential') }}" style="color: black"><b>Residential Interior</b></a></li>
+                    <li><a class="dropdown-item" href="{{ route('commercial') }}" style="color: black"><b>Commercial Interior</b></a></li>
+                    <li><a class="dropdown-item" href="{{ route('architect') }}" style="color: black"><b>Architectural Consultancy</b></a></li>
 
                 </ul>
             </li>
 
-              <li class="nav-item"><a href="{{ route('portfolio.page') }}" class="nav-link"><b>Portfolio</b></a></li>
-              <li class="nav-item"><a href="{{ route('about') }}" class="nav-link"><b>How we work</b></a></li>
-              <li class="nav-item"><a href="{{ route('about') }}" class="nav-link"><b>About</b></a></li>
-              <li class="nav-item"><a href="{{ route('blog') }}" class="nav-link"><b>Blog</b></a></li>
-              <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link"><b>Contact</b></a></li>
+              <li class="nav-item"><a href="{{ route('portfolio.page') }}" class="nav-link" style="color: black"><b>Portfolio</b></a></li>
+              <li class="nav-item"><a href="{{ route('about') }}" class="nav-link" style="color: black"><b>How we work</b></a></li>
+              <li class="nav-item"><a href="{{ route('about') }}" class="nav-link" style="color: black"><b>About</b></a></li>
+              <li class="nav-item"><a href="{{ route('blog') }}" class="nav-link" style="color: black"><b>Blog</b></a></li>
+              <li class="nav-item"><a href="{{ route('contact') }}" class="nav-link" style="color: black"><b>Contact</b></a></li>
 
               @auth
                   <li class="nav-item"><a href="{{ route('logout') }}" class="nav-link btn btn-danger"><b>Logout</b></a></li>

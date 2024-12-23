@@ -16,13 +16,13 @@
   <script src="{{asset ('frontend/js/main.js') }}"></script>
 
 
-  <style>
+  {{-- <style>
     .navbar-nav .nav-link {
-  color: #333 !important;  /* Dark text for navbar links */
+  color: #333 !important;
 }
 
 .navbar-nav .btn {
-  color: rgb(235, 225, 225);            /* White text for buttons */
+  color: rgb(235, 225, 225);
 }
 
 .navbar-nav .btn-info {
@@ -59,5 +59,5 @@
             });
         });
     });
-</script>
+</script> --}}
 
