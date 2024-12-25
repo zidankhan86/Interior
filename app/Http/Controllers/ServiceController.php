@@ -33,13 +33,15 @@ class ServiceController extends Controller
     }
 
     public function commercial(){
-
-        return view('backend.pages.commertial');
+        $data['title']="Commercial -innards";
+        return view('backend.pages.commertial',$data);
     }
 
     public function howWeWork(){
 
-        return view('backend.pages.how_we_work');
+            $data['title']="How We Work -innards";
+
+        return view('backend.pages.how_we_work',$data);
     }
 
 }
