@@ -366,22 +366,22 @@
                 </div>
                 <!-- Email Input -->
                 <div class="mb-3">
-                  <label for="email" name="email" class="form-label">Email</label>
+                  <label for="email" class="form-label">Email</label>
                   <input
                     type="email"
                     class="form-control"
                     id="email"
-                    placeholder="Enter your email"
+                    placeholder="Enter your email" name="email"
                     required
                   />
                 </div>
                 <!-- Phone Number Input -->
                 <div class="mb-3">
-                  <label for="phone" name="phone" class="form-label">Phone Number</label>
+                  <label for="phone"  class="form-label">Phone Number</label>
                   <input
                     type="tel"
                     class="form-control"
-                    id="phone"
+                    id="phone" name="phone"
                     placeholder="Enter your phone number"
                   />
                 </div>
