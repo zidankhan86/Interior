@@ -351,10 +351,11 @@
                 Get one step closer towards your dream home, Let our experts
                 help you.
               </p>
-              <form class="text-start mx-auto" style="max-width: 90%">
+              <form action="{{route('contact.store')}}" class="text-start mx-auto" style="max-width: 90%">
+                @csrf
                 <!-- Name Input -->
                 <div class="mb-3">
-                  <label for="name" class="form-label">Name</label>
+                  <label for="name" name="name" class="form-label">Name</label>
                   <input
                     type="text"
                     class="form-control"
@@ -365,7 +366,7 @@
                 </div>
                 <!-- Email Input -->
                 <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
+                  <label for="email" name="email" class="form-label">Email</label>
                   <input
                     type="email"
                     class="form-control"
@@ -376,7 +377,7 @@
                 </div>
                 <!-- Phone Number Input -->
                 <div class="mb-3">
-                  <label for="phone" class="form-label">Phone Number</label>
+                  <label for="phone" name="phone" class="form-label">Phone Number</label>
                   <input
                     type="tel"
                     class="form-control"
@@ -393,7 +394,7 @@
                     type="text"
                     class="form-control"
                     id="property"
-                    placeholder="Enter the property name"
+                    placeholder="Enter the property name" name="message"
                   />
                 </div>
                 <!-- Note -->
