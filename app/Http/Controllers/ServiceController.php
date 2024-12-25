@@ -39,7 +39,7 @@ class ServiceController extends Controller
 
     public function howWeWork(){
 
-        return view('backend.pages.HowWeWork');
+        return view('backend.pages.how_we_work');
     }
 
 }
