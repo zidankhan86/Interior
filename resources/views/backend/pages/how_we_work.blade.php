@@ -351,7 +351,7 @@
                 Get one step closer towards your dream home, Let our experts
                 help you.
               </p>
-              <form action="{{route('contact.store')}}" class="text-start mx-auto" style="max-width: 90%">
+              <form action="{{route('contact.store')}}" class="text-start mx-auto" style="max-width: 90%" method="POST">
                 @csrf
                 <!-- Name Input -->
                 <div class="mb-3">
