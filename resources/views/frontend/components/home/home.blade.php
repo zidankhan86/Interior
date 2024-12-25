@@ -8,20 +8,6 @@
 @include('frontend.components.fixed.hero')
 
 
-{{-- Video Section --}}
-{{-- <section class="py-5 bg-light">
-    <div class="container" style="max-width: 1000px;">
-        <div class="embed-responsive embed-responsive-16by9 position-relative">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/0qmGsWIP_mQ?rel=0&showinfo=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <div class="play-button">
-                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-play-circle-fill text-white" viewBox="0 0 16 16">
-                    <path d="M11.596 8.004L5.792 4.328a.5.5 0 0 0-.792.408v7.528a.5.5 0 0 0 .792.408l5.804-3.676a.5.5 0 0 0 0-.816z"/>
-                </svg>
-            </div>
-        </div>
-    </div>
-</section> --}}
-
   <!-- YouTube Video Section -->
   <section id="video-section" class="py-5">
     <div class="container" style="max-width: 1000px">
@@ -255,7 +241,7 @@
       </div>
 
       <a
-        href=""
+        href="{{route('contact')}}"
         class="mx-auto mt-4 text-center btn btn-outlined-dark primary-btn"
         >Contact Us</a
       >
