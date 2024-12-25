@@ -44,6 +44,8 @@ Route::get('/',[FrontendHomeController::class,'index'])->name('home');
 Route::get('/commercial',[ServiceController::class,'commercial'])->name('commercial');
 Route::get('/architect',[ServiceController::class,'architect'])->name('architect');
 Route::get('/residential',[ServiceController::class,'residential'])->name('residential');
+Route::get('/how-we-work',[ServiceController::class,'howWeWork'])->name('how.we.work');
+
 //Auth
 Route::get('/login',[AuthController::class,'index'])->name('login');
 Route::post('/store',[AuthController::class,'store'])->name('store');
@@ -82,7 +84,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     // Backend
     // Pages
     Route::resource('portfolio', PortfolioController::class);
-    Route::get('/portfolio/delete/{id}', [pPortfolioController::class, 'delete'])->name('portfolio.delete');
+    Route::get('/portfolio/delete/{id}', [PortfolioController::class, 'delete'])->name('portfolio.delete');
     Route::resource('portfolioType', PortfolioTypeController::class);
     Route::get('/portfolio-type/delete/{id}', [PortfolioTypeController::class, 'delete'])->name('portfolioType.delete');
 

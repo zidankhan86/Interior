@@ -1,4 +1,4 @@
-<section class="home-slider js-fullheight owl-carousel">
+{{-- <section class="home-slider js-fullheight owl-carousel">
     <div class="slider-item js-fullheight" style="background-image:url('{{ asset('frontend/images/bg_1.jpg') }}');">
         <div class="overlay"></div>
       <div class="container">
@@ -12,4 +12,91 @@
     </div>
 
 
+  </section> --}}
+
+
+   <!-- Swiper Hero Section -->
+   <section class="hero-slider swiper">
+    <div class="swiper-wrapper">
+      <!-- Slide 1 -->
+      <div
+        class="swiper-slide slider-item js-fullheight"
+        style="background-image: url({{ asset('frontend/images/bg_1.jpg') }})"
+      >
+        <div class="overlay"></div>
+        <div class="container">
+          <!-- content wraper -->
+          <div
+            class="position-relative w-100 h-100 d-flex justify-content-end align-items-center text-white"
+            style="z-index: 20"
+          >
+            <div class="content">
+              <!-- text heading -->
+              <h1 class="mb-4 text-white text-uppercase fw-normal">
+                Create a home that defines who you are
+              </h1>
+              <!-- link button -->
+              <a
+                href="{{route('portfolio.page')}}"
+                class="hero-btn btn btn-outline-light px-4 py-2"
+                >View our works</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      {{-- <div
+        class="swiper-slide slider-item js-fullheight"
+        style="background-image: url('./img/hero-bg.webp')"
+      >
+        <div class="overlay"></div>
+        <div class="container">
+          <!-- content wraper -->
+          <div
+            class="position-relative w-100 h-100 d-flex justify-content-end align-items-center text-white"
+            style="z-index: 20"
+          >
+            <div class="content">
+              <!-- text heading -->
+              <h1 class="mb-4 text-white text-uppercase fw-normal">
+                Lorem ipsum dolor sit amet consectetur.
+              </h1>
+              <!-- link button -->
+              <a
+                href="portfolio.html"
+                class="hero-btn btn btn-outline-light px-4 py-2"
+                >View our works</a
+              >
+            </div>
+          </div>
+        </div>
+      </div> --}}
+
+      <!-- Slide 3 -->
+
+        {{-- <div class="overlay"></div>
+        <div class="container">
+          <!-- content wraper -->
+          <div
+            class="position-relative w-100 h-100 d-flex justify-content-end align-items-center text-white"
+            style="z-index: 20"
+          >
+            <div class="content">
+              <!-- text heading -->
+              <h1 class="mb-4 text-white text-uppercase fw-normal">
+                Lorem ipsum dolor sit amet consectetur adipisicing.
+              </h1>
+              <!-- link button -->
+              <a
+                href="portfolio.html"
+                class="hero-btn btn btn-outline-light px-4 py-2"
+                >View our works</a
+              >
+            </div>
+          </div>
+        </div> --}}
+      </div>
+    </div>
   </section>

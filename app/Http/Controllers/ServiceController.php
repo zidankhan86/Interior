@@ -36,4 +36,10 @@ class ServiceController extends Controller
 
         return view('backend.pages.commertial');
     }
+
+    public function howWeWork(){
+
+        return view('backend.pages.HowWeWork');
+    }
+
 }

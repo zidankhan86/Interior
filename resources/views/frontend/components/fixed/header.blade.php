@@ -1,4 +1,4 @@
-
+{{--
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-white ftco-navbar-light" id="ftco-navbar">
   <div class="container">
@@ -37,4 +37,78 @@
   </div>
 </nav>
 
+ --}}
 
+
+  <!-- Navbar -->
+  <nav
+  class="navbar navbar-expand-lg navbar-dark ftco_navbar"
+  id="ftco-navbar"
+>
+  <div class="container">
+    <a class="navbar-brand" href="{{route('home')}}">Innards DS</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#ftco-nav"
+      aria-controls="ftco-nav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="fas fa-bars"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="ftco-nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item active">
+          <a href="{{route('home')}}" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            href="{{route('services')}}"
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Services
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a class="dropdown-item" href="{{route('residential')}}"
+                >Residential Interior</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{route('commercial')}}"
+                >Commercial Interior</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" href="{{route('architect')}}"
+                >Architectural Consultancy</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('portfolio.page')}}" class="nav-link">Portfolio</a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('how.we.work')}}" class="nav-link">How We Work</a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('about')}}" class="nav-link">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('blog')}}" class="nav-link">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('contact')}}" class="nav-link">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
