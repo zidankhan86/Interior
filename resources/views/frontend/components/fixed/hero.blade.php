@@ -8,13 +8,13 @@
           <div class="hero-overlay"></div>
           <!-- Social Icons -->
           <div class="social-icons">
-            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/innardsdesignstudio" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/innards_design_studio?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
             <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a>
           </div>
           <!-- Hero Content -->
           <div class="content">
-            <h1>Welcome to Our Website</h1>
+            <h1>Transform Your Space : Inspiring Interior Designs For Every Style</h1>
             <p>Your journey starts here.</p>
             <a href="{{route('portfolio.page')}}" class="btn btn-primary">Explore Now</a>
           </div>

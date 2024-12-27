@@ -150,7 +150,7 @@ class BlogController extends Controller
 
                 return view('frontend.pages.blogDetails',compact('blogDetails','postImageNames',
                                                                  'youMayLike','hashtags',
-                                                                 'previous','next','totalComment',
+                                                                 'previous','next',
                                                                  'comments','shareComponent'));
             }
 
