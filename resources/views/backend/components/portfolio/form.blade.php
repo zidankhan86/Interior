@@ -55,14 +55,16 @@
                             </div>
 
                             <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label class="form-label">Choose Multiple Files</label>
-                                    <input name="images[]" type="file" multiple class="form-control">
-                                    @error('images')
-                                    <p class="text-danger">{{ $message }}</p>
-                                    @enderror
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title">Choose Multiple Files</h3>
+                                        <input name="images[]" type="file" multiple id="image-input" />
+                                        <div id="image-preview-container" class="mt-2"></div> <!-- Div to show image previews -->
+                                        @error('images')<p class="text-danger">{{ $message }}</p>@enderror
+                                    </div>
                                 </div>
                             </div>
+
 
                             <div class="col-md-12">
                                 <div class="mb-3">
@@ -179,6 +181,34 @@
     });
 
     ClassicEditor.create(document.querySelector('#editors')).catch(error => console.error(error));
+</script>
+<script>
+    // Listen for changes in the file input
+    document.getElementById('image-input').addEventListener('change', function(event) {
+        let previewContainer = document.getElementById('image-preview-container');
+        previewContainer.innerHTML = ''; // Clear previous previews
+
+        // Loop through all selected files
+        for (let i = 0; i < event.target.files.length; i++) {
+            let file = event.target.files[i];
+
+            // Only show images (optional)
+            if (file.type.startsWith('image/')) {
+                let reader = new FileReader();
+
+                reader.onload = function(e) {
+                    // Create an image element
+                    let imgElement = document.createElement('img');
+                    imgElement.src = e.target.result; // Set the image source to the file's result
+                    imgElement.style.width = '100px'; // Set a fixed size for the image preview
+                    imgElement.style.margin = '5px'; // Add some margin between images
+                    previewContainer.appendChild(imgElement); // Add image to preview container
+                }
+
+                reader.readAsDataURL(file); // Read the file as a data URL
+            }
+        }
+    });
 </script>
 
 @endsection

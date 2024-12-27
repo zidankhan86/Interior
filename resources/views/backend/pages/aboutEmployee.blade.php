@@ -8,9 +8,9 @@
     .ck-editor__editable_inline {
         height: 150px;
     }
-</style>
+</style><br>
 <div class="container">
-    <div class="col-12">
+    <div class="col-12 card">
         <form action="{{ route('employee.store') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="card-body">

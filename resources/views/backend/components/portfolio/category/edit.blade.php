@@ -2,16 +2,17 @@
 @extends('backend.layout.app')
 
 @section('content')
-<div class="container">
-    <br><h2 style="text-align: center">Edit Portfolio Type</h2>
+<div class="container ">
+    <br>
 
-    <div class="row">
-        <!-- Portfolio Edit Form Column (now on top) -->
+    <div class="row d-flex justify-content-center align-items-center">
         <div class="col-md-6">
+        <h2><strong>Portfolio Type/Edit</strong></h2>
+
             <form action="{{ route('portfolioType.update', $portfolioType->id) }}" method="post">
                 @csrf
                 @method('PUT') <!-- This method is necessary to indicate the update request -->
-                <div class="card">
+                <div class="card ">
                     <div class="card-body">
                         <h3 class="card-title">Edit Portfolio Type</h3>
                         <div class="mb-3">

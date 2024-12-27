@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container ">
     <div class="col-12">
         <form action="{{ route('category.store') }}" method="post">
             @csrf

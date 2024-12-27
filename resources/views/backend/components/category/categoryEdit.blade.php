@@ -1,15 +1,18 @@
 @extends('backend.layout.app')
 @section('content')
+<div class="container"><br>
 
-<div class="container">
-  <br>
+
+<div class="container d-flex justify-content-center align-items-center">
+
         <!-- Category Form Column -->
-        <div class="col-md-4">
+        <div class="col-md-6">
+            <h2>Blog/Category Edit</h2>
             <form action="{{ route('category.update',$categories->id) }}" method="post">
                 @csrf
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title">Category Form</h3>
+                        <h3 class="card-title">Category Edit</h3>
                         <div class="mb-3">
                             <label class="form-label">Type Name</label>
                             <input type="text" name="type_name" value="{{ $categories->type_name }}" class="form-control" placeholder="Type Name">
@@ -33,6 +36,6 @@
         </div>
     </div>
   </div>
-  
+</div>
 
 @endsection

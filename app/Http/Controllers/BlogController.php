@@ -138,7 +138,7 @@ class BlogController extends Controller
                 ->simplePaginate(4);
 
                 // Count of comments
-                $totalComment = $comments->count();
+                // $totalComment = $comments->count();
 
                 $shareComponent = \Share::page(route('blog.view', $blogDetails->id), $blogDetails->title)
                 ->facebook()

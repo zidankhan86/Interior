@@ -12,14 +12,14 @@
     }
 </style>
 
-<div class="container">
-    <div class="row">
+<div class="container"><br>
+    <div class="row card">
         <div class="col-md-12">
             <form action="{{ route('portfolio.update', $portfolio->id) }}" method="post" enctype="multipart/form-data">
                 @csrf
-                @method('PUT') 
-                <div class="card-body">
-                    <h3 class="card-title text-center">Edit Portfolio</h3>
+                @method('PUT')
+                <div class="card-body"><br>
+                    <h3 class="card-title"><strong>Portfolio/Edit</strong></h3>
                     <div class="row row-cards">
                         {{-- Title --}}
                         <div class="col-md-6">
@@ -54,16 +54,18 @@
                             </div>
                         </div>
 
-                        {{-- Images --}}
-                        <div class="col-md-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h3 class="card-title" style="color: red">Choose Multiple Files (Re Enter images)</h3>
-                                    <input name="images[]" type="file" multiple />
-                                    @error('images')<p class="text-danger">{{ $message }}</p>@enderror
+                                                {{-- Images --}}
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h3 class="card-title" style="color: red">Choose Multiple Files (Re Enter images)</h3>
+                                        <input name="images[]" type="file" multiple id="image-input" />
+                                        <div id="image-preview" class="mt-2"></div> <!-- Div to show image previews -->
+                                        @error('images')<p class="text-danger">{{ $message }}</p>@enderror
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+
 
                         {{-- Portfolio Description --}}
                         <div class="col-md-12">
@@ -149,5 +151,35 @@
         ClassicEditor.create(document.querySelector('#editors')).catch(error => console.error(error));
     });
 </script>
+<script>
+    // Listen for changes in the file input
+    document.getElementById('image-input').addEventListener('change', function(event) {
+        let previewContainer = document.getElementById('image-preview');
+        previewContainer.innerHTML = ''; // Clear previous previews
 
+        // Loop through all selected files
+        for (let i = 0; i < event.target.files.length; i++) {
+            let file = event.target.files[i];
+
+            // Only show images (optional)
+            if (file.type.startsWith('image/')) {
+                let reader = new FileReader();
+
+                reader.onload = function(e) {
+                    // Create an image element
+                    let imgElement = document.createElement('img');
+                    imgElement.src = e.target.result; // Set the image source to the file's result
+                    imgElement.style.width = '100px'; // Set a fixed size for the image preview
+                    imgElement.style.margin = '5px'; // Add some margin between images
+                    previewContainer.appendChild(imgElement); // Add image to preview container
+                }
+
+                reader.readAsDataURL(file); // Read the file as a data URL
+            }
+        }
+    });
+</script>
 @endsection
+
+
+

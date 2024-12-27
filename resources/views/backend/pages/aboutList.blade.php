@@ -35,7 +35,7 @@
                                     <!-- Actions -->
                                     <td data-label="Action" class="align-middle">
                                         <div class="btn-list flex-nowrap">
-                                            <a href="#" class="btn btn-danger">Delete</a>
+                                            <a class="btn btn-danger" href="javascript:void(0);" onclick="confirmDelete('{{ route('delete.employee', $about->id) }}')">Delete</a>
 
                                         </div>
                                     </td>

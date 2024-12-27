@@ -343,7 +343,7 @@
           <!-- single brand -->
           <div class="col-6 col-md-4 col-lg-3 col-xl-2">
             <div class=" w-100 h-100 rounded-3" style="background: #a3a2a2;">
-                <img src="./img/berger.webp" alt="" class="img-fluid">
+                <img src="{{asset('/img/berger.webp')}}" alt="" class="img-fluid">
             </div>
           </div>
 
@@ -366,89 +366,21 @@
 
         <div class="mx-auto row g-0 justify-content-center" style="max-width: 1100px;">
 
-          <!-- single brand -->
-          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-            <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
-            </div>
-          </div>
+
 
           <!-- single brand -->
+          @forelse ($team as $member)
           <div class="col-6 col-md-4 col-lg-3 col-xl-2">
             <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
+                <img src="{{ asset('uploads/' . $member->thumbnail) }}" alt="" class="img-fluid">
             </div>
           </div>
+          @empty
+              <p>NO TEAM MEMBER</p>
+          @endforelse
 
-          <!-- single brand -->
-          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-            <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
-            </div>
-          </div>
 
-          <!-- single brand -->
-          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-            <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
-            </div>
-          </div>
 
-          <!-- single brand -->
-          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-            <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
-            </div>
-          </div>
-
-          <!-- single brand -->
-          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-            <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
-            </div>
-          </div>
-
-          <!-- single brand -->
-          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-            <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
-            </div>
-          </div>
-
-          <!-- single brand -->
-          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-            <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
-            </div>
-          </div>
-
-          <!-- single brand -->
-          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-            <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
-            </div>
-          </div>
-
-          <!-- single brand -->
-          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-            <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
-            </div>
-          </div>
-
-          <!-- single brand -->
-          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-            <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
-            </div>
-          </div>
-
-          <!-- single brand -->
-          <div class="col-6 col-md-4 col-lg-3 col-xl-2">
-            <div class=" ratio ratio-1x1" style="background: #a3a2a2;">
-                <img src="https://i.pravatar.cc/300" alt="" class="img-fluid">
-            </div>
-          </div>
 
 
         </div>

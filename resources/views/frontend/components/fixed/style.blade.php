@@ -496,4 +496,45 @@
     font-size: 2.5rem;
   }
 
+  .hero-section {
+    position: relative;
+    height: 100vh;
+    background: url('hero-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.social-icons {
+    position: fixed;
+    top: 50%;
+    left: -60px;  /* Hidden off-screen */
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    border-radius: 0 10px 10px 0;
+    transition: left 0.3s ease;  /* Smooth slide-in */
+}
+
+.hero-section:hover .social-icons {
+    left: 0;  /* Slide out on hover */
+}
+
+.social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: 10px;
+    transition: transform 0.2s ease;
+}
+
+.social-icons a:hover {
+    color: #007bff;
+    transform: scale(1.1);  /* Slight grow effect */
+}
 </style>

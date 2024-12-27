@@ -57,6 +57,7 @@ Route::post('/registration/store',[RegistrationController::class,'store'])->name
 Route::get('/portfolio',[PortfolioController::class,'portfolio'])->name('portfolio.page');
 Route::get('/project/details/{id}',[PortfolioController::class,'portfolio_details'])->name('portfolio.details');
 Route::get('/about',[AboutController::class,'index'])->name('about');
+Route::get('/delete/{id}',[AboutController::class,'delete'])->name('delete.employee');
 Route::get('/services',[ServiceController::class,'index'])->name('services');
 Route::get('/blog-page',[BlogController::class,'index'])->name('blog');
 Route::get('/category-wise-blog/{id}',[CategoryController::class,'CategoryWiseBlog'])->name('cat.wise.blog');

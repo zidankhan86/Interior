@@ -123,42 +123,56 @@ class PortfolioController extends Controller
              */
             public function update(Request $request, $id)
             {
-
                 $validator = Validator::make($request->all(), [
-
-                    'thumbnail'               => 'required',
-                    'images.*'                  => 'required',
-
+                    'thumbnail'               => 'nullable|image', // Allow null if not uploading a new thumbnail
+                    'images.*'                 => 'nullable|image', // Allow null if not uploading new images
                 ]);
 
                 if ($validator->fails()) {
                     return back()->withErrors($validator)->withInput();
                 }
 
-                $update = Portfolio::find($id);
+                $portfolio = Portfolio::find($id);
 
-                $imageName = null;
-                $images = [];
+                // Preserve the old values in case the user doesn't upload new files
+                $imageName = $portfolio->thumbnail; // Keep the old thumbnail
+                $images = unserialize($portfolio->images) ?? []; // Keep the old images array
 
+                // Handle thumbnail upload
                 if ($request->hasFile('thumbnail')) {
+                    // Delete the old image if exists
+                    if ($imageName && file_exists(public_path('uploads/' . $imageName))) {
+                        unlink(public_path('uploads/' . $imageName)); // Delete old file
+                    }
+
                     $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
                     $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
                 }
 
+                // Handle images upload
                 if ($request->hasFile('images')) {
+                    // Delete old images if exists
+                    foreach ($images as $existingImage) {
+                        if (file_exists(public_path('uploads/' . $existingImage))) {
+                            unlink(public_path('uploads/' . $existingImage)); // Delete old files
+                        }
+                    }
+
+                    // Upload new images
                     foreach ($request->file('images') as $image) {
-                    $imageUniqueName = time() . '_' . $image->getClientOriginalName();
-                    $image->storeAs('uploads', $imageUniqueName, 'public');
-                    $images[] = $imageUniqueName;
+                        $imageUniqueName = time() . '_' . $image->getClientOriginalName();
+                        $image->storeAs('uploads', $imageUniqueName, 'public');
+                        $images[] = $imageUniqueName;
                     }
                 }
 
-                $update->update([
+                // Update the portfolio data
+                $portfolio->update([
                     "type_name_id"            => $request->type_name_id,
                     "title"                   => $request->title,
                     "slug"                    => Str::slug($request->title),
-                    "thumbnail"               => $imageName,
-                    "images"                  => serialize($images),
+                    "thumbnail"               => $imageName, // Update with new or old thumbnail
+                    "images"                  => serialize($images), // Update with new or old images
                     "location"                => $request->location,
                     "scope"                   => $request->scope,
                     "complete_date"           => $request->complete_date,
@@ -168,6 +182,7 @@ class PortfolioController extends Controller
 
                 return back()->with('success', 'Portfolio Updated');
             }
+
 
 
                 /**

@@ -17,7 +17,7 @@ class AboutController extends Controller
     {
         $data['title']="Employee -innards";
 
-        $data['employees'] = AboutEmployee::all();
+        $data['team'] = AboutEmployee::all();
 
         return view('frontend.pages.about',$data);
     }
@@ -26,6 +26,7 @@ class AboutController extends Controller
     public function employee()
     {
         $data['title'] = 'Employee -innards';
+
         return view('backend.pages.aboutEmployee',$data);
     }
 
@@ -68,5 +69,13 @@ class AboutController extends Controller
     }
 
 
+    public function delete($id)
+    {
+        $data['delete'] = AboutEmployee::find($id);
+
+        $data['delete']->delete();
+
+        return back()->with('success','Employee deleted successfully');
+    }
 
 }

@@ -1,16 +1,16 @@
 @extends('backend.layout.app')
 @section('content')
 
-<div class="container">
+<div class="container"><br>
     <div class="row">
-        <br><br><div class="col-md-8">
+        <br><br><div class="col-md-8 card">
             <form action="{{ isset($blog) ? route('blog.update', $blog->id) : route('blog.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @if(isset($blog))
                     @method('PUT')
                 @endif
                 <div class="card-body">
-                  <br><br><h3 class="card-title" style="text-align: center">{{ isset($blog) ? 'Edit Blog' : 'Blog Form' }}</h3>
+                  <h3 class="card-title"><strong>Blog/Edit</strong></h3>
                     <div class="row row-cards">
                         <div class="col-md-6">
                             <div class="mb-3">
@@ -101,7 +101,7 @@
             </form>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-4 card">
           <form action="{{ route('category.store') }}" method="post">
               @csrf
               <div class="card-body"><br><br>
