@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeController;
@@ -38,6 +39,10 @@ use App\Http\Controllers\frontend\HomeController as FrontendHomeController;
 |
 */
 
+Route::get('/clear-cache', function () {
+    Artisan::call('cache:clear');
+    return redirect()->back()->with('success', 'Cache Cleared!');
+})->name('cache.clear');
 
 //Landing Page
 Route::get('/',[FrontendHomeController::class,'index'])->name('home');
