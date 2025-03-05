@@ -10,7 +10,7 @@
 
   <div class="col-md-4 ftco-animate">
     <div class="blog-entry">
-      <a href="{{ route('portfolio.details',$item->id) }}" class="block-20" style="background-image: url({{ asset('uploads/' . $item->thumbnail) }});">
+      <a href="{{ route('portfolio.details',$item->id) }}" class="block-20" style="background-image: url({{ asset( $item->thumbnail) }});">
       </a>
       <div class="text d-flex py-4">
 

@@ -75,29 +75,36 @@ class PortfolioController extends Controller
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
         }
-        $imageName = null;
+        // $imageName = null;
         $images = [];
 
-        if ($request->hasFile('thumbnail')) {
-               $imageName = time() . '.' . $request->file('thumbnail')->getClientOriginalExtension();
-               $request->file('thumbnail')->storeAs('uploads', $imageName, 'public');
-        }
+       // Store thumbnail
+    // Handle Thumbnail Upload
+    if ($request->hasFile('thumbnail')) {
+        $thumbnail = $request->file('thumbnail');
+        $thumbnailName = time() . '.' . $thumbnail->getClientOriginalExtension();
+        $thumbnailPath = 'uploads/' . $thumbnailName; // Path to store in DB
+        $thumbnail->move(public_path('uploads'), $thumbnailName); // Move file
+    }
 
-        if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-               $imageUniqueName = time() . '_' . $image->getClientOriginalName();
-               $image->storeAs('uploads', $imageUniqueName, 'public');
-               $images[] = $imageUniqueName;
-            }
+    // Handle Multiple Images Upload
+    if ($request->hasFile('images')) {
+        foreach ($request->file('images') as $image) {
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $imagePath = 'uploads/' . $imageName; // Path to store in DB
+            $image->move(public_path('uploads'), $imageName); // Move file
+            $imagePaths[] = $imagePath;
         }
+    }
+
 
 
         Portfolio::create([
             "type_name_id"            => $request->type_name_id,
             "title"                   => $request->title,
             "slug"                    => Str::slug($request->title),
-            "thumbnail"               => $imageName,
-            "images"                  => serialize($images),
+            "thumbnail"               => $thumbnailPath,  // Store file path
+            "images"                  => json_encode($imagePaths),
             "location"                => $request->location,
             "scope"                   => $request->scope,
             "complete_date"           => $request->complete_date,

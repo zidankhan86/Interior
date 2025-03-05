@@ -21,11 +21,12 @@
       <!-- Image Column with Bootstrap Carousel -->
       <div id="imageSlider" class="carousel slide col-md-8 ftco-animate" data-bs-ride="carousel">
         <div class="carousel-inner">
-          @foreach (unserialize($portfolio_details->images) as $index => $image)
+            @foreach (json_decode($portfolio_details->images, true) as $index => $image)
             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-              <img src="{{ url('/uploads/' . $image) }}" alt="Portfolio Image" class="d-block w-100 img-fluid">
+                <img src="{{ asset($image) }}" alt="Portfolio Image" class="d-block w-100 img-fluid">
             </div>
-          @endforeach
+        @endforeach
+
         </div>
 
         <!-- Carousel controls with custom styling -->

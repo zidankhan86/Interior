@@ -30,7 +30,7 @@
                                 <td>{{ $portfolio->type_name_id }}</td>
                                 <td>{{ $portfolio->title }}</td>
                                 <td>
-                                    <img src="{{ asset('uploads/' . $portfolio->thumbnail) }}" alt="Thumbnail"
+                                    <img src="{{ asset($portfolio->thumbnail) }}" alt="Thumbnail"
                                         width="50">
                                 </td>
                                 <td>
@@ -39,7 +39,7 @@
                                     @endphp
                                     @if (is_array($images))
                                         @foreach ($images as $image)
-                                            <img src="{{ asset('uploads/' . $image) }}" alt="Image" width="50">
+                                            <img src="{{ asset($image) }}" alt="Image" width="50">
                                         @endforeach
                                     @endif
                                 </td>
